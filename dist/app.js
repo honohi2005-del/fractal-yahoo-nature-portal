@@ -23,6 +23,9 @@ const detailNote = document.querySelector("#detailNote");
 const detailLink = document.querySelector("#detailLink");
 const modeValue = document.querySelector("#modeValue");
 const quietButton = document.querySelector("#quietButton");
+const dailyPhoto = document.querySelector("#dailyPhoto");
+const dailyCreditLabel = document.querySelector("#dailyCreditLabel");
+const dailyCreditLink = document.querySelector("#dailyCreditLink");
 
 let width = 0;
 let height = 0;
@@ -31,8 +34,49 @@ let rafId = 0;
 let time = 0;
 let quiet = false;
 let selectedNode = null;
+let activeDailyDay = 0;
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function dayOfYear(date = new Date()) {
+  const yearStart = Date.UTC(date.getFullYear(), 0, 1);
+  const currentDay = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate());
+  return Math.floor((currentDay - yearStart) / 86400000) + 1;
+}
+
+function applyDailyImage(record, day) {
+  if (!record?.image || !dailyPhoto) return;
+  const preload = new Image();
+  preload.decoding = "async";
+  preload.onload = () => {
+    dailyPhoto.style.backgroundImage = `url(${JSON.stringify(record.image)})`;
+    dailyPhoto.dataset.title = record.title;
+    dailyPhoto.dataset.day = String(day);
+    if (dailyCreditLabel) dailyCreditLabel.textContent = "今日の背景";
+    if (dailyCreditLink) {
+      dailyCreditLink.href = record.source;
+      dailyCreditLink.title = `${record.title} / ${record.author} / ${record.license}`;
+      dailyCreditLink.setAttribute("aria-label", `今日の背景: ${record.title}。${record.author}。${record.license}`);
+    }
+  };
+  preload.src = record.image;
+}
+
+async function loadDailyImage() {
+  try {
+    const response = await fetch("forest-images.json", { cache: "no-store" });
+    if (!response.ok) throw new Error(`forest-images.json ${response.status}`);
+    const payload = await response.json();
+    const images = Array.isArray(payload.images) ? payload.images : [];
+    if (images.length < 365) throw new Error(`Expected 365 images, received ${images.length}`);
+    const day = dayOfYear();
+    const record = images[(day - 1) % images.length];
+    activeDailyDay = day;
+    applyDailyImage(record, day);
+  } catch (error) {
+    console.warn("Daily forest image could not be loaded.", error);
+  }
+}
 
 function hashString(input) {
   let value = 2166136261;
@@ -62,10 +106,10 @@ function resizeCanvas() {
 
 function drawBackground() {
   const sky = ctx.createLinearGradient(0, 0, 0, height);
-  sky.addColorStop(0, quiet ? "#9cbcae" : "#e8f5d4");
-  sky.addColorStop(0.38, quiet ? "#6f9d88" : "#b9dcb9");
-  sky.addColorStop(0.72, quiet ? "#3e6e5f" : "#6f9d80");
-  sky.addColorStop(1, quiet ? "#193d38" : "#2a5849");
+  sky.addColorStop(0, quiet ? "rgba(156,188,174,.74)" : "rgba(232,245,212,.34)");
+  sky.addColorStop(0.38, quiet ? "rgba(111,157,136,.7)" : "rgba(185,220,185,.3)");
+  sky.addColorStop(0.72, quiet ? "rgba(62,110,95,.72)" : "rgba(111,157,128,.34)");
+  sky.addColorStop(1, quiet ? "rgba(25,61,56,.82)" : "rgba(42,88,73,.46)");
   ctx.fillStyle = sky;
   ctx.fillRect(0, 0, width, height);
 
@@ -305,5 +349,10 @@ quietButton.addEventListener("click", () => {
 window.addEventListener("resize", () => { resizeCanvas(); drawScene(); });
 resizeCanvas();
 updateClock();
+loadDailyImage();
 setInterval(updateClock, 30000);
+setInterval(() => {
+  const day = dayOfYear();
+  if (day !== activeDailyDay) loadDailyImage();
+}, 60000);
 drawScene();
