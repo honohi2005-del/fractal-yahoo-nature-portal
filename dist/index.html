@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#061517" />
+    <meta
+      name="description"
+      content="Yahoo! JAPANの主要導線を、広告を排したフラクタルな自然風景へ埋め込む実験的ポータル。"
+    />
+    <title>情報の森 — Fractal Yahoo Nature Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="https://www.yahoo.co.jp/" target="_blank" rel="noreferrer">
+          <span class="brand-mark" aria-hidden="true">◒</span>
+          <span class="brand-copy">
+            <span class="brand-kicker">YAHOO! JAPAN / RECOMPOSED</span>
+            <span class="brand-title">情報の森</span>
+          </span>
+        </a>
+        <div class="topbar-meta">
+          <span class="signal-dot" aria-hidden="true"></span>
+          <time id="localClock" datetime=""></time>
+          <button class="icon-button" id="quietButton" type="button" aria-pressed="false" aria-label="静かな表示に切り替える">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14.5V10a8 8 0 0 1 16 0v4.5M2.5 14.5h19M7 18.5a5 5 0 0 0 10 0M12 2v2" /></svg>
+          </button>
+        </div>
+      </header>
+
+      <main class="forest-stage" id="forestStage">
+        <canvas id="forestCanvas" aria-hidden="true"></canvas>
+        <div class="atmosphere atmosphere-one" aria-hidden="true"></div>
+        <div class="atmosphere atmosphere-two" aria-hidden="true"></div>
+
+        <section class="intro" aria-labelledby="pageTitle">
+          <p class="eyebrow"><span></span>広告を削ぎ、情報を森へ</p>
+          <h1 id="pageTitle">情報の森</h1>
+          <p class="intro-copy">枝を選ぶと、Yahoo! JAPANの入口がひらきます。</p>
+        </section>
+
+        <form class="search-orbit" id="searchForm" role="search">
+          <label class="sr-only" for="searchInput">Yahoo! JAPANで検索</label>
+          <span class="search-symbol" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.4" /><path d="m16 16 5 5" /></svg>
+          </span>
+          <input id="searchInput" name="q" type="search" autocomplete="off" placeholder="森の中を検索" />
+          <button type="submit" aria-label="Yahoo! JAPANで検索する">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" /></svg>
+          </button>
+        </form>
+
+        <p class="map-caption" aria-hidden="true">NAVIGATE BY GROWTH</p>
+
+        <nav class="portal-map" id="portalMap" aria-label="Yahoo! JAPANの主要入口">
+          <a class="portal-node node-news" href="https://news.yahoo.co.jp/" target="_blank" rel="noreferrer" data-node="news" data-label="ニュース" data-note="今日の主要な話題へ" style="--x: 18%; --y: 33%; --accent: #a6e7c7;">
+            <span class="node-orbit"></span><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 5.5h14v13H5zM8 9h8M8 12h8M8 15h5" /></svg></span><span class="node-label">ニュース</span>
+          </a>
+          <a class="portal-node node-weather" href="https://weather.yahoo.co.jp/" target="_blank" rel="noreferrer" data-node="weather" data-label="天気" data-note="空模様と災害情報へ" style="--x: 37%; --y: 18%; --accent: #ffd89c;">
+            <span class="node-orbit"></span><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 18h10a3.5 3.5 0 0 0 .5-7A5.5 5.5 0 0 0 7 9.5 4.25 4.25 0 0 0 7 18Z" /></svg></span><span class="node-label">天気</span>
+          </a>
+          <a class="portal-node node-sports" href="https://sports.yahoo.co.jp/" target="_blank" rel="noreferrer" data-node="sports" data-label="スポーツ" data-note="試合結果と速報へ" style="--x: 63%; --y: 21%; --accent: #e7c5ff;">
+            <span class="node-orbit"></span><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4.5v15M4.5 12h15M6.8 6.8l10.4 10.4M17.2 6.8 6.8 17.2" /></svg></span><span class="node-label">スポーツ</span>
+          </a>
+          <a class="portal-node node-finance" href="https://finance.yahoo.co.jp/" target="_blank" rel="noreferrer" data-node="finance" data-label="ファイナンス" data-note="市場の動きを見る" style="--x: 81%; --y: 36%; --accent: #b8dcff;">
+            <span class="node-orbit"></span><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 18.5 10 13l3 3 6-8M18 8h1v1" /></svg></span><span class="node-label">ファイナンス</span>
+          </a>
+          <a class="portal-node node-services" href="https://services.yahoo.co.jp/" target="_blank" rel="noreferrer" data-node="services" data-label="サービス" data-note="すべての入口を一覧で見る" style="--x: 71%; --y: 69%; --accent: #f4b9a9;">
+            <span class="node-orbit"></span><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="7" cy="7" r="2" /><circle cx="17" cy="7" r="2" /><circle cx="7" cy="17" r="2" /><circle cx="17" cy="17" r="2" /><path d="M9 7h6M7 9v6M17 9v6M9 17h6" /></svg></span><span class="node-label">サービス</span>
+          </a>
+          <a class="portal-node node-mail" href="https://mail.yahoo.co.jp/" target="_blank" rel="noreferrer" data-node="mail" data-label="メール" data-note="受信箱へ" style="--x: 26%; --y: 72%; --accent: #d4e7a8;">
+            <span class="node-orbit"></span><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4.5 6.5h15v11h-15zM5 7l7 6 7-6" /></svg></span><span class="node-label">メール</span>
+          </a>
+          <a class="portal-node node-shopping" href="https://shopping.yahoo.co.jp/" target="_blank" rel="noreferrer" data-node="shopping" data-label="ショッピング" data-note="買い物の入口へ" style="--x: 48%; --y: 85%; --accent: #f7c9df;">
+            <span class="node-orbit"></span><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5.5 8h13l-1 11h-11zM9 8a3 3 0 0 1 6 0" /></svg></span><span class="node-label">ショッピング</span>
+          </a>
+          <a class="portal-node node-map" href="https://map.yahoo.co.jp/" target="_blank" rel="noreferrer" data-node="map" data-label="地図" data-note="場所と道を探す" style="--x: 88%; --y: 78%; --accent: #bce5df;">
+            <span class="node-orbit"></span><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 5 5-2 4 2 5-2v16l-5 2-4-2-5 2zM10 3v16M14 5v16" /></svg></span><span class="node-label">地図</span>
+          </a>
+        </nav>
+
+        <aside class="detail-panel" id="detailPanel" aria-live="polite" aria-hidden="true">
+          <button class="detail-close" id="detailClose" type="button" aria-label="詳細を閉じる">×</button>
+          <div class="detail-icon" id="detailIcon" aria-hidden="true"></div>
+          <p class="detail-kicker" id="detailKicker">PORTAL NODE</p>
+          <h2 id="detailTitle">ニュース</h2>
+          <p id="detailNote">今日の主要な話題へ</p>
+          <a class="detail-link" id="detailLink" href="https://news.yahoo.co.jp/" target="_blank" rel="noreferrer">入口をひらく <span aria-hidden="true">↗</span></a>
+        </aside>
+
+        <div class="bottom-ribbon">
+          <div class="ribbon-item"><span class="ribbon-glyph" aria-hidden="true">☼</span><span>LIVE</span><span class="ribbon-value">Y!J</span></div>
+          <div class="ribbon-item"><span class="ribbon-glyph" aria-hidden="true">⌁</span><span>MODE</span><span class="ribbon-value" id="modeValue">FLOW</span></div>
+          <button class="bottom-link" id="resetButton" type="button">森をリセット <span aria-hidden="true">↺</span></button>
+        </div>
+      </main>
+
+      <footer class="footer-line">
+        <span>広告のない再構成 / 情報の入口だけを残す</span>
+        <a href="https://www.yahoo.co.jp/" target="_blank" rel="noreferrer">Yahoo! JAPAN 本体へ ↗</a>
+      </footer>
+    </div>
+    <script src="app.js" defer></script>
+  </body>
+</html>
