@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#061517" />
+    <meta name="theme-color" content="#d8efd4" />
     <meta
       name="description"
       content="Yahoo! JAPANの主要導線を、広告を排したフラクタルな自然風景へ埋め込む実験的ポータル。"
@@ -42,9 +42,7 @@
         <div class="atmosphere atmosphere-two" aria-hidden="true"></div>
 
         <section class="intro" aria-labelledby="pageTitle">
-          <p class="eyebrow"><span></span>広告を削ぎ、情報を森へ</p>
           <h1 id="pageTitle">情報の森</h1>
-          <p class="intro-copy">枝を選ぶと、Yahoo! JAPANの入口がひらきます。</p>
         </section>
 
         <form class="search-orbit" id="searchForm" role="search">
@@ -60,30 +58,36 @@
 
         <p class="map-caption" aria-hidden="true">NAVIGATE BY GROWTH</p>
 
-        <nav class="portal-map" id="portalMap" aria-label="Yahoo! JAPANの主要入口">
-          <a class="portal-node node-news" href="https://news.yahoo.co.jp/" target="_blank" rel="noreferrer" data-node="news" data-label="ニュース" data-note="今日の主要な話題へ" style="--x: 18%; --y: 33%; --accent: #a6e7c7;">
-            <span class="node-orbit"></span><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 5.5h14v13H5zM8 9h8M8 12h8M8 15h5" /></svg></span><span class="node-label">ニュース</span>
+        <nav class="portal-map" id="portalMap" aria-label="Yahoo! JAPANニュースのカテゴリ">
+          <a class="portal-node node-major" href="https://news.yahoo.co.jp/" target="_blank" rel="noreferrer" data-node="major" data-label="主要" data-note="ニュースの主要な話題へ" style="--x: 17%; --y: 34%; --accent: #2d7d59;">
+            <span class="node-orbit"></span><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 5.5h14v13H5zM8 9h8M8 12h8M8 15h5" /></svg></span><span class="node-label">主要</span>
           </a>
-          <a class="portal-node node-weather" href="https://weather.yahoo.co.jp/" target="_blank" rel="noreferrer" data-node="weather" data-label="天気" data-note="空模様と災害情報へ" style="--x: 37%; --y: 18%; --accent: #ffd89c;">
-            <span class="node-orbit"></span><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 18h10a3.5 3.5 0 0 0 .5-7A5.5 5.5 0 0 0 7 9.5 4.25 4.25 0 0 0 7 18Z" /></svg></span><span class="node-label">天気</span>
+          <a class="portal-node node-economy" href="https://news.yahoo.co.jp/categories/business" target="_blank" rel="noreferrer" data-node="economy" data-label="経済" data-note="経済と市場の話題へ" style="--x: 33%; --y: 20%; --accent: #9a6b1f;">
+            <span class="node-orbit"></span><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 18.5 10 13l3 3 6-8M18 8h1v1" /></svg></span><span class="node-label">経済</span>
           </a>
-          <a class="portal-node node-sports" href="https://sports.yahoo.co.jp/" target="_blank" rel="noreferrer" data-node="sports" data-label="スポーツ" data-note="試合結果と速報へ" style="--x: 63%; --y: 21%; --accent: #e7c5ff;">
-            <span class="node-orbit"></span><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4.5v15M4.5 12h15M6.8 6.8l10.4 10.4M17.2 6.8 6.8 17.2" /></svg></span><span class="node-label">スポーツ</span>
+          <a class="portal-node node-entertainment" href="https://news.yahoo.co.jp/categories/entertainment" target="_blank" rel="noreferrer" data-node="entertainment" data-label="エンタメ" data-note="映画・音楽・芸能の話題へ" style="--x: 51%; --y: 17%; --accent: #9b4f75;">
+            <span class="node-orbit"></span><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5-10-6.5Z" /><path d="M5 4v2M4 5h2" /></svg></span><span class="node-label">エンタメ</span>
           </a>
-          <a class="portal-node node-finance" href="https://finance.yahoo.co.jp/" target="_blank" rel="noreferrer" data-node="finance" data-label="ファイナンス" data-note="市場の動きを見る" style="--x: 81%; --y: 36%; --accent: #b8dcff;">
-            <span class="node-orbit"></span><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 18.5 10 13l3 3 6-8M18 8h1v1" /></svg></span><span class="node-label">ファイナンス</span>
+          <a class="portal-node node-sports" href="https://news.yahoo.co.jp/categories/sports" target="_blank" rel="noreferrer" data-node="sports" data-label="スポーツ" data-note="試合結果と速報へ" style="--x: 69%; --y: 22%; --accent: #3f7090;">
+            <span class="node-orbit"></span><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.5" /><path d="m8 7 2 4 4 1 3-3M10 11l-2.5 5M14 12l2 5" /></svg></span><span class="node-label">スポーツ</span>
           </a>
-          <a class="portal-node node-services" href="https://services.yahoo.co.jp/" target="_blank" rel="noreferrer" data-node="services" data-label="サービス" data-note="すべての入口を一覧で見る" style="--x: 71%; --y: 69%; --accent: #f4b9a9;">
-            <span class="node-orbit"></span><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="7" cy="7" r="2" /><circle cx="17" cy="7" r="2" /><circle cx="7" cy="17" r="2" /><circle cx="17" cy="17" r="2" /><path d="M9 7h6M7 9v6M17 9v6M9 17h6" /></svg></span><span class="node-label">サービス</span>
+          <a class="portal-node node-domestic" href="https://news.yahoo.co.jp/categories/domestic" target="_blank" rel="noreferrer" data-node="domestic" data-label="国内" data-note="日本国内のニュースへ" style="--x: 83%; --y: 37%; --accent: #397d6c;">
+            <span class="node-orbit"></span><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m4.5 11 7.5-6 7.5 6v8.5h-15zM9 19.5v-5h6v5M7.5 10h9" /></svg></span><span class="node-label">国内</span>
           </a>
-          <a class="portal-node node-mail" href="https://mail.yahoo.co.jp/" target="_blank" rel="noreferrer" data-node="mail" data-label="メール" data-note="受信箱へ" style="--x: 26%; --y: 72%; --accent: #d4e7a8;">
-            <span class="node-orbit"></span><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4.5 6.5h15v11h-15zM5 7l7 6 7-6" /></svg></span><span class="node-label">メール</span>
+          <a class="portal-node node-world" href="https://news.yahoo.co.jp/categories/world" target="_blank" rel="noreferrer" data-node="world" data-label="国際" data-note="世界のニュースへ" style="--x: 18%; --y: 58%; --accent: #466c9b;">
+            <span class="node-orbit"></span><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" /><path d="M4.5 12h15M12 4c2.2 2.2 3.3 4.9 3.3 8s-1.1 5.8-3.3 8c-2.2-2.2-3.3-4.9-3.3-8S9.8 6.2 12 4Z" /></svg></span><span class="node-label">国際</span>
           </a>
-          <a class="portal-node node-shopping" href="https://shopping.yahoo.co.jp/" target="_blank" rel="noreferrer" data-node="shopping" data-label="ショッピング" data-note="買い物の入口へ" style="--x: 48%; --y: 85%; --accent: #f7c9df;">
-            <span class="node-orbit"></span><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5.5 8h13l-1 11h-11zM9 8a3 3 0 0 1 6 0" /></svg></span><span class="node-label">ショッピング</span>
+          <a class="portal-node node-it" href="https://news.yahoo.co.jp/categories/it" target="_blank" rel="noreferrer" data-node="it" data-label="IT" data-note="テクノロジーのニュースへ" style="--x: 34%; --y: 73%; --accent: #5a6ca2;">
+            <span class="node-orbit"></span><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4.5" y="5.5" width="15" height="11" rx="1.5" /><path d="M8 20h8M12 16.5V20M8.5 9.5l2.5 2-2.5 2M13.5 13.5h2" /></svg></span><span class="node-label">IT</span>
           </a>
-          <a class="portal-node node-map" href="https://map.yahoo.co.jp/" target="_blank" rel="noreferrer" data-node="map" data-label="地図" data-note="場所と道を探す" style="--x: 88%; --y: 78%; --accent: #bce5df;">
-            <span class="node-orbit"></span><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 5 5-2 4 2 5-2v16l-5 2-4-2-5 2zM10 3v16M14 5v16" /></svg></span><span class="node-label">地図</span>
+          <a class="portal-node node-science" href="https://news.yahoo.co.jp/categories/science" target="_blank" rel="noreferrer" data-node="science" data-label="化学" data-note="科学と自然のニュースへ" style="--x: 51%; --y: 84%; --accent: #708b3f;">
+            <span class="node-orbit"></span><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 4.5h6M10 4.5v5.2l-4.5 7.1A1.7 1.7 0 0 0 7 19.5h10a1.7 1.7 0 0 0 1.5-2.7L14 9.7V4.5M8 15h8" /></svg></span><span class="node-label">化学</span>
+          </a>
+          <a class="portal-node node-local" href="https://news.yahoo.co.jp/categories/local" target="_blank" rel="noreferrer" data-node="local" data-label="地域" data-note="地域のニュースへ" style="--x: 68%; --y: 70%; --accent: #9b7045;">
+            <span class="node-orbit"></span><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20s6-5.7 6-10.3a6 6 0 1 0-12 0C6 14.3 12 20 12 20Z" /><circle cx="12" cy="9.7" r="2" /></svg></span><span class="node-label">地域</span>
+          </a>
+          <a class="portal-node node-weather" href="https://weather.yahoo.co.jp/" target="_blank" rel="noreferrer" data-node="weather" data-label="天気" data-note="空模様と災害情報へ" style="--x: 84%; --y: 61%; --accent: #b77c2a;">
+            <span class="node-orbit"></span><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 18h10a3.5 3.5 0 0 0 .5-7A5.5 5.5 0 0 0 7 9.5 4.25 4.25 0 0 0 7 18Z" /><path d="M7 5v1.5M4.3 7.1l1 1M15.7 7.1l-1 1" /></svg></span><span class="node-label">天気</span>
           </a>
         </nav>
 

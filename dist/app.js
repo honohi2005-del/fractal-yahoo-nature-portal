@@ -1,12 +1,14 @@
 const portalData = {
-  news: { label: "ニュース", note: "今日の主要な話題へ", url: "https://news.yahoo.co.jp/" },
+  major: { label: "主要", note: "ニュースの主要な話題へ", url: "https://news.yahoo.co.jp/" },
+  economy: { label: "経済", note: "経済と市場の話題へ", url: "https://news.yahoo.co.jp/categories/business" },
+  entertainment: { label: "エンタメ", note: "映画・音楽・芸能の話題へ", url: "https://news.yahoo.co.jp/categories/entertainment" },
+  sports: { label: "スポーツ", note: "試合結果と速報へ", url: "https://news.yahoo.co.jp/categories/sports" },
+  domestic: { label: "国内", note: "日本国内のニュースへ", url: "https://news.yahoo.co.jp/categories/domestic" },
+  world: { label: "国際", note: "世界のニュースへ", url: "https://news.yahoo.co.jp/categories/world" },
+  it: { label: "IT", note: "テクノロジーのニュースへ", url: "https://news.yahoo.co.jp/categories/it" },
+  science: { label: "化学", note: "科学と自然のニュースへ", url: "https://news.yahoo.co.jp/categories/science" },
+  local: { label: "地域", note: "地域のニュースへ", url: "https://news.yahoo.co.jp/categories/local" },
   weather: { label: "天気", note: "空模様と災害情報へ", url: "https://weather.yahoo.co.jp/" },
-  sports: { label: "スポーツ", note: "試合結果と速報へ", url: "https://sports.yahoo.co.jp/" },
-  finance: { label: "ファイナンス", note: "市場の動きを見る", url: "https://finance.yahoo.co.jp/" },
-  services: { label: "サービス", note: "すべての入口を一覧で見る", url: "https://services.yahoo.co.jp/" },
-  mail: { label: "メール", note: "受信箱へ", url: "https://mail.yahoo.co.jp/" },
-  shopping: { label: "ショッピング", note: "買い物の入口へ", url: "https://shopping.yahoo.co.jp/" },
-  map: { label: "地図", note: "場所と道を探す", url: "https://map.yahoo.co.jp/" },
 };
 
 const canvas = document.querySelector("#forestCanvas");
@@ -60,23 +62,56 @@ function resizeCanvas() {
 
 function drawBackground() {
   const sky = ctx.createLinearGradient(0, 0, 0, height);
-  sky.addColorStop(0, quiet ? "#071619" : "#0b2627");
-  sky.addColorStop(0.48, quiet ? "#0a2022" : "#123635");
-  sky.addColorStop(1, "#061416");
+  sky.addColorStop(0, quiet ? "#9cbcae" : "#e8f5d4");
+  sky.addColorStop(0.38, quiet ? "#6f9d88" : "#b9dcb9");
+  sky.addColorStop(0.72, quiet ? "#3e6e5f" : "#6f9d80");
+  sky.addColorStop(1, quiet ? "#193d38" : "#2a5849");
   ctx.fillStyle = sky;
   ctx.fillRect(0, 0, width, height);
 
-  const sunX = width * 0.52;
-  const sunY = height * 0.28;
+  const sunX = width * 0.34;
+  const sunY = height * 0.13;
   const glow = ctx.createRadialGradient(sunX, sunY, 0, sunX, sunY, Math.min(width, height) * .28);
-  glow.addColorStop(0, quiet ? "rgba(197,225,186,.11)" : "rgba(218,232,178,.2)");
-  glow.addColorStop(.25, "rgba(114,192,158,.08)");
+  glow.addColorStop(0, quiet ? "rgba(237,255,220,.24)" : "rgba(255,255,215,.72)");
+  glow.addColorStop(.2, quiet ? "rgba(202,239,204,.18)" : "rgba(255,245,184,.42)");
+  glow.addColorStop(.52, quiet ? "rgba(147,210,174,.1)" : "rgba(177,224,176,.18)");
   glow.addColorStop(1, "rgba(0,0,0,0)");
   ctx.fillStyle = glow;
   ctx.fillRect(0, 0, width, height);
 
+  ctx.save();
+  ctx.globalCompositeOperation = "screen";
+  const rayLength = Math.max(width, height) * 1.35;
+  for (let i = 0; i < 11; i += 1) {
+    const angle = 1.02 + (i - 5) * .13;
+    const spread = .018 + randomFrom(i * 7.2 + 3) * .026;
+    const farLeftX = sunX + Math.cos(angle - spread) * rayLength;
+    const farLeftY = sunY + Math.sin(angle - spread) * rayLength;
+    const farRightX = sunX + Math.cos(angle + spread) * rayLength;
+    const farRightY = sunY + Math.sin(angle + spread) * rayLength;
+    const ray = ctx.createLinearGradient(sunX, sunY, (farLeftX + farRightX) / 2, (farLeftY + farRightY) / 2);
+    ray.addColorStop(0, quiet ? "rgba(235,255,221,.07)" : "rgba(255,249,194,.21)");
+    ray.addColorStop(.48, quiet ? "rgba(220,249,210,.035)" : "rgba(255,246,201,.1)");
+    ray.addColorStop(1, "rgba(255,255,220,0)");
+    ctx.fillStyle = ray;
+    ctx.beginPath();
+    ctx.moveTo(sunX, sunY);
+    ctx.lineTo(farLeftX, farLeftY);
+    ctx.lineTo(farRightX, farRightY);
+    ctx.closePath();
+    ctx.fill();
+  }
+  ctx.restore();
+
+  const sun = ctx.createRadialGradient(sunX, sunY, 0, sunX, sunY, Math.min(width, height) * .085);
+  sun.addColorStop(0, "rgba(255,255,232,.92)");
+  sun.addColorStop(.28, "rgba(255,244,183,.68)");
+  sun.addColorStop(1, "rgba(255,234,164,0)");
+  ctx.fillStyle = sun;
+  ctx.fillRect(sunX - width * .14, sunY - height * .14, width * .28, height * .28);
+
   const horizon = height * .72;
-  ctx.fillStyle = "rgba(5, 23, 24, .8)";
+  ctx.fillStyle = quiet ? "rgba(10, 39, 36, .78)" : "rgba(24, 72, 56, .56)";
   ctx.beginPath();
   ctx.moveTo(0, horizon + 22);
   for (let x = 0; x <= width + 80; x += 80) {
@@ -89,9 +124,9 @@ function drawBackground() {
   ctx.fill();
 
   const mist = ctx.createLinearGradient(0, horizon - 40, 0, height);
-  mist.addColorStop(0, "rgba(113, 182, 158, .08)");
-  mist.addColorStop(.35, "rgba(35, 86, 79, .05)");
-  mist.addColorStop(1, "rgba(4, 18, 18, .1)");
+  mist.addColorStop(0, quiet ? "rgba(156, 222, 185, .08)" : "rgba(228, 249, 211, .3)");
+  mist.addColorStop(.35, quiet ? "rgba(77, 145, 113, .05)" : "rgba(185, 225, 181, .14)");
+  mist.addColorStop(1, quiet ? "rgba(4, 18, 18, .1)" : "rgba(17, 59, 45, .08)");
   ctx.fillStyle = mist;
   ctx.fillRect(0, horizon - 48, width, height - horizon + 48);
 }
