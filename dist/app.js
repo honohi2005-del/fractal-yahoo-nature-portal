@@ -16,11 +16,8 @@ const stage = document.querySelector("#forestStage");
 const ctx = canvas.getContext("2d");
 const nodes = [...document.querySelectorAll(".portal-node")];
 const panel = document.querySelector("#detailPanel");
-const detailIcon = document.querySelector("#detailIcon");
-const detailKicker = document.querySelector("#detailKicker");
-const detailTitle = document.querySelector("#detailTitle");
-const detailNote = document.querySelector("#detailNote");
 const detailLink = document.querySelector("#detailLink");
+const detailLinkLabel = document.querySelector("#detailLinkLabel");
 const modeValue = document.querySelector("#modeValue");
 const quietButton = document.querySelector("#quietButton");
 const dailyPhoto = document.querySelector("#dailyPhoto");
@@ -292,12 +289,8 @@ function openNode(node) {
   selectedNode?.classList.remove("is-selected");
   selectedNode = node;
   selectedNode.classList.add("is-selected");
-  detailIcon.innerHTML = node.querySelector(".node-icon").innerHTML;
-  detailIcon.style.color = getComputedStyle(node).getPropertyValue("--accent");
-  detailKicker.textContent = `PORTAL NODE / ${key.toUpperCase()}`;
-  detailTitle.textContent = data.label;
-  detailNote.textContent = data.note;
   detailLink.href = data.url;
+  detailLinkLabel.textContent = `${data.label}のリンク`;
   panel.classList.add("is-open");
   panel.setAttribute("aria-hidden", "false");
 }
@@ -389,7 +382,7 @@ drawScene();
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js?v=fe4b9de", { scope: "./" }).catch((error) => {
+    navigator.serviceWorker.register("./sw.js?v=link-only", { scope: "./" }).catch((error) => {
       console.warn("Service Worker could not be registered.", error);
     });
   });

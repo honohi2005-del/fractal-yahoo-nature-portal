@@ -22,7 +22,7 @@
       href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=fe4b9de" />
+    <link rel="stylesheet" href="styles.css?v=link-only" />
   </head>
   <body>
     <div class="app-shell">
@@ -104,11 +104,11 @@
 
         <aside class="detail-panel" id="detailPanel" aria-live="polite" aria-hidden="true">
           <button class="detail-close" id="detailClose" type="button" aria-label="詳細を閉じる">×</button>
-          <div class="detail-icon" id="detailIcon" aria-hidden="true"></div>
-          <p class="detail-kicker" id="detailKicker">PORTAL NODE</p>
-          <h2 id="detailTitle">ニュース</h2>
-          <p id="detailNote">今日の主要な話題へ</p>
-          <a class="detail-link" id="detailLink" href="https://news.yahoo.co.jp/" target="_blank" rel="noreferrer">入口をひらく <span aria-hidden="true">↗</span></a>
+          <nav class="detail-links" aria-label="選択した項目のリンク">
+            <a class="detail-link" id="detailLink" href="https://news.yahoo.co.jp/" target="_blank" rel="noreferrer">
+              <span id="detailLinkLabel">主要のリンク</span><span aria-hidden="true">↗</span>
+            </a>
+          </nav>
         </aside>
 
         <div class="bottom-ribbon">
@@ -124,6 +124,6 @@
         <a href="https://www.yahoo.co.jp/" target="_blank" rel="noreferrer">Yahoo! JAPAN 本体へ ↗</a>
       </footer>
     </div>
-    <script src="app.js?v=fe4b9de" defer></script>
+    <script src="app.js?v=link-only" defer></script>
   </body>
 </html>
