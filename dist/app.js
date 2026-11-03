@@ -120,6 +120,10 @@ const NEWS_PROXY_BUILDERS = [
   (feedUrl) => `https://api.allorigins.win/raw?url=${encodeURIComponent(feedUrl)}`,
 ];
 
+const ARTICLE_READER_ORIGIN = "https://r.jina.ai/http://";
+const GOOGLE_TRANSLATE_ENDPOINT = "https://translate.googleapis.com/translate_a/single";
+const TRANSLATION_CHUNK_LENGTH = 900;
+
 const canvas = document.querySelector("#forestCanvas");
 const stage = document.querySelector("#forestStage");
 const ctx = canvas.getContext("2d");
@@ -130,6 +134,15 @@ const modeValue = document.querySelector("#modeValue");
 const quietButton = document.querySelector("#quietButton");
 const dailyPhoto = document.querySelector("#dailyPhoto");
 const installButton = document.querySelector("#installButton");
+const articleReader = document.querySelector("#articleReader");
+const articleTitle = document.querySelector("#articleTitle");
+const articleMeta = document.querySelector("#articleMeta");
+const articleBody = document.querySelector("#articleBody");
+const articleStatus = document.querySelector("#articleStatus");
+const articleSourceLink = document.querySelector("#articleSourceLink");
+const translateButton = document.querySelector("#translateButton");
+const speakButton = document.querySelector("#speakButton");
+const stopSpeakButton = document.querySelector("#stopSpeakButton");
 
 const DAILY_IMAGE_CACHE_KEY = "information-forest-daily-image-v1";
 
@@ -143,6 +156,10 @@ let selectedNode = null;
 let activeDailyDay = 0;
 let activeDailyImageUrl = "";
 let deferredInstallPrompt = null;
+let activeArticle = null;
+let articleRequestId = 0;
+let builtInTranslatorPromise = null;
+let speechState = { active: false, token: 0, index: 0 };
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -502,6 +519,349 @@ function drawScene() {
   if (!reducedMotion) rafId = requestAnimationFrame((nextTime) => { time = nextTime; drawScene(); });
 }
 
+function isYahooArticleUrl(value) {
+  try {
+    const url = new URL(value);
+    return isYahooNewsUrl(value) && (url.pathname.includes("/articles/") || url.pathname.includes("/pickup/"));
+  } catch {
+    return false;
+  }
+}
+
+function buildArticleReaderUrl(value) {
+  return `${ARTICLE_READER_ORIGIN}${value}`;
+}
+
+function stripMarkdownFormatting(value) {
+  return String(value || "")
+    .replace(/!\[([^\]]*)\]\([^)]*\)/g, "")
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+    .replace(/<[^>]*>/g, "")
+    .replace(/\\([\\`*_{}[\]()#+.!>\-])/g, "$1")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function normaliseArticleKey(value) {
+  return stripMarkdownFormatting(value)
+    .toLocaleLowerCase("ja-JP")
+    .replace(/[\s【】「」『』（）()［］[\]：:、。・,.!！?？\-—]/g, "");
+}
+
+function parseArticleReaderMarkdown(markdown, fallbackTitle) {
+  const lines = String(markdown || "").replace(/\r/g, "").split("\n");
+  const titleLine = lines.find((line) => /^Title:\s*/i.test(line));
+  const sourceTitle = titleLine ? stripMarkdownFormatting(titleLine.replace(/^Title:\s*/i, "")) : "";
+  const title = sourceTitle || fallbackTitle;
+  const contentStart = lines.findIndex((line) => line.trim() === "Markdown Content:");
+  const searchStart = contentStart >= 0 ? contentStart + 1 : 0;
+  const titleKey = normaliseArticleKey(title).slice(0, 28);
+  let headingIndex = lines.findIndex((line, index) => {
+    if (index < searchStart || !/^#\s+/.test(line)) return false;
+    const headingKey = normaliseArticleKey(line.replace(/^#\s+/, ""));
+    return headingKey && (headingKey.includes(titleKey) || titleKey.includes(headingKey.slice(0, 28)));
+  });
+
+  if (headingIndex < 0) {
+    headingIndex = lines.findIndex((line, index) => index >= searchStart && /^#\s+/.test(line) && !/^#\s+Yahoo!/i.test(line));
+  }
+  if (headingIndex < 0) throw new Error("Yahoo article body heading was not found");
+
+  const bodyLines = lines.slice(headingIndex + 1);
+  const stopIndex = bodyLines.findIndex((line) => /^(?:まとめ\s*[●：:]|この記事はいかがでしたか|関連記事|ニュース提供|Copyright|©|【?\[?Not Sponsored|modelpress$)/i.test(line.trim()));
+  const candidateLines = stopIndex >= 0 ? bodyLines.slice(0, stopIndex) : bodyLines;
+  const blocks = [];
+  let paragraphLines = [];
+
+  const flushParagraph = () => {
+    const text = stripMarkdownFormatting(paragraphLines.join(" "))
+      .replace(/[（(][^（）()]{0,80}(?:編集部|editorial department)[^（）()]{0,80}[）)]\.?$/i, "")
+      .trim();
+    if (text) blocks.push({ kind: "paragraph", text });
+    paragraphLines = [];
+  };
+
+  candidateLines.forEach((rawLine) => {
+    const line = rawLine.trim();
+    if (!line) {
+      flushParagraph();
+      return;
+    }
+    if (/^\d{1,2}[\/]\d{1,2}.*(?:配信|Published)/i.test(line)) return;
+    if (/^(?:X|Facebook|LINE|共有|シェア)$/i.test(line)) return;
+    if (/^\[!?\[/.test(line) || /^\[\s*\]\(.*\)$/.test(line) || /^\[[^\]]+\]\(.*\)$/.test(line)) return;
+
+    const linkFreeLine = line.replace(/!?(?:\[[^\]]*\])\([^)]*\)/g, "").trim();
+    if (!linkFreeLine) return;
+    if (/^!\[[^\]]*\]\(/.test(line)) return;
+
+    const headingMatch = line.match(/^#{2,6}\s+(.+)$/);
+    if (headingMatch) {
+      flushParagraph();
+      const heading = stripMarkdownFormatting(headingMatch[1]);
+      if (heading) blocks.push({ kind: "heading", text: heading });
+      return;
+    }
+
+    paragraphLines.push(line);
+  });
+  flushParagraph();
+
+  if (!blocks.length) throw new Error("Yahoo article body was empty");
+  return { title, blocks };
+}
+
+function renderArticleBlocks(blocks) {
+  articleBody.replaceChildren(...blocks.map((block) => {
+    const element = document.createElement(block.kind === "heading" ? "h3" : "p");
+    element.textContent = block.text;
+    return element;
+  }));
+}
+
+function setArticleStatus(message, state = "") {
+  articleStatus.textContent = message;
+  articleStatus.dataset.state = state;
+}
+
+function splitTextForTranslation(text) {
+  if (text.length <= TRANSLATION_CHUNK_LENGTH) return [text];
+  const sentences = text.match(/[^。！？!?]+[。！？!?]?/g) || [text];
+  const chunks = [];
+  let current = "";
+
+  sentences.forEach((sentence) => {
+    if (sentence.length > TRANSLATION_CHUNK_LENGTH) {
+      if (current) chunks.push(current);
+      current = "";
+      for (let index = 0; index < sentence.length; index += TRANSLATION_CHUNK_LENGTH) {
+        chunks.push(sentence.slice(index, index + TRANSLATION_CHUNK_LENGTH));
+      }
+      return;
+    }
+    if (current && current.length + sentence.length > TRANSLATION_CHUNK_LENGTH) {
+      chunks.push(current);
+      current = "";
+    }
+    current += sentence;
+  });
+  if (current) chunks.push(current);
+  return chunks.length ? chunks : [text];
+}
+
+async function getBuiltInTranslator() {
+  const TranslatorApi = window.Translator;
+  if (!TranslatorApi || typeof TranslatorApi.create !== "function") return null;
+  if (!builtInTranslatorPromise) {
+    builtInTranslatorPromise = (async () => {
+      if (typeof TranslatorApi.availability === "function") {
+        const availability = await TranslatorApi.availability({ sourceLanguage: "ja", targetLanguage: "en" });
+        if (!["available", "downloadable"].includes(availability)) return null;
+      }
+      return TranslatorApi.create({ sourceLanguage: "ja", targetLanguage: "en" });
+    })().catch(() => null);
+  }
+  return builtInTranslatorPromise;
+}
+
+async function translateChunkWithGoogle(text) {
+  const params = new URLSearchParams({ client: "gtx", sl: "ja", tl: "en", dt: "t", q: text });
+  const response = await fetch(`${GOOGLE_TRANSLATE_ENDPOINT}?${params.toString()}`, {
+    cache: "no-store",
+    headers: { Accept: "application/json" },
+  });
+  if (!response.ok) throw new Error(`Translation service ${response.status}`);
+  const payload = await response.json();
+  const translated = Array.isArray(payload?.[0])
+    ? payload[0].map((segment) => Array.isArray(segment) ? segment[0] : "").join("")
+    : "";
+  if (!translated) throw new Error("Translation service returned no text");
+  return translated;
+}
+
+async function translateTextToEnglish(text) {
+  const chunks = splitTextForTranslation(text);
+  const translator = await getBuiltInTranslator();
+  const translatedChunks = [];
+
+  for (const chunk of chunks) {
+    let translated = "";
+    if (translator) {
+      try {
+        translated = await translator.translate(chunk);
+      } catch {
+        translated = "";
+      }
+    }
+    if (!translated) translated = await translateChunkWithGoogle(chunk);
+    translatedChunks.push(translated);
+  }
+  return translatedChunks.join("");
+}
+
+function getEnglishVoice() {
+  if (!("speechSynthesis" in window)) return null;
+  const voices = window.speechSynthesis.getVoices();
+  return voices.find((voice) => /^en[-_]/i.test(voice.lang) && /natural|neural|google|microsoft|samantha|alex/i.test(voice.name))
+    || voices.find((voice) => /^en[-_]/i.test(voice.lang))
+    || null;
+}
+
+function resetSpeechControls() {
+  speechState = { active: false, token: speechState.token + 1, index: 0 };
+  stopSpeakButton.hidden = true;
+  speakButton.textContent = "英訳を読み上げる";
+  speakButton.disabled = !activeArticle?.translatedBlocks?.length || !("speechSynthesis" in window);
+}
+
+function cancelSpeech() {
+  if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+  resetSpeechControls();
+}
+
+function finishSpeech(message = "") {
+  resetSpeechControls();
+  if (message) setArticleStatus(message, "success");
+}
+
+function speakNextArticleBlock(token, index) {
+  if (!activeArticle || !speechState.active || speechState.token !== token) return;
+  const block = activeArticle.translatedBlocks[index];
+  if (!block) {
+    finishSpeech("読み上げが完了しました。");
+    return;
+  }
+  if (!block.text.trim()) {
+    speakNextArticleBlock(token, index + 1);
+    return;
+  }
+
+  const utterance = new SpeechSynthesisUtterance(block.text);
+  utterance.lang = "en-US";
+  utterance.rate = 0.94;
+  utterance.pitch = 1;
+  utterance.voice = getEnglishVoice();
+  utterance.onend = () => speakNextArticleBlock(token, index + 1);
+  utterance.onerror = (event) => {
+    if (event.error === "canceled" || event.error === "interrupted") return;
+    finishSpeech("読み上げを開始できませんでした。");
+  };
+  speechState.index = index;
+  window.speechSynthesis.speak(utterance);
+}
+
+function speakArticle() {
+  if (!activeArticle?.translatedBlocks?.length || !("speechSynthesis" in window)) {
+    setArticleStatus("このブラウザでは内蔵音声読み上げを利用できません。", "error");
+    return;
+  }
+  window.speechSynthesis.cancel();
+  const token = speechState.token + 1;
+  speechState = { active: true, token, index: 0 };
+  speakButton.disabled = true;
+  stopSpeakButton.hidden = false;
+  speakButton.textContent = "読み上げ中…";
+  setArticleStatus("英訳本文を読み上げています。", "success");
+  speakNextArticleBlock(token, 0);
+}
+
+async function translateArticle(article, requestId) {
+  const translatedBlocks = new Array(article.sourceBlocks.length);
+  let failed = 0;
+  let nextIndex = 0;
+  let completed = 0;
+  const worker = async () => {
+    while (nextIndex < article.sourceBlocks.length) {
+      if (!activeArticle || activeArticle.requestId !== requestId) return;
+      const index = nextIndex;
+      nextIndex += 1;
+      const sourceBlock = article.sourceBlocks[index];
+      try {
+        translatedBlocks[index] = { ...sourceBlock, text: await translateTextToEnglish(sourceBlock.text) };
+      } catch {
+        failed += 1;
+        translatedBlocks[index] = { ...sourceBlock };
+      }
+      completed += 1;
+      if (activeArticle?.requestId === requestId) {
+        setArticleStatus(`本文を英訳しています… ${completed}/${article.sourceBlocks.length}`);
+      }
+    }
+  };
+  await Promise.all(Array.from({ length: Math.min(3, article.sourceBlocks.length) }, worker));
+  if (!activeArticle || activeArticle.requestId !== requestId) return;
+  article.translatedBlocks = translatedBlocks;
+  renderArticleBlocks(translatedBlocks);
+  speakButton.disabled = !("speechSynthesis" in window);
+  setArticleStatus(
+    failed ? `本文を英訳しました（一部は原文のままです）。${"speechSynthesis" in window ? "読み上げボタンを押せます。" : "音声読み上げは非対応です。"}` : `本文のみ英訳しました。${"speechSynthesis" in window ? "読み上げボタンを押せます。" : "音声読み上げは非対応です。"}`,
+    failed ? "warning" : "success",
+  );
+}
+
+async function loadArticle(item, requestId) {
+  try {
+    const response = await fetch(buildArticleReaderUrl(item.url), {
+      cache: "no-store",
+      headers: { Accept: "text/plain" },
+    });
+    if (!response.ok) throw new Error(`Article reader ${response.status}`);
+    const parsed = parseArticleReaderMarkdown(await response.text(), item.title);
+    if (!activeArticle || activeArticle.requestId !== requestId) return;
+    activeArticle.sourceBlocks = parsed.blocks;
+    translateButton.disabled = false;
+    articleTitle.textContent = item.title;
+    articleBody.replaceChildren();
+    await translateArticle(activeArticle, requestId);
+  } catch (error) {
+    if (!activeArticle || activeArticle.requestId !== requestId) return;
+    articleBody.replaceChildren();
+    const message = document.createElement("p");
+    message.className = "article-error";
+    message.textContent = "本文を取得できませんでした。下のリンクからYahoo!で記事を開けます。";
+    articleBody.append(message);
+    setArticleStatus("記事本文の取得に失敗しました。", "error");
+    console.warn("Article body could not be loaded.", error);
+  }
+}
+
+function openArticle(item) {
+  if (!isYahooArticleUrl(item.url)) return;
+  cancelSpeech();
+  const requestId = articleRequestId + 1;
+  articleRequestId = requestId;
+  activeArticle = { item, requestId, sourceBlocks: [], translatedBlocks: [] };
+  articleTitle.textContent = item.title;
+  articleMeta.textContent = "本文のみ英訳 / ブラウザ内蔵音声";
+  articleSourceLink.href = item.url;
+  articleBody.replaceChildren();
+  const loading = document.createElement("p");
+  loading.className = "article-loading";
+  loading.textContent = "記事本文を読み込んでいます…";
+  articleBody.append(loading);
+  translateButton.disabled = true;
+  speakButton.disabled = true;
+  setArticleStatus("記事本文を読み込んでいます…");
+  panel.classList.remove("is-open");
+  panel.setAttribute("aria-hidden", "true");
+  articleReader.classList.add("is-open");
+  articleReader.setAttribute("aria-hidden", "false");
+  void loadArticle(item, requestId);
+}
+
+function closeArticle() {
+  articleRequestId += 1;
+  cancelSpeech();
+  activeArticle = null;
+  articleReader.classList.remove("is-open");
+  articleReader.setAttribute("aria-hidden", "true");
+  if (selectedNode) {
+    renderNewsLinks(selectedNode.dataset.node);
+    panel.classList.add("is-open");
+    panel.setAttribute("aria-hidden", "false");
+  }
+}
+
 function renderNewsLinks(key) {
   const data = portalData[key];
   if (!data) return;
@@ -513,6 +873,13 @@ function renderNewsLinks(key) {
     link.target = "_blank";
     link.rel = "noreferrer";
     link.textContent = item.title;
+    if (isYahooArticleUrl(item.url)) {
+      link.addEventListener("click", (event) => {
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        openArticle(item);
+      });
+    }
     if (item.isNew) {
       const badge = document.createElement("span");
       badge.className = "news-badge";
@@ -567,8 +934,24 @@ nodes.forEach((node) => {
 });
 
 document.querySelector("#detailClose").addEventListener("click", closeNode);
+document.querySelector("#articleClose").addEventListener("click", closeArticle);
+translateButton.addEventListener("click", async () => {
+  if (!activeArticle?.sourceBlocks?.length) return;
+  const requestId = activeArticle.requestId;
+  cancelSpeech();
+  translateButton.disabled = true;
+  speakButton.disabled = true;
+  await translateArticle(activeArticle, requestId);
+  if (activeArticle?.requestId === requestId) translateButton.disabled = false;
+});
+speakButton.addEventListener("click", speakArticle);
+stopSpeakButton.addEventListener("click", () => {
+  cancelSpeech();
+  setArticleStatus("読み上げを停止しました。", "success");
+});
 document.querySelector("#resetButton").addEventListener("click", () => {
   closeNode();
+  closeArticle();
 });
 
 quietButton.addEventListener("click", () => {
@@ -614,7 +997,7 @@ drawScene();
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js?v=category-readable-20261103", { scope: "./" }).catch((error) => {
+    navigator.serviceWorker.register("./sw.js?v=article-english-20261103c", { scope: "./" }).catch((error) => {
       console.warn("Service Worker could not be registered.", error);
     });
   });
