@@ -592,7 +592,7 @@ drawScene();
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js?v=live-news", { scope: "./" }).catch((error) => {
+    navigator.serviceWorker.register("./sw.js?v=remove-search", { scope: "./" }).catch((error) => {
       console.warn("Service Worker could not be registered.", error);
     });
   });
