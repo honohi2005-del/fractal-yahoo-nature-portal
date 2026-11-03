@@ -137,6 +137,7 @@ const installButton = document.querySelector("#installButton");
 const articleReader = document.querySelector("#articleReader");
 const articleTitle = document.querySelector("#articleTitle");
 const articleTitleTranslation = document.querySelector("#articleTitleTranslation");
+const articleTitleTranslationLabel = document.querySelector("#articleTitleTranslationLabel");
 const articleMeta = document.querySelector("#articleMeta");
 const articleBody = document.querySelector("#articleBody");
 const articleStatus = document.querySelector("#articleStatus");
@@ -543,6 +544,13 @@ function stripMarkdownFormatting(value) {
     .trim();
 }
 
+function isLeadingCitationLine(line) {
+  const plainLine = stripMarkdownFormatting(line).trim();
+  return !plainLine
+    || /^https?:\/\//i.test(plainLine)
+    || /(?:copyright|all rights reserved|著作権|出典|引用|画像提供|写真提供|shutterstock|Getty Images|LIMO|mapo_japan)/i.test(plainLine);
+}
+
 function normaliseArticleKey(value) {
   return stripMarkdownFormatting(value)
     .toLocaleLowerCase("ja-JP")
@@ -573,6 +581,8 @@ function parseArticleReaderMarkdown(markdown, fallbackTitle) {
   const candidateLines = stopIndex >= 0 ? bodyLines.slice(0, stopIndex) : bodyLines;
   const blocks = [];
   let paragraphLines = [];
+  let leadingCitation = true;
+  let leadingCitationLines = [];
 
   const flushParagraph = () => {
     const text = stripMarkdownFormatting(paragraphLines.join(" "))
@@ -582,15 +592,27 @@ function parseArticleReaderMarkdown(markdown, fallbackTitle) {
     paragraphLines = [];
   };
 
+  const flushLeadingCitation = () => {
+    const text = stripMarkdownFormatting(leadingCitationLines.join(" ")).trim();
+    if (text) blocks.push({ kind: "citation", text, skipTranslation: true, skipSpeech: true });
+    leadingCitationLines = [];
+  };
+
   candidateLines.forEach((rawLine) => {
     const line = rawLine.trim();
     if (!line) {
       flushParagraph();
       return;
     }
+    const plainLine = stripMarkdownFormatting(line).replace(/[*_~]/g, "");
+    if (leadingCitation && isLeadingCitationLine(line)) {
+      flushParagraph();
+      const text = stripMarkdownFormatting(line).trim();
+      if (text) leadingCitationLines.push(text);
+      return;
+    }
     if (/^\d{1,2}[\/]\d{1,2}.*(?:配信|Published)/i.test(line)) return;
     if (/^(?:X|Facebook|LINE|共有|シェア)$/i.test(line)) return;
-    const plainLine = stripMarkdownFormatting(line).replace(/[*_~]/g, "");
     if (/^(?:previous|prev|next|ページ(?:送り|移動)?|page\s+\d+(?:\s+of\s+\d+)?)$/i.test(plainLine)) return;
     if (/^(?:previous|prev)(?:\s*\d+)+(?:\s*next)?$/i.test(plainLine)) return;
     if (/^(?:\d+\s*\/\s*\d+\s*pages?|page\s*\d+\s*\/\s*\d+)$/i.test(plainLine)) return;
@@ -599,6 +621,9 @@ function parseArticleReaderMarkdown(markdown, fallbackTitle) {
     const linkFreeLine = line.replace(/!?(?:\[[^\]]*\])\([^)]*\)/g, "").trim();
     if (!linkFreeLine) return;
     if (/^!\[[^\]]*\]\(/.test(line)) return;
+
+    if (leadingCitationLines.length) flushLeadingCitation();
+    leadingCitation = false;
 
     const headingMatch = line.match(/^#{2,6}\s+(.+)$/);
     if (headingMatch) {
@@ -610,18 +635,21 @@ function parseArticleReaderMarkdown(markdown, fallbackTitle) {
 
     paragraphLines.push(line);
   });
+  flushLeadingCitation();
   flushParagraph();
 
   if (!blocks.length) throw new Error("Yahoo article body was empty");
   return { title, blocks };
 }
 
-function renderArticleTitle(sourceTitle, translatedTitle = "Translating…") {
+function renderArticleTitle(sourceTitle, translatedTitle = "Translating…", showTranslation = true) {
   articleTitle.textContent = sourceTitle;
   articleTitleTranslation.textContent = translatedTitle;
+  articleTitleTranslationLabel.hidden = !showTranslation;
+  articleTitleTranslation.hidden = !showTranslation;
 }
 
-function renderArticleBlocks(sourceBlocks, translatedBlocks = sourceBlocks) {
+function renderArticleBlocks(sourceBlocks, translatedBlocks = sourceBlocks, showTranslation = true) {
   articleBody.replaceChildren(...sourceBlocks.map((sourceBlock, index) => {
     const translatedBlock = translatedBlocks[index] || sourceBlock;
     const group = document.createElement("section");
@@ -629,10 +657,16 @@ function renderArticleBlocks(sourceBlocks, translatedBlocks = sourceBlocks) {
 
     const sourceLabel = document.createElement("p");
     sourceLabel.className = "article-language-label";
-    sourceLabel.textContent = "日本語原文";
+    sourceLabel.textContent = sourceBlock.skipTranslation ? "引用元（翻訳・読み上げ対象外）" : "日本語原文";
     const sourceText = document.createElement(sourceBlock.kind === "heading" ? "h3" : "p");
     sourceText.className = "article-text article-text-source";
     sourceText.textContent = sourceBlock.text;
+
+    if (!showTranslation || sourceBlock.skipTranslation) {
+      group.classList.add("is-source-only");
+      group.append(sourceLabel, sourceText);
+      return group;
+    }
 
     const translatedLabel = document.createElement("p");
     translatedLabel.className = "article-language-label article-language-label-en";
@@ -734,11 +768,21 @@ function getEnglishVoice() {
     || null;
 }
 
+function getSpeechSegments() {
+  if (!activeArticle?.translationEnabled) return [];
+  const segments = [];
+  if (activeArticle.titleSpeechText?.trim()) segments.push({ text: activeArticle.titleSpeechText });
+  activeArticle.translatedBlocks
+    .filter((block) => !block.skipSpeech)
+    .forEach((block) => segments.push({ text: block.text }));
+  return segments;
+}
+
 function resetSpeechControls() {
   speechState = { active: false, token: speechState.token + 1, index: 0 };
   stopSpeakButton.hidden = true;
   speakButton.textContent = "英訳を読み上げる";
-  speakButton.disabled = !activeArticle?.translatedBlocks?.length || !("speechSynthesis" in window);
+  speakButton.disabled = !getSpeechSegments().length || !("speechSynthesis" in window);
 }
 
 function cancelSpeech() {
@@ -753,17 +797,17 @@ function finishSpeech(message = "") {
 
 function speakNextArticleBlock(token, index) {
   if (!activeArticle || !speechState.active || speechState.token !== token) return;
-  const block = activeArticle.translatedBlocks[index];
-  if (!block) {
+  const segment = getSpeechSegments()[index];
+  if (!segment) {
     finishSpeech("読み上げが完了しました。");
     return;
   }
-  if (!block.text.trim()) {
+  if (!segment.text.trim()) {
     speakNextArticleBlock(token, index + 1);
     return;
   }
 
-  const utterance = new SpeechSynthesisUtterance(block.text);
+  const utterance = new SpeechSynthesisUtterance(segment.text);
   utterance.lang = "en-US";
   utterance.rate = 0.94;
   utterance.pitch = 1;
@@ -778,7 +822,7 @@ function speakNextArticleBlock(token, index) {
 }
 
 function speakArticle() {
-  if (!activeArticle?.translatedBlocks?.length || !("speechSynthesis" in window)) {
+  if (!getSpeechSegments().length || !("speechSynthesis" in window)) {
     setArticleStatus("このブラウザでは内蔵音声読み上げを利用できません。", "error");
     return;
   }
@@ -788,12 +832,13 @@ function speakArticle() {
   speakButton.disabled = true;
   stopSpeakButton.hidden = false;
   speakButton.textContent = "読み上げ中…";
-  setArticleStatus("英訳本文を読み上げています。", "success");
+  setArticleStatus("英訳タイトルと本文を読み上げています。", "success");
   speakNextArticleBlock(token, 0);
 }
 
 async function translateArticle(article, requestId) {
   const translatedBlocks = new Array(article.sourceBlocks.length);
+  article.titleSpeechText = "";
   let failed = 0;
   let titleFailed = false;
   let nextIndex = 0;
@@ -802,12 +847,14 @@ async function translateArticle(article, requestId) {
     .then((translatedTitle) => {
       if (!activeArticle || activeArticle.requestId !== requestId) return;
       article.translatedTitle = translatedTitle;
+      article.titleSpeechText = translatedTitle;
       renderArticleTitle(article.sourceTitle, translatedTitle);
     })
     .catch(() => {
       titleFailed = true;
       if (!activeArticle || activeArticle.requestId !== requestId) return;
       article.translatedTitle = article.sourceTitle;
+      article.titleSpeechText = "";
       renderArticleTitle(article.sourceTitle, article.sourceTitle);
     });
   const worker = async () => {
@@ -817,7 +864,9 @@ async function translateArticle(article, requestId) {
       nextIndex += 1;
       const sourceBlock = article.sourceBlocks[index];
       try {
-        translatedBlocks[index] = { ...sourceBlock, text: await translateTextToEnglish(sourceBlock.text) };
+        translatedBlocks[index] = sourceBlock.skipTranslation
+          ? { ...sourceBlock }
+          : { ...sourceBlock, text: await translateTextToEnglish(sourceBlock.text) };
       } catch {
         failed += 1;
         translatedBlocks[index] = { ...sourceBlock };
@@ -835,7 +884,7 @@ async function translateArticle(article, requestId) {
   if (!activeArticle || activeArticle.requestId !== requestId) return;
   article.translatedBlocks = translatedBlocks;
   renderArticleBlocks(article.sourceBlocks, translatedBlocks);
-  speakButton.disabled = !("speechSynthesis" in window);
+  speakButton.disabled = !getSpeechSegments().length || !("speechSynthesis" in window);
   const hasFailure = failed || titleFailed;
   setArticleStatus(
     hasFailure ? `タイトルと本文を英訳しました（一部は原文のままです）。${"speechSynthesis" in window ? "読み上げボタンを押せます。" : "音声読み上げは非対応です。"}` : `タイトルと本文を英訳しました。${"speechSynthesis" in window ? "読み上げボタンを押せます。" : "音声読み上げは非対応です。"}`,
@@ -852,11 +901,19 @@ async function loadArticle(item, requestId) {
     if (!response.ok) throw new Error(`Article reader ${response.status}`);
     const parsed = parseArticleReaderMarkdown(await response.text(), item.title);
     if (!activeArticle || activeArticle.requestId !== requestId) return;
-    activeArticle.sourceBlocks = parsed.blocks;
+    const article = activeArticle;
+    article.sourceTitle = parsed.title || item.title;
+    article.sourceBlocks = parsed.blocks;
     translateButton.disabled = false;
-    renderArticleTitle(article.sourceTitle, article.translatedTitle || "Translating…");
+    if (!article.translationEnabled) {
+      renderArticleTitle(article.sourceTitle, "", false);
+      renderArticleBlocks(article.sourceBlocks, [], false);
+      setArticleStatus("主要カテゴリは日本語原文のみ表示します。", "success");
+      return;
+    }
+    renderArticleTitle(article.sourceTitle, article.translatedTitle || "Translating…", true);
     articleBody.replaceChildren();
-    await translateArticle(activeArticle, requestId);
+    await translateArticle(article, requestId);
   } catch (error) {
     if (!activeArticle || activeArticle.requestId !== requestId) return;
     articleBody.replaceChildren();
@@ -869,14 +926,15 @@ async function loadArticle(item, requestId) {
   }
 }
 
-function openArticle(item) {
+function openArticle(item, categoryKey = "") {
   if (!isYahooArticleUrl(item.url)) return;
   cancelSpeech();
   const requestId = articleRequestId + 1;
   articleRequestId = requestId;
-  activeArticle = { item, requestId, sourceTitle: item.title, translatedTitle: "", sourceBlocks: [], translatedBlocks: [] };
-  renderArticleTitle(item.title);
-  articleMeta.textContent = "日本語原文＋タイトル・本文英訳 / ブラウザ内蔵音声";
+  const translationEnabled = categoryKey !== "major";
+  activeArticle = { item, requestId, categoryKey, translationEnabled, sourceTitle: item.title, translatedTitle: "", titleSpeechText: "", sourceBlocks: [], translatedBlocks: [] };
+  renderArticleTitle(item.title, translationEnabled ? "Translating…" : "", translationEnabled);
+  articleMeta.textContent = translationEnabled ? "日本語原文＋タイトル・本文英訳 / ブラウザ内蔵音声" : "日本語原文 / 主要カテゴリは英訳なし";
   articleSourceLink.href = item.url;
   articleBody.replaceChildren();
   const loading = document.createElement("p");
@@ -885,6 +943,9 @@ function openArticle(item) {
   articleBody.append(loading);
   translateButton.disabled = true;
   speakButton.disabled = true;
+  translateButton.hidden = !translationEnabled;
+  speakButton.hidden = !translationEnabled;
+  stopSpeakButton.hidden = true;
   setArticleStatus("記事本文を読み込んでいます…");
   panel.classList.remove("is-open");
   panel.setAttribute("aria-hidden", "true");
@@ -921,7 +982,7 @@ function renderNewsLinks(key) {
       link.addEventListener("click", (event) => {
         if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
         event.preventDefault();
-        openArticle(item);
+        openArticle(item, key);
       });
     }
     if (item.isNew) {
@@ -980,7 +1041,7 @@ nodes.forEach((node) => {
 document.querySelector("#detailClose").addEventListener("click", closeNode);
 document.querySelector("#articleClose").addEventListener("click", closeArticle);
 translateButton.addEventListener("click", async () => {
-  if (!activeArticle?.sourceBlocks?.length) return;
+  if (!activeArticle?.translationEnabled || !activeArticle.sourceBlocks?.length) return;
   const requestId = activeArticle.requestId;
   cancelSpeech();
   translateButton.disabled = true;
@@ -1041,7 +1102,7 @@ drawScene();
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js?v=article-english-20261103f", { scope: "./" }).catch((error) => {
+    navigator.serviceWorker.register("./sw.js?v=article-english-20261103h", { scope: "./" }).catch((error) => {
       console.warn("Service Worker could not be registered.", error);
     });
   });
