@@ -1,0 +1,341 @@
+{
+  "source": "Yahoo! JAPAN RSS",
+  "feeds": {
+    "major": [
+      {
+        "title": "トランプ政権に審判 民主優勢保つ",
+        "url": "https://news.yahoo.co.jp/pickup/6601173?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "米巨大IT5社とも増収 7～9月期",
+        "url": "https://news.yahoo.co.jp/pickup/6601172?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "詐欺G摘発 金が工藤会に渡ったか",
+        "url": "https://news.yahoo.co.jp/pickup/6601169?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "車が男性はね海へ転落 運転手死亡",
+        "url": "https://news.yahoo.co.jp/pickup/6601161?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "夫より高学歴高収入 妻のモヤモヤ",
+        "url": "https://news.yahoo.co.jp/pickup/6601179?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "きのこの山イヤホン 再販時の配慮",
+        "url": "https://news.yahoo.co.jp/pickup/6601151?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "楽天入団の甲斐 勝ちに飢えている",
+        "url": "https://news.yahoo.co.jp/pickup/6601171?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "FAのオリ宗「心熱くなるほうへ」",
+        "url": "https://news.yahoo.co.jp/pickup/6601166?source=rss",
+        "isNew": false
+      }
+    ],
+    "economy": [
+      {
+        "title": "【ホンダ・レブル500】にEクラッチ搭載。欧州で人気のミドルカテゴリークルーザーが進化！ 〜EICMA2026速報〜(モーサイ)",
+        "url": "https://news.yahoo.co.jp/articles/b8be4226ea283f9ca568af0dabbfb2c849e08bbe?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "【待望の丸目設定】「ランドクルーザーFJ」に外装オプションを追加。2027年1月に専用バンパーと同時発売(carview！)",
+        "url": "https://news.yahoo.co.jp/articles/3a21a048c53b927941b890bc2bdc050e816b5f17?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "トランプ政権で物価7％上昇 目玉政策が裏目、共和党に逆風(共同通信)",
+        "url": "https://news.yahoo.co.jp/articles/f20606baed2ea9c5c7cff04a2d537bba7cc861df?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "資産10億円超えAI株式投資の達人・上岡正明氏が明かす「買っていい会社の見極め方」 ファンダメンタルズ分析で重視すべき「3つの膨大な資料」もAIを使えば数分で解析(マネーポストWEB)",
+        "url": "https://news.yahoo.co.jp/articles/84fd3cf593e3834e783b2e5a7be53ff7333116c9?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "フランス・ドイツの次世代戦闘機計画が空中分解！ 新たなパートナーは“アジアの大国”!?(乗りものニュース)",
+        "url": "https://news.yahoo.co.jp/articles/b177a1af6dce379683aceaa8a694ac61e51b0031?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "マツダ「CX-30」改良モデルに注目 2.5Lエンジン追加や特別モデルを新設定(くるまのニュース)",
+        "url": "https://news.yahoo.co.jp/articles/6f02c56d4e1852cc4dd7b6021fcf71ccc0d281b0?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "スーツケースが厚さ12.5cmまで“たためる”！ センズが解決する「使わない時どこに置く？」問題(VAGUE)",
+        "url": "https://news.yahoo.co.jp/articles/7e872e3f02e7928503258a6915af2b639435be74?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "ダークウェブで日本人の個人情報の取引急増 世界で500万件以上も GMO社長会見で謝罪(テレビ朝日系（ANN）)",
+        "url": "https://news.yahoo.co.jp/articles/a12fa90e1630dea699ff2348fdb54a704e85d968?source=rss",
+        "isNew": false
+      }
+    ],
+    "entertainment": [
+      {
+        "title": "50歳吉本人気芸人「俺、子供が出来なくてさ」と告白「今はもう考えてないんだけどさ」(日刊スポーツ)",
+        "url": "https://news.yahoo.co.jp/articles/1b986bb3976d835509551cefb917b4da21695249?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "山里亮太「渋谷を歩いてたら久しぶりに…」かけられた暴言「すごく小さかったけど中学生かな？」(日刊スポーツ)",
+        "url": "https://news.yahoo.co.jp/articles/f9c9108ed28b722c1bdf66be4fb2072ea24bd56b?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "演歌歌手水谷千重子が11・29「Wan－Fes.with 2026」にゲスト出演 森泉らも(日刊スポーツ)",
+        "url": "https://news.yahoo.co.jp/articles/b13fdb7fc4c5e96423dcff454c57121a8556ee19?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "小関裕太&生田絵梨花“ふかふみ夫婦”、寄り添い合うめおとショットに「初々しくて最高」の声＜波うららかに、めおと日和＞(WEBザテレビジョン)",
+        "url": "https://news.yahoo.co.jp/articles/9dfd92ba242918805b82e0bf82cf2682f5416e30?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "「ゴジラ－0.0」興収76.5億の23年「－1.0」と興収対比201％台でロケットスタート(日刊スポーツ)",
+        "url": "https://news.yahoo.co.jp/articles/228cafeaf6f70b527ff14e843629d5e3b8da8de2?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "相楽伊織、カレンダー発売記念イベント開催延期 体調不良のため(スポーツ報知)",
+        "url": "https://news.yahoo.co.jp/articles/b1079a32f8bf0bd7c50a6907d5eac311f4b2d5de?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "元NMB48小嶋花梨、ディズニー新作主人公ビリーを意識したコーデで登場「髪色も赤に染めた」(日刊スポーツ)",
+        "url": "https://news.yahoo.co.jp/articles/03e86c160d0eb959d14d50029c15d7844b3d953c?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "BE:FIRST「CDTV」で「NOW U KNOW」TV初披露 デビュー5周年幕開けに相応しい圧倒的パフォ(vois ヴォイス)",
+        "url": "https://news.yahoo.co.jp/articles/2bba5a5352dd0e0defc940e42a2a3cbb86dc2cb7?source=rss",
+        "isNew": false
+      }
+    ],
+    "sports": [
+      {
+        "title": "【ＪＢＣスプリント】川田将雅騎手は連勝ならず...ウィルソンテソーロは２着 クラシックに続く史上初の“２階級制覇”もお預け(馬トク報知)",
+        "url": "https://news.yahoo.co.jp/articles/5e9788fe04f669c1ef4ba19fdfb4fbb14b04a4ee?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "武居由樹「弟分」林兼士が東日本新人王 年末の全日本へ「勝ち上がってきたヤツをバチッと倒す」(日刊スポーツ)",
+        "url": "https://news.yahoo.co.jp/articles/4c21b73f0fbf4b627185fa51890171af112a7775?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "専門外400mで高校新…17歳後藤大樹が明かした予兆「今朝も10秒前に…」 今後は「実は（週末に）幅跳びが」(THE ANSWER)",
+        "url": "https://news.yahoo.co.jp/articles/636baacd9ae02bef3ad632c6bb30a4d41deb140d?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "谷口将隆、再起戦の計量クリア 「闇堕ち」から立ち直れたのは子供のおかげ「しんどいときも、顔を見たら『よし！』と思えます」(中日スポーツ)",
+        "url": "https://news.yahoo.co.jp/articles/067d78d2d6f7f8f991cd22d1c96b3f530935c56a?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "【巨人】松井秀喜監督、マンツーマンで約２０分の熱血指導 増田陸に「ゴジラ塾」 ４人に直接指導…秋季キャンプ４日目(スポーツ報知)",
+        "url": "https://news.yahoo.co.jp/articles/535d0eebd093a7b6a804346964c2a38aed0222a1?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "サッカーのアジア杯が来年12月に延期(共同通信)",
+        "url": "https://news.yahoo.co.jp/articles/b8f12c4d9fff0c4b4f7a688ca2ff2d32363734f3?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "【大学野球】明大が立大下し勝ち点4 優勝の行方は早慶戦次第(スポニチアネックス)",
+        "url": "https://news.yahoo.co.jp/articles/5fe673a347179a2cbbc1f46eeb48022b4f57b60a?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "菊花賞制覇の千代田牧場がドバイWC覇者マグニチュード全妹を落札／ファシグティプトン社セール(日刊スポーツ)",
+        "url": "https://news.yahoo.co.jp/articles/78ca9684dcffc5f38c305de67ee60d007b6aa58d?source=rss",
+        "isNew": false
+      }
+    ],
+    "domestic": [
+      {
+        "title": "皇居「三の丸尚蔵館」が約7年かけてオープン 併設の「大手休憩所」ではカフェなども(ABEMA TIMES)",
+        "url": "https://news.yahoo.co.jp/articles/cd2bf69111bb99b49012fef8c3eecc2759acca2e?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "文化勲章の親授式 天皇陛下がノーベル化学賞受賞のそあい憲三教授らに授与(ABEMA TIMES)",
+        "url": "https://news.yahoo.co.jp/articles/aefe6010a46d698c417169bd58dd160f75121742?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "【気象解説】台風31号 上陸の見込みは低いものの影響で「雨雲が強まるおそれ」 あさって＝5日は広い範囲で雨・雨脚が強まる見通し(関西テレビ)",
+        "url": "https://news.yahoo.co.jp/articles/81e9e907f899e82b1d699ecd8eaa83d6d5499558?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "【台風情報】「台風31号（インファ）」最大瞬間風速45m/s・中心気圧975hPa 今後の動きは? 進路予想図・11月13日にかけての降水シミュレーション【気象庁3日12時45分発表】(BSS山陰放送)",
+        "url": "https://news.yahoo.co.jp/articles/33c3710c4115438150fdb568b94660db39bdd660?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "台風31号 父島など小笠原諸島は6日まで強風や高波に注意 関東は5日に雨が強まる(日本気象協会tenki.jp)",
+        "url": "https://news.yahoo.co.jp/articles/5acc0efa40daa22d28ea15fd5fed265a92e605ab?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "千葉で震度3(共同通信)",
+        "url": "https://news.yahoo.co.jp/articles/7d6f2622e6288c433ae3412d0ea1b41c97943dc0?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "【秋は列車旅】肥薩線〜指宿枕崎線が2日間2000円で乗り放題 温泉地やアートを巡る鹿児島旅はいかが?(FNNプライムオンライン)",
+        "url": "https://news.yahoo.co.jp/articles/40fd48d6f9f1c3837e9e70fe950f4b6b831b1b8e?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "「心から先生と呼べた」 倉本聰さんお別れの会(共同通信)",
+        "url": "https://news.yahoo.co.jp/articles/1695deba13c2a00a1dad4896865acb243814ef77?source=rss",
+        "isNew": false
+      }
+    ],
+    "world": [
+      {
+        "title": "コスダック指数 29.97ポイント▼ 704.39(終値)(聯合ニュース)",
+        "url": "https://news.yahoo.co.jp/articles/01f6dbab4e7736ba358fe472f1094646712239b4?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "総合株価指数 210.29ポイント▼ 5648.79(終値)(聯合ニュース)",
+        "url": "https://news.yahoo.co.jp/articles/f533cd8b63c0b32cd96697c6892b79c585e108c1?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "FBIが暗号資産流出に北朝鮮の関与指摘 与正氏「重大な政治的挑発だ」と反論(ABEMA TIMES)",
+        "url": "https://news.yahoo.co.jp/articles/3b1130a2d2cfdcafac157672f9875329d7b25997?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "ウォン・ドル相場 2.8ウォン高 1341.0(午後3時半現在)(聯合ニュース)",
+        "url": "https://news.yahoo.co.jp/articles/89338cb2bcd4dddb7e073a245d6bec5c7bd429ff?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "韓国、佐渡で13日に独自の追悼行事開催(共同通信)",
+        "url": "https://news.yahoo.co.jp/articles/d9772689965e21d5b7d8f20ed60c358c6804bc43?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "バイナンス巨額盗難 北朝鮮関与の指摘に「状況把握が先」＝韓国統一部(聯合ニュース)",
+        "url": "https://news.yahoo.co.jp/articles/b962684048e25b67439a7be4c45515d0b1292c22?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "青少年のSNS制限どうする？ 大統領が「迅速な議論」指示＝韓国(聯合ニュース)",
+        "url": "https://news.yahoo.co.jp/articles/bab97cf093df91230b7f8884cf15a30deac515fc?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "【速報】来年1月 サウジで開催予定のサッカー・アジアカップが情勢悪化で延期 AFC(テレビ朝日系（ANN）)",
+        "url": "https://news.yahoo.co.jp/articles/a6e9c33abbe85c28c504d037667ddd3d4e41ab43?source=rss",
+        "isNew": false
+      }
+    ],
+    "it": [
+      {
+        "title": "映画「ゴジラ-0.0」の公開にあわせてWOWOWが公式ECサイト「WOWOW百貨店」で歴代ゴジラグッズを特集(ネットショップ担当者フォーラム)",
+        "url": "https://news.yahoo.co.jp/articles/2dae908fea27d767225ec71b8d50045b30d1a042?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "米Googleが宇宙からのAI応答に成功、AI企業が宇宙AIデータセンターを目指すわけ(ビジネス＋IT)",
+        "url": "https://news.yahoo.co.jp/articles/6ac939f3b853508135dc5362148332640da5d676?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "純正スピーカーでも音が激変!? 18歳オーナーがフォレスターで始めたカーオーディオ高音質化への道【car audio newcomer！】by custom＆car Audio PARADA 前編(レスポンス)",
+        "url": "https://news.yahoo.co.jp/articles/0e6948ba0a35a1b5b5d71302c71ba7369362fd12?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "OpenAI、約3.16兆円を新たに調達へ──UAEの出資と設備利用権を組み合わせる構想(Forbes JAPAN)",
+        "url": "https://news.yahoo.co.jp/articles/27051f915f07a6b84edbe43ed98b4f9938177169?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "防災メールの宛先313万件流出か アルカディアが調書提出、府警が不正アクセスで捜査(ビジネス＋IT)",
+        "url": "https://news.yahoo.co.jp/articles/da85b3703132a827f96116839677bba40ebcdc68?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "米Anthropic 7～9月期売上高は約170億ドルに急拡大も、巨額AIインフラ投資が足かせに(ビジネス＋IT)",
+        "url": "https://news.yahoo.co.jp/articles/e0fc24b5d5b86e048591a69269f66d5929bd227d?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "SBI上期決算、暗号資産事業は30.1%減収(NADA NEWS)",
+        "url": "https://news.yahoo.co.jp/articles/c3b9d38b217cfe919e420f9142b47596db1c57d1?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "iPhone Duo転売ヤー、AIフル活用で在庫を監視し秒で購入している(ギズモード・ジャパン)",
+        "url": "https://news.yahoo.co.jp/articles/d4f9cac38564c55f6a5f83ce94e2e6c67fa74ba7?source=rss",
+        "isNew": false
+      }
+    ],
+    "science": [
+      {
+        "title": "宇宙開発での活躍視野…九州大学が開発進める、「動く電子回路」の世界(ニュースイッチ)",
+        "url": "https://news.yahoo.co.jp/articles/c5efef3523f879661e4d08fff11b05959327768a?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "3日未明は4天体が集合！ 1月以来のスーパームーンに3つの流星群など、11月に見たい星空7選(ナショナル ジオグラフィック日本版)",
+        "url": "https://news.yahoo.co.jp/articles/a0795dd6ec603118ff91cef81e8053a2207fa44a?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "まるでト音記号 銀河団が奏でる名曲はどんな？(Science Portal)",
+        "url": "https://news.yahoo.co.jp/articles/3c83fdf1fc4e4072bd32d960caa9932f212ffa2b?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "火星と木星が大接近、しし座流星群にスーパームーンも 11月の夜空(Forbes JAPAN)",
+        "url": "https://news.yahoo.co.jp/articles/59be97e9cc8dfaaa387c3102540247c40a1271cb?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "がんを撃退する「遺伝子改変T細胞療法」をAIで改良(Forbes JAPAN)",
+        "url": "https://news.yahoo.co.jp/articles/5c4c70fd6d5e36badb6cc5c78b0a8135c398e42c?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "「AIに対する虐待」禁止、米アンソロピックが想定するAIいじめのリスクとは(CNN.co.jp)",
+        "url": "https://news.yahoo.co.jp/articles/6a8b6145455fe29900670c006b17dac0f892901a?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "DNA変異を簡便に検出、新手法開発 遺伝子解析のコスト削減と効率化に期待 日本女子大(産経新聞)",
+        "url": "https://news.yahoo.co.jp/articles/fbe02181e208f709f02ba55392a4dbe273a9977e?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "口や顎の治療から、ほかの診療科を支える役割まで――第71回日本口腔外科学会総会・学術大会が見据える未来(Medical Note)",
+        "url": "https://news.yahoo.co.jp/articles/5b57ee2bed56659d35d934aef594d0766d8afc55?source=rss",
+        "isNew": false
+      }
+    ]
+  }
+}

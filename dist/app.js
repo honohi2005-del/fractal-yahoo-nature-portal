@@ -22,12 +22,12 @@ const economyHeadlines = [
   { title: "TDL内に野良猫 運営会社の対応は" },
 ].map((item) => ({
   ...item,
-  url: `https://search.yahoo.co.jp/search?p=${encodeURIComponent(item.title)}`,
+  url: "https://news.yahoo.co.jp/categories/business",
 }));
 
 const article = (title, url, isNew = false) => ({ title, url, isNew });
 
-const categoryLinks = {
+const fallbackCategoryLinks = {
   major: [
     article("トランプ政権に審判 民主優勢保つ", "https://news.yahoo.co.jp/pickup/6601173?source=rss", true),
     article("大阪市行政システム 情報漏えいか", "https://news.yahoo.co.jp/pickup/6601164?source=rss", true),
@@ -101,6 +101,25 @@ const categoryLinks = {
   ],
 };
 
+let categoryLinks = { ...fallbackCategoryLinks };
+
+const NEWS_LIMIT = 8;
+const NEWS_FEEDS = Object.freeze({
+  major: "https://news.yahoo.co.jp/rss/topics/top-picks.xml",
+  economy: "https://news.yahoo.co.jp/rss/categories/business.xml",
+  entertainment: "https://news.yahoo.co.jp/rss/categories/entertainment.xml",
+  sports: "https://news.yahoo.co.jp/rss/categories/sports.xml",
+  domestic: "https://news.yahoo.co.jp/rss/categories/domestic.xml",
+  world: "https://news.yahoo.co.jp/rss/categories/world.xml",
+  it: "https://news.yahoo.co.jp/rss/categories/it.xml",
+  science: "https://news.yahoo.co.jp/rss/categories/science.xml",
+});
+
+const NEWS_PROXY_BUILDERS = [
+  (feedUrl) => `https://proxy.cors.dev/${feedUrl}`,
+  (feedUrl) => `https://api.allorigins.win/raw?url=${encodeURIComponent(feedUrl)}`,
+];
+
 const canvas = document.querySelector("#forestCanvas");
 const stage = document.querySelector("#forestStage");
 const ctx = canvas.getContext("2d");
@@ -173,6 +192,96 @@ async function loadDailyImage() {
   } catch (error) {
     console.warn("Daily forest image could not be loaded.", error);
   }
+}
+
+function isYahooNewsUrl(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" && url.hostname === "news.yahoo.co.jp";
+  } catch {
+    return false;
+  }
+}
+
+function normaliseNewsItems(items) {
+  return (Array.isArray(items) ? items : [])
+    .map((item) => ({
+      title: typeof item?.title === "string" ? item.title.replace(/\s+/g, " ").trim() : "",
+      url: typeof item?.url === "string" ? item.url.trim() : "",
+      isNew: typeof item?.isNew === "boolean" ? item.isNew : undefined,
+    }))
+    .filter((item) => item.title && isYahooNewsUrl(item.url))
+    .slice(0, NEWS_LIMIT)
+    .map((item, index) => ({ ...item, isNew: item.isNew ?? (index < 3) }));
+}
+
+function applyLatestNews(payload) {
+  const feeds = payload?.feeds && typeof payload.feeds === "object" ? payload.feeds : payload;
+  if (!feeds || typeof feeds !== "object") return;
+
+  let updated = false;
+  Object.keys(NEWS_FEEDS).forEach((key) => {
+    const items = normaliseNewsItems(feeds[key]);
+    if (!items.length) return;
+    categoryLinks[key] = items;
+    updated = true;
+  });
+
+  if (updated && selectedNode) renderNewsLinks(selectedNode.dataset.node);
+}
+
+function parseYahooRss(xml) {
+  const document = new DOMParser().parseFromString(xml, "application/xml");
+  if (document.querySelector("parsererror")) throw new Error("Yahoo RSS XML could not be parsed");
+
+  return [...document.querySelectorAll("item")]
+    .map((item, index) => ({
+      title: item.querySelector("title")?.textContent?.trim() || "",
+      url: item.querySelector("link")?.textContent?.trim() || "",
+      isNew: index < 3,
+    }))
+    .filter((item) => item.title && isYahooNewsUrl(item.url))
+    .slice(0, NEWS_LIMIT);
+}
+
+async function fetchYahooFeed(feedUrl) {
+  let lastError = null;
+  for (const buildProxyUrl of NEWS_PROXY_BUILDERS) {
+    try {
+      const response = await fetch(buildProxyUrl(feedUrl), {
+        cache: "no-store",
+        headers: { Accept: "application/rss+xml, application/xml, text/xml" },
+      });
+      if (!response.ok) throw new Error(`Yahoo RSS ${response.status}`);
+      const items = parseYahooRss(await response.text());
+      if (items.length) return items;
+      throw new Error("Yahoo RSS contained no Yahoo article links");
+    } catch (error) {
+      lastError = error;
+    }
+  }
+  throw lastError || new Error("Yahoo RSS could not be loaded");
+}
+
+async function loadLatestNews() {
+  try {
+    const response = await fetch("latest-news.json", { cache: "no-store" });
+    if (!response.ok) throw new Error(`latest-news.json ${response.status}`);
+    applyLatestNews(await response.json());
+  } catch (error) {
+    console.warn("Latest news snapshot could not be loaded.", error);
+  }
+
+  const entries = await Promise.all(Object.entries(NEWS_FEEDS).map(async ([key, feedUrl]) => {
+    try {
+      return [key, await fetchYahooFeed(feedUrl)];
+    } catch (error) {
+      console.warn(`Latest Yahoo news could not be loaded for ${key}.`, error);
+      return [key, []];
+    }
+  }));
+
+  applyLatestNews({ feeds: Object.fromEntries(entries) });
 }
 
 function hashString(input) {
@@ -371,13 +480,9 @@ function drawScene() {
   if (!reducedMotion) rafId = requestAnimationFrame((nextTime) => { time = nextTime; drawScene(); });
 }
 
-function openNode(node) {
-  const key = node.dataset.node;
+function renderNewsLinks(key) {
   const data = portalData[key];
   if (!data) return;
-  selectedNode?.classList.remove("is-selected");
-  selectedNode = node;
-  selectedNode.classList.add("is-selected");
   const links = categoryLinks[key] || [{ title: `${data.label}のニュースを開く`, url: data.url }];
   newsLinks.replaceChildren(...links.map((item) => {
     const listItem = document.createElement("li");
@@ -396,6 +501,16 @@ function openNode(node) {
     listItem.append(link);
     return listItem;
   }));
+}
+
+function openNode(node) {
+  const key = node.dataset.node;
+  const data = portalData[key];
+  if (!data) return;
+  selectedNode?.classList.remove("is-selected");
+  selectedNode = node;
+  selectedNode.classList.add("is-selected");
+  renderNewsLinks(key);
   panel.classList.add("is-open");
   panel.setAttribute("aria-hidden", "false");
 }
@@ -478,7 +593,9 @@ window.addEventListener("resize", () => { resizeCanvas(); drawScene(); });
 resizeCanvas();
 updateClock();
 loadDailyImage();
+loadLatestNews();
 setInterval(updateClock, 30000);
+setInterval(loadLatestNews, 15 * 60 * 1000);
 setInterval(() => {
   const day = dayOfYear();
   if (day !== activeDailyDay) loadDailyImage();
@@ -487,7 +604,7 @@ drawScene();
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js?v=category-lists", { scope: "./" }).catch((error) => {
+    navigator.serviceWorker.register("./sw.js?v=live-news", { scope: "./" }).catch((error) => {
       console.warn("Service Worker could not be registered.", error);
     });
   });
