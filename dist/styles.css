@@ -110,13 +110,13 @@ a { color: inherit; }
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-color: rgba(232, 247, 216, .56);
+  background-color: rgba(232, 247, 216, .18);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-blend-mode: screen;
-  filter: brightness(1.13) saturate(.78) contrast(.9);
-  opacity: .76;
+  background-blend-mode: normal;
+  filter: brightness(1.05) saturate(.94) contrast(1.06);
+  opacity: .9;
   pointer-events: none;
   transition: opacity .7s ease, filter .7s ease;
 }
@@ -216,7 +216,7 @@ a { color: inherit; }
 .quiet-mode .portal-node { --node-size: 42px; }
 .quiet-mode .portal-node .node-orbit { opacity: .25; }
 .quiet-mode .search-orbit { opacity: .58; }
-.quiet-mode .daily-photo { opacity: .48; filter: brightness(.92) saturate(.62) contrast(.94); }
+.quiet-mode .daily-photo { opacity: .72; filter: brightness(.96) saturate(.82) contrast(1.02); }
 
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
