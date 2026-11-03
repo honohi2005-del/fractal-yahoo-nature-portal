@@ -1,4 +1,4 @@
-const CACHE_NAME = "information-forest-v2";
+const CACHE_NAME = "information-forest-v3";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -6,6 +6,8 @@ const APP_SHELL = [
   "./app.js",
   "./forest-images.json",
   "./manifest.webmanifest",
+  "./icons/icon-192.png",
+  "./icons/icon-512.png",
   "./icons/icon-192.svg",
   "./icons/icon-512.svg",
 ];
