@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="情報の森">
+  <defs>
+    <radialGradient id="sky" cx="28%" cy="18%" r="90%">
+      <stop offset="0" stop-color="#fff8c9"/>
+      <stop offset=".32" stop-color="#c9edc7"/>
+      <stop offset="1" stop-color="#3d806d"/>
+    </radialGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" fill="#d8efd4"/>
+  <circle cx="256" cy="256" r="224" fill="url(#sky)"/>
+  <circle cx="382" cy="112" r="58" fill="#fff4bd" opacity=".9" filter="url(#glow)"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M256 454c0-70-2-132 0-196 1-58-22-104-74-157" stroke="#173f35" stroke-width="18"/>
+    <path d="M257 350c-33-38-67-65-118-80M257 318c36-36 72-58 123-69M256 276c-8-48-1-90 26-135" stroke="#215c49" stroke-width="12"/>
+    <path d="M139 271c-31-27-55-55-68-91M139 271c-7-37-1-69 20-101M380 249c25-31 44-64 51-103M380 249c13-21 41-36 74-40M282 141c-13-25-17-52-10-82M282 141c25-17 44-40 55-70" stroke="#3b8b66" stroke-width="8"/>
+    <path d="M138 270c-24-9-47-7-69 7M138 270c-5-22-18-42-39-59M380 249c4-25-2-48-18-69M380 249c26 5 45 18 60 39M282 141c-22-7-39-19-52-37M282 141c18 4 37 1 56-9" stroke="#77bd8c" stroke-width="6"/>
+  </g>
+  <circle cx="256" cy="258" r="16" fill="#fff6c9" stroke="#173f35" stroke-width="7"/>
+  <circle cx="256" cy="258" r="5" fill="#d89a49"/>
+</svg>

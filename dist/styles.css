@@ -96,6 +96,7 @@ a { color: inherit; }
 }
 .icon-button:hover, .icon-button[aria-pressed="true"] { color: var(--accent); background: rgba(166, 231, 199, .08); border-color: rgba(166, 231, 199, .5); }
 .icon-button svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.45; stroke-linecap: round; stroke-linejoin: round; }
+.install-button[hidden] { display: none; }
 
 .forest-stage {
   height: calc(100svh - 132px);

@@ -10,11 +10,15 @@ Yahoo! JAPANのポータル情報を、文字と広告をできるだけ減ら�
 - 主要、経済、エンタメ、スポーツ、国内、国際、IT、化学、地域、天気への最小限の入口
 - 検索フォームと情報ノードの詳細表示
 - 文字量を抑える「静謐モード」
+- Web App Manifest、Service Worker、ホーム画面用アイコンを備えたPWA対応
+- 対応ブラウザでは、画面上部のインストールボタンからアプリとして追加可能
 - 外部コンテンツをコピー・収集せず、Yahoo!の各サービスへ移動する構成
 
 ## 構成
 
 - `dist/` — 公開する静的ファイル
+- `dist/manifest.webmanifest` — PWAの名前・表示モード・アイコン定義
+- `dist/sw.js` — アプリシェルと背景カタログをキャッシュするService Worker
 - `scripts/fetch-commons-images.mjs` — Commons APIから365枚の画像カタログを更新するスクリプト
 - `.github/workflows/pages.yml` — GitHub Pagesへの自動デプロイ
 

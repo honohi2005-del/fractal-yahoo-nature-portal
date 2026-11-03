@@ -26,6 +26,7 @@ const quietButton = document.querySelector("#quietButton");
 const dailyPhoto = document.querySelector("#dailyPhoto");
 const dailyCreditLabel = document.querySelector("#dailyCreditLabel");
 const dailyCreditLink = document.querySelector("#dailyCreditLink");
+const installButton = document.querySelector("#installButton");
 
 let width = 0;
 let height = 0;
@@ -35,6 +36,7 @@ let time = 0;
 let quiet = false;
 let selectedNode = null;
 let activeDailyDay = 0;
+let deferredInstallPrompt = null;
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -346,6 +348,25 @@ quietButton.addEventListener("click", () => {
   if (reducedMotion) drawScene();
 });
 
+window.addEventListener("beforeinstallprompt", (event) => {
+  event.preventDefault();
+  deferredInstallPrompt = event;
+  if (installButton) installButton.hidden = false;
+});
+
+installButton?.addEventListener("click", async () => {
+  if (!deferredInstallPrompt) return;
+  deferredInstallPrompt.prompt();
+  await deferredInstallPrompt.userChoice;
+  deferredInstallPrompt = null;
+  installButton.hidden = true;
+});
+
+window.addEventListener("appinstalled", () => {
+  deferredInstallPrompt = null;
+  if (installButton) installButton.hidden = true;
+});
+
 window.addEventListener("resize", () => { resizeCanvas(); drawScene(); });
 resizeCanvas();
 updateClock();
@@ -356,3 +377,11 @@ setInterval(() => {
   if (day !== activeDailyDay) loadDailyImage();
 }, 60000);
 drawScene();
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js", { scope: "./" }).catch((error) => {
+      console.warn("Service Worker could not be registered.", error);
+    });
+  });
+}

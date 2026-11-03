@@ -4,11 +4,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#d8efd4" />
+    <meta name="application-name" content="情報の森" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="情報の森" />
     <meta
       name="description"
       content="Yahoo! JAPANの主要導線を、広告を排したフラクタルな自然風景へ埋め込む実験的ポータル。"
     />
     <title>情報の森 — Fractal Yahoo Nature Portal</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="icons/icon-192.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -32,6 +38,9 @@
           <time id="localClock" datetime=""></time>
           <button class="icon-button" id="quietButton" type="button" aria-pressed="false" aria-label="静かな表示に切り替える">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14.5V10a8 8 0 0 1 16 0v4.5M2.5 14.5h19M7 18.5a5 5 0 0 0 10 0M12 2v2" /></svg>
+          </button>
+          <button class="icon-button install-button" id="installButton" type="button" hidden aria-label="情報の森をインストール">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11M7 10l5 5 5-5M5 20h14" /></svg>
           </button>
         </div>
       </header>
