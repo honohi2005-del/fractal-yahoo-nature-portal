@@ -158,7 +158,28 @@ a { color: inherit; }
 .node-orbit::after { top: auto; left: auto; right: 2px; bottom: 9px; width: 3px; height: 3px; opacity: .72; }
 .node-icon { position: relative; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: rgba(241, 252, 237, .72); box-shadow: 0 5px 22px rgba(28, 84, 51, .16); }
 .node-icon svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.35; stroke-linecap: round; stroke-linejoin: round; }
-.node-label { position: absolute; top: calc(100% + 7px); left: 50%; transform: translateX(-50%); white-space: nowrap; color: rgba(24, 69, 49, .82); font-size: 10px; letter-spacing: .08em; opacity: .88; transition: opacity .2s ease, color .2s ease; }
+.node-label {
+  position: absolute;
+  top: calc(100% + 9px);
+  left: 50%;
+  z-index: 2;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  padding: 4px 10px 5px;
+  color: #123b2a;
+  background: rgba(247, 255, 244, .92);
+  border: 1px solid rgba(22, 74, 49, .42);
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(13, 42, 28, .32), 0 0 0 2px rgba(247, 255, 244, .22);
+  backdrop-filter: blur(8px) saturate(1.08);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  line-height: 1.2;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .55);
+  opacity: 1;
+  transition: opacity .2s ease, color .2s ease, background-color .2s ease;
+}
 .portal-node:hover .node-label, .portal-node:focus-visible .node-label, .portal-node.is-selected .node-label { color: var(--node-color, var(--accent)); opacity: 1; }
 
 .detail-panel { position: absolute; z-index: 7; left: 50%; top: 50%; width: min(610px, calc(100% - 44px)); max-height: min(66vh, 520px); padding: 18px 18px 16px; display: none; overflow: auto; transform: translate(-50%, -50%); background: rgba(250, 255, 247, .96); border: 1px solid rgba(42, 111, 72, .42); border-radius: 20px; box-shadow: 0 24px 90px rgba(30, 78, 47, .3); backdrop-filter: blur(22px) saturate(1.05); }
@@ -193,7 +214,7 @@ a { color: inherit; }
   .intro { left: 24px; top: 28px; }
   .intro-copy { width: 210px; }
   .portal-node { --node-size: 42px; }
-  .node-label { font-size: 9px; }
+  .node-label { font-size: 11px; padding: 4px 9px 5px; }
   .detail-panel { top: 50%; width: calc(100% - 32px); max-height: min(72vh, 620px); padding: 16px 14px 14px; }
   .bottom-ribbon { left: 24px; right: 24px; bottom: 26px; gap: 12px; }
   .ribbon-item:nth-child(2) { display: none; }
@@ -207,7 +228,7 @@ a { color: inherit; }
   .portal-node { --node-size: 38px; }
   .node-icon { width: 27px; height: 27px; }
   .node-icon svg { width: 16px; height: 16px; }
-  .node-label { font-size: 8px; }
+  .node-label { font-size: 10px; padding: 3px 8px 4px; }
   .node-major { --x: 14% !important; }
   .node-entertainment { --x: 66% !important; --y: 18% !important; }
   .node-sports { --x: 88% !important; }

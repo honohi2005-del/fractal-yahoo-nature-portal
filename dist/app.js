@@ -614,7 +614,7 @@ drawScene();
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js?v=remove-footer-20261103", { scope: "./" }).catch((error) => {
+    navigator.serviceWorker.register("./sw.js?v=category-readable-20261103", { scope: "./" }).catch((error) => {
       console.warn("Service Worker could not be registered.", error);
     });
   });
