@@ -1,4 +1,4 @@
-const CACHE_NAME = "information-forest-v9";
+const CACHE_NAME = "information-forest-v10";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -70,7 +70,7 @@ self.addEventListener("fetch", (event) => {
   }
 
   if (sameOrigin && url.pathname.endsWith("/forest-images.json")) {
-    event.respondWith(networkFirst(request, "./forest-images.json"));
+    event.respondWith(cacheFirst(request));
     return;
   }
 

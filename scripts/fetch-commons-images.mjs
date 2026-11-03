@@ -88,6 +88,21 @@ function isUsablePage(page) {
   return Boolean(info.thumburl || info.url);
 }
 
+function commonsThumbnailUrl(original, width = 1280) {
+  try {
+    const url = new URL(original);
+    const marker = "/wikipedia/commons/";
+    const markerIndex = url.pathname.indexOf(marker);
+    if (markerIndex === -1) return "";
+    const relativePath = url.pathname.slice(markerIndex + marker.length);
+    const filename = relativePath.split("/").at(-1);
+    if (!relativePath || !filename) return "";
+    return `https://thumb.wikimedia.org/wikipedia/commons/thumb/${relativePath}/${width}px-${filename}`;
+  } catch {
+    return "";
+  }
+}
+
 function toRecord(page) {
   const info = page.imageinfo[0];
   const extmetadata = info.extmetadata ?? {};
@@ -95,7 +110,7 @@ function toRecord(page) {
   const pageUrl = `https://commons.wikimedia.org/wiki/${encodeURIComponent(page.title.replaceAll(" ", "_"))}`;
   return {
     title,
-    image: info.thumburl || info.url,
+    image: commonsThumbnailUrl(info.url) || info.thumburl || info.url,
     original: info.url,
     source: pageUrl,
     author: metadataValue(extmetadata, "Artist") || "作者情報は出典ページを確認",
@@ -116,7 +131,7 @@ async function addSearchResults(records, seen, query) {
     gsrlimit: "50",
     prop: "imageinfo",
     iiprop: "url|size|mime|mediatype|extmetadata",
-    iiurlwidth: "1400",
+    iiurlwidth: "1280",
   });
   for (const page of Object.values(data.query?.pages ?? {})) {
     if (!isUsablePage(page)) continue;
@@ -141,7 +156,7 @@ async function addCategoryResults(records, seen, category) {
       cmlimit: "500",
       prop: "imageinfo",
     iiprop: "url|size|mime|mediatype|extmetadata",
-      iiurlwidth: "1400",
+      iiurlwidth: "1280",
     };
     if (cmcontinue) params.cmcontinue = cmcontinue;
     const data = await commonsApi(params);
@@ -152,7 +167,7 @@ async function addCategoryResults(records, seen, category) {
         titles,
         prop: "imageinfo",
     iiprop: "url|size|mime|mediatype|extmetadata",
-        iiurlwidth: "1400",
+        iiurlwidth: "1280",
       });
       for (const page of Object.values(details.query?.pages ?? {})) {
         if (!isUsablePage(page)) continue;

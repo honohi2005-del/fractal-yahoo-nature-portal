@@ -133,6 +133,8 @@ const dailyCreditLabel = document.querySelector("#dailyCreditLabel");
 const dailyCreditLink = document.querySelector("#dailyCreditLink");
 const installButton = document.querySelector("#installButton");
 
+const DAILY_IMAGE_CACHE_KEY = "information-forest-daily-image-v1";
+
 let width = 0;
 let height = 0;
 let dpr = 1;
@@ -141,6 +143,7 @@ let time = 0;
 let quiet = false;
 let selectedNode = null;
 let activeDailyDay = 0;
+let activeDailyImageUrl = "";
 let deferredInstallPrompt = null;
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -149,6 +152,23 @@ function dayOfYear(date = new Date()) {
   const yearStart = Date.UTC(date.getFullYear(), 0, 1);
   const currentDay = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate());
   return Math.floor((currentDay - yearStart) / 86400000) + 1;
+}
+
+function readCachedDailyImage(day) {
+  try {
+    const cached = JSON.parse(localStorage.getItem(DAILY_IMAGE_CACHE_KEY) || "null");
+    return cached?.day === day && cached.record?.image ? cached.record : null;
+  } catch {
+    return null;
+  }
+}
+
+function cacheDailyImage(record, day) {
+  try {
+    localStorage.setItem(DAILY_IMAGE_CACHE_KEY, JSON.stringify({ day, record }));
+  } catch {
+    // Storage can be unavailable in private browsing; the network path still works.
+  }
 }
 
 function applyDailyImage(record, day) {
@@ -167,6 +187,9 @@ function applyDailyImage(record, day) {
     dailyCreditLink.setAttribute("aria-label", `今日の背景: ${record.title}。${record.author}。${record.license}`);
   }
 
+  if (activeDailyImageUrl === record.image) return;
+  activeDailyImageUrl = record.image;
+
   const preload = new Image();
   preload.decoding = "async";
   preload.loading = "eager";
@@ -179,16 +202,23 @@ function applyDailyImage(record, day) {
 }
 
 async function loadDailyImage() {
+  const day = dayOfYear();
+  const cachedRecord = readCachedDailyImage(day);
+  if (cachedRecord) {
+    activeDailyDay = day;
+    applyDailyImage(cachedRecord, day);
+  }
+
   try {
-    const response = await fetch("forest-images.json", { cache: "no-store" });
+    const response = await fetch("forest-images.json", { cache: "default" });
     if (!response.ok) throw new Error(`forest-images.json ${response.status}`);
     const payload = await response.json();
     const images = Array.isArray(payload.images) ? payload.images : [];
     if (images.length < 365) throw new Error(`Expected 365 images, received ${images.length}`);
-    const day = dayOfYear();
     const record = images[(day - 1) % images.length];
     activeDailyDay = day;
     applyDailyImage(record, day);
+    cacheDailyImage(record, day);
   } catch (error) {
     console.warn("Daily forest image could not be loaded.", error);
   }
@@ -592,7 +622,7 @@ drawScene();
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js?v=remove-search", { scope: "./" }).catch((error) => {
+    navigator.serviceWorker.register("./sw.js?v=image-fast-20261103", { scope: "./" }).catch((error) => {
       console.warn("Service Worker could not be registered.", error);
     });
   });
