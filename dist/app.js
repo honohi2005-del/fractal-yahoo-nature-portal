@@ -530,16 +530,6 @@ function updateClock() {
   clock.dateTime = now.toISOString();
 }
 
-document.querySelector("#searchForm").addEventListener("submit", (event) => {
-  event.preventDefault();
-  const query = document.querySelector("#searchInput").value.trim();
-  if (!query) {
-    document.querySelector("#searchInput").focus();
-    return;
-  }
-  window.open(`https://search.yahoo.co.jp/search?p=${encodeURIComponent(query)}`, "_blank", "noopener,noreferrer");
-});
-
 nodes.forEach((node) => {
   node.addEventListener("click", (event) => {
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
@@ -557,8 +547,6 @@ nodes.forEach((node) => {
 document.querySelector("#detailClose").addEventListener("click", closeNode);
 document.querySelector("#resetButton").addEventListener("click", () => {
   closeNode();
-  document.querySelector("#searchInput").value = "";
-  document.querySelector("#searchInput").focus();
 });
 
 quietButton.addEventListener("click", () => {
