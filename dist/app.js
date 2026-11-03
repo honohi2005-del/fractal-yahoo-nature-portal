@@ -11,13 +11,30 @@ const portalData = {
   weather: { label: "天気", note: "空模様と災害情報へ", url: "https://weather.yahoo.co.jp/" },
 };
 
+const economyHeadlines = [
+  { title: "GMO熊谷社長ら 報酬を3カ月減額" },
+  { title: "フラット35 金利3.81%で過去2番目" },
+  { title: "SBIとフジHDが資本業務提携 発表" },
+  { title: "安いもやし限界 5年で13社消える", isNew: true },
+  { title: "子どものセルフレジ操作 SNS賛否", isNew: true },
+  { title: "きのこの山イヤホン 再販時の配慮", isNew: true },
+  { title: "永谷園「チョモモコ」販売再開へ" },
+  { title: "TDL内に野良猫 運営会社の対応は" },
+].map((item) => ({
+  ...item,
+  url: `https://search.yahoo.co.jp/search?p=${encodeURIComponent(item.title)}`,
+}));
+
+const categoryLinks = {
+  economy: economyHeadlines,
+};
+
 const canvas = document.querySelector("#forestCanvas");
 const stage = document.querySelector("#forestStage");
 const ctx = canvas.getContext("2d");
 const nodes = [...document.querySelectorAll(".portal-node")];
 const panel = document.querySelector("#detailPanel");
-const detailLink = document.querySelector("#detailLink");
-const detailLinkLabel = document.querySelector("#detailLinkLabel");
+const newsLinks = document.querySelector("#newsLinks");
 const modeValue = document.querySelector("#modeValue");
 const quietButton = document.querySelector("#quietButton");
 const dailyPhoto = document.querySelector("#dailyPhoto");
@@ -289,8 +306,24 @@ function openNode(node) {
   selectedNode?.classList.remove("is-selected");
   selectedNode = node;
   selectedNode.classList.add("is-selected");
-  detailLink.href = data.url;
-  detailLinkLabel.textContent = `${data.label}のリンク`;
+  const links = categoryLinks[key] || [{ title: `${data.label}のニュースを開く`, url: data.url }];
+  newsLinks.replaceChildren(...links.map((item) => {
+    const listItem = document.createElement("li");
+    const link = document.createElement("a");
+    link.href = item.url;
+    link.target = "_blank";
+    link.rel = "noreferrer";
+    link.textContent = item.title;
+    if (item.isNew) {
+      const badge = document.createElement("span");
+      badge.className = "news-badge";
+      badge.textContent = "NEW";
+      badge.setAttribute("aria-label", "新着");
+      link.append(badge);
+    }
+    listItem.append(link);
+    return listItem;
+  }));
   panel.classList.add("is-open");
   panel.setAttribute("aria-hidden", "false");
 }
@@ -382,7 +415,7 @@ drawScene();
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js?v=link-only", { scope: "./" }).catch((error) => {
+    navigator.serviceWorker.register("./sw.js?v=news-links", { scope: "./" }).catch((error) => {
       console.warn("Service Worker could not be registered.", error);
     });
   });
