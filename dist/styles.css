@@ -36,7 +36,7 @@ a { color: inherit; }
   background: radial-gradient(circle at 22% 10%, #f7ffe7 0, #d4eed3 30%, #9ac5a9 68%, #527d6d 100%);
 }
 
-.topbar, .footer-line {
+.topbar {
   width: min(100% - 36px, 1440px);
   margin: 0 auto;
   position: relative;
@@ -70,7 +70,7 @@ a { color: inherit; }
 }
 
 .brand-copy { display: grid; gap: 2px; }
-.brand-kicker, .eyebrow, .map-caption, .detail-kicker, .ribbon-item, .footer-line, .topbar-meta {
+.brand-kicker, .eyebrow, .map-caption, .detail-kicker, .ribbon-item, .topbar-meta {
   font-family: var(--font-mono);
   letter-spacing: .11em;
   text-transform: uppercase;
@@ -99,7 +99,7 @@ a { color: inherit; }
 .install-button[hidden] { display: none; }
 
 .forest-stage {
-  height: calc(100svh - 132px);
+  height: calc(100svh - 88px);
   min-height: 620px;
   position: relative;
   overflow: hidden;
@@ -181,22 +181,15 @@ a { color: inherit; }
 .bottom-link { margin-left: auto; color: var(--dim); border: 0; background: transparent; cursor: pointer; font-family: var(--font-mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }
 .bottom-link:hover { color: var(--accent); }
 
-.footer-line { min-height: 44px; display: flex; align-items: center; justify-content: space-between; gap: 20px; color: var(--dim); font-size: 9px; }
-.footer-line a { color: var(--muted); text-underline-offset: 4px; }
-.footer-line a:hover { color: var(--accent); }
-.daily-credit { white-space: nowrap; }
-.daily-credit a { text-decoration: none; border-bottom: 1px solid rgba(54, 93, 77, .38); }
-.daily-credit a:hover { border-color: var(--accent); }
-
-.quiet-mode .intro-copy, .quiet-mode .node-label, .quiet-mode .map-caption, .quiet-mode .footer-line, .quiet-mode .ribbon-item, .quiet-mode .bottom-link { opacity: .38; }
+.quiet-mode .intro-copy, .quiet-mode .node-label, .quiet-mode .map-caption, .quiet-mode .ribbon-item, .quiet-mode .bottom-link { opacity: .38; }
 .quiet-mode .portal-node { --node-size: 42px; }
 .quiet-mode .portal-node .node-orbit { opacity: .25; }
 .quiet-mode .daily-photo { opacity: 1; filter: brightness(1.03) saturate(.98) contrast(1.08); }
 
 @media (max-width: 760px) {
   .topbar { height: 76px; }
-  .topbar, .footer-line { width: min(100% - 24px, 1440px); }
-  .forest-stage { height: calc(100svh - 120px); min-height: 680px; }
+  .topbar { width: min(100% - 24px, 1440px); }
+  .forest-stage { height: calc(100svh - 76px); min-height: 680px; }
   .intro { left: 24px; top: 28px; }
   .intro-copy { width: 210px; }
   .portal-node { --node-size: 42px; }
@@ -204,9 +197,6 @@ a { color: inherit; }
   .detail-panel { top: 50%; width: calc(100% - 32px); max-height: min(72vh, 620px); padding: 16px 14px 14px; }
   .bottom-ribbon { left: 24px; right: 24px; bottom: 26px; gap: 12px; }
   .ribbon-item:nth-child(2) { display: none; }
-  .footer-line { min-height: 44px; font-size: 8px; }
-  .footer-line span { max-width: 170px; }
-  .daily-credit { flex-basis: 100%; order: 3; }
 }
 
 @media (max-width: 430px) {
@@ -222,7 +212,6 @@ a { color: inherit; }
   .node-entertainment { --x: 66% !important; --y: 18% !important; }
   .node-sports { --x: 88% !important; }
   .node-weather { --x: 86% !important; }
-  .footer-line a { white-space: nowrap; }
 }
 
 @media (prefers-reduced-motion: reduce) {

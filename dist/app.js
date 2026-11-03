@@ -129,8 +129,6 @@ const newsLinks = document.querySelector("#newsLinks");
 const modeValue = document.querySelector("#modeValue");
 const quietButton = document.querySelector("#quietButton");
 const dailyPhoto = document.querySelector("#dailyPhoto");
-const dailyCreditLabel = document.querySelector("#dailyCreditLabel");
-const dailyCreditLink = document.querySelector("#dailyCreditLink");
 const installButton = document.querySelector("#installButton");
 
 const DAILY_IMAGE_CACHE_KEY = "information-forest-daily-image-v1";
@@ -180,12 +178,6 @@ function applyDailyImage(record, day) {
   dailyPhoto.style.backgroundImage = `url(${imageUrl})`;
   dailyPhoto.dataset.title = record.title;
   dailyPhoto.dataset.day = String(day);
-  if (dailyCreditLabel) dailyCreditLabel.textContent = "今日の背景";
-  if (dailyCreditLink) {
-    dailyCreditLink.href = record.source;
-    dailyCreditLink.title = `${record.title} / ${record.author} / ${record.license}`;
-    dailyCreditLink.setAttribute("aria-label", `今日の背景: ${record.title}。${record.author}。${record.license}`);
-  }
 
   if (activeDailyImageUrl === record.image) return;
   activeDailyImageUrl = record.image;
@@ -622,7 +614,7 @@ drawScene();
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js?v=image-fast-20261103", { scope: "./" }).catch((error) => {
+    navigator.serviceWorker.register("./sw.js?v=remove-footer-20261103", { scope: "./" }).catch((error) => {
       console.warn("Service Worker could not be registered.", error);
     });
   });
