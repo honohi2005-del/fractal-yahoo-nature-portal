@@ -48,19 +48,28 @@ function dayOfYear(date = new Date()) {
 
 function applyDailyImage(record, day) {
   if (!record?.image || !dailyPhoto) return;
+  const imageUrl = JSON.stringify(record.image);
+
+  // Set the background immediately so the photo is visible while the
+  // eager decode finishes. Waiting for onload left the stage empty on open.
+  dailyPhoto.style.backgroundImage = `url(${imageUrl})`;
+  dailyPhoto.dataset.title = record.title;
+  dailyPhoto.dataset.day = String(day);
+  if (dailyCreditLabel) dailyCreditLabel.textContent = "今日の背景";
+  if (dailyCreditLink) {
+    dailyCreditLink.href = record.source;
+    dailyCreditLink.title = `${record.title} / ${record.author} / ${record.license}`;
+    dailyCreditLink.setAttribute("aria-label", `今日の背景: ${record.title}。${record.author}。${record.license}`);
+  }
+
   const preload = new Image();
   preload.decoding = "async";
+  preload.loading = "eager";
+  preload.fetchPriority = "high";
   preload.onload = () => {
-    dailyPhoto.style.backgroundImage = `url(${JSON.stringify(record.image)})`;
-    dailyPhoto.dataset.title = record.title;
-    dailyPhoto.dataset.day = String(day);
-    if (dailyCreditLabel) dailyCreditLabel.textContent = "今日の背景";
-    if (dailyCreditLink) {
-      dailyCreditLink.href = record.source;
-      dailyCreditLink.title = `${record.title} / ${record.author} / ${record.license}`;
-      dailyCreditLink.setAttribute("aria-label", `今日の背景: ${record.title}。${record.author}。${record.license}`);
-    }
+    dailyPhoto.classList.add("is-ready");
   };
+  preload.onerror = () => console.warn("Today's forest image could not be decoded.", record.image);
   preload.src = record.image;
 }
 

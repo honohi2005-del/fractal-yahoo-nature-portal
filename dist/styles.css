@@ -116,13 +116,13 @@ a { color: inherit; }
   background-repeat: no-repeat;
   background-size: cover;
   background-blend-mode: normal;
-  filter: brightness(1.05) saturate(.94) contrast(1.06);
-  opacity: .9;
+  filter: brightness(1.08) saturate(1.03) contrast(1.12);
+  opacity: 1;
   pointer-events: none;
-  transition: opacity .7s ease, filter .7s ease;
+  transition: filter .3s ease;
 }
 
-#forestCanvas { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; pointer-events: none; }
+#forestCanvas { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; opacity: .76; pointer-events: none; }
 .atmosphere { position: absolute; border-radius: 50%; pointer-events: none; filter: blur(1px); }
 .atmosphere { z-index: 2; }
 .atmosphere-one { width: 44vw; height: 44vw; min-width: 300px; min-height: 300px; left: 18%; top: -8%; background: radial-gradient(circle, rgba(255, 255, 221, .36), rgba(194, 238, 187, .16) 42%, transparent 70%); mix-blend-mode: screen; }
@@ -217,7 +217,7 @@ a { color: inherit; }
 .quiet-mode .portal-node { --node-size: 42px; }
 .quiet-mode .portal-node .node-orbit { opacity: .25; }
 .quiet-mode .search-orbit { opacity: .58; }
-.quiet-mode .daily-photo { opacity: .72; filter: brightness(.96) saturate(.82) contrast(1.02); }
+.quiet-mode .daily-photo { opacity: 1; filter: brightness(1.03) saturate(.98) contrast(1.08); }
 
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
