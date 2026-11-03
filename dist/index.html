@@ -23,7 +23,7 @@
       href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=article-english-20261103e" />
+    <link rel="stylesheet" href="styles.css?v=article-english-20261103f" />
   </head>
   <body>
     <div class="app-shell">
@@ -101,13 +101,18 @@
           <div class="article-reader-head">
             <div>
               <p class="article-eyebrow">ARTICLE / ENGLISH READING</p>
-              <h2 id="articleTitle"></h2>
-              <p class="article-meta" id="articleMeta">日本語原文 / English translation</p>
+              <div class="article-title-block">
+                <p class="article-language-label">日本語原文</p>
+                <h2 id="articleTitle"></h2>
+                <p class="article-language-label article-language-label-en">English translation</p>
+                <h2 id="articleTitleTranslation" class="article-title-translation"></h2>
+              </div>
+              <p class="article-meta" id="articleMeta">日本語原文＋タイトル・本文英訳 / ブラウザ内蔵音声</p>
             </div>
             <button class="detail-close" id="articleClose" type="button" aria-label="記事を閉じる">×</button>
           </div>
           <div class="article-actions" aria-label="記事の操作">
-            <button class="article-action primary" id="translateButton" type="button">本文を英訳</button>
+            <button class="article-action primary" id="translateButton" type="button">タイトルと本文を英訳</button>
             <button class="article-action" id="speakButton" type="button" disabled>英訳を読み上げる</button>
             <button class="article-action stop" id="stopSpeakButton" type="button" hidden>停止</button>
           </div>
@@ -124,6 +129,6 @@
       </main>
 
     </div>
-    <script src="app.js?v=article-english-20261103e" defer></script>
+    <script src="app.js?v=article-english-20261103f" defer></script>
   </body>
 </html>

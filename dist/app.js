@@ -136,6 +136,7 @@ const dailyPhoto = document.querySelector("#dailyPhoto");
 const installButton = document.querySelector("#installButton");
 const articleReader = document.querySelector("#articleReader");
 const articleTitle = document.querySelector("#articleTitle");
+const articleTitleTranslation = document.querySelector("#articleTitleTranslation");
 const articleMeta = document.querySelector("#articleMeta");
 const articleBody = document.querySelector("#articleBody");
 const articleStatus = document.querySelector("#articleStatus");
@@ -615,6 +616,11 @@ function parseArticleReaderMarkdown(markdown, fallbackTitle) {
   return { title, blocks };
 }
 
+function renderArticleTitle(sourceTitle, translatedTitle = "Translating…") {
+  articleTitle.textContent = sourceTitle;
+  articleTitleTranslation.textContent = translatedTitle;
+}
+
 function renderArticleBlocks(sourceBlocks, translatedBlocks = sourceBlocks) {
   articleBody.replaceChildren(...sourceBlocks.map((sourceBlock, index) => {
     const translatedBlock = translatedBlocks[index] || sourceBlock;
@@ -789,8 +795,21 @@ function speakArticle() {
 async function translateArticle(article, requestId) {
   const translatedBlocks = new Array(article.sourceBlocks.length);
   let failed = 0;
+  let titleFailed = false;
   let nextIndex = 0;
   let completed = 0;
+  const titlePromise = translateTextToEnglish(article.sourceTitle)
+    .then((translatedTitle) => {
+      if (!activeArticle || activeArticle.requestId !== requestId) return;
+      article.translatedTitle = translatedTitle;
+      renderArticleTitle(article.sourceTitle, translatedTitle);
+    })
+    .catch(() => {
+      titleFailed = true;
+      if (!activeArticle || activeArticle.requestId !== requestId) return;
+      article.translatedTitle = article.sourceTitle;
+      renderArticleTitle(article.sourceTitle, article.sourceTitle);
+    });
   const worker = async () => {
     while (nextIndex < article.sourceBlocks.length) {
       if (!activeArticle || activeArticle.requestId !== requestId) return;
@@ -809,14 +828,18 @@ async function translateArticle(article, requestId) {
       }
     }
   };
-  await Promise.all(Array.from({ length: Math.min(3, article.sourceBlocks.length) }, worker));
+  await Promise.all([
+    titlePromise,
+    ...Array.from({ length: Math.min(3, article.sourceBlocks.length) }, worker),
+  ]);
   if (!activeArticle || activeArticle.requestId !== requestId) return;
   article.translatedBlocks = translatedBlocks;
   renderArticleBlocks(article.sourceBlocks, translatedBlocks);
   speakButton.disabled = !("speechSynthesis" in window);
+  const hasFailure = failed || titleFailed;
   setArticleStatus(
-    failed ? `本文を英訳しました（一部は原文のままです）。${"speechSynthesis" in window ? "読み上げボタンを押せます。" : "音声読み上げは非対応です。"}` : `本文のみ英訳しました。${"speechSynthesis" in window ? "読み上げボタンを押せます。" : "音声読み上げは非対応です。"}`,
-    failed ? "warning" : "success",
+    hasFailure ? `タイトルと本文を英訳しました（一部は原文のままです）。${"speechSynthesis" in window ? "読み上げボタンを押せます。" : "音声読み上げは非対応です。"}` : `タイトルと本文を英訳しました。${"speechSynthesis" in window ? "読み上げボタンを押せます。" : "音声読み上げは非対応です。"}`,
+    hasFailure ? "warning" : "success",
   );
 }
 
@@ -831,7 +854,7 @@ async function loadArticle(item, requestId) {
     if (!activeArticle || activeArticle.requestId !== requestId) return;
     activeArticle.sourceBlocks = parsed.blocks;
     translateButton.disabled = false;
-    articleTitle.textContent = item.title;
+    renderArticleTitle(article.sourceTitle, article.translatedTitle || "Translating…");
     articleBody.replaceChildren();
     await translateArticle(activeArticle, requestId);
   } catch (error) {
@@ -851,9 +874,9 @@ function openArticle(item) {
   cancelSpeech();
   const requestId = articleRequestId + 1;
   articleRequestId = requestId;
-  activeArticle = { item, requestId, sourceBlocks: [], translatedBlocks: [] };
-  articleTitle.textContent = item.title;
-  articleMeta.textContent = "日本語原文＋本文英訳 / ブラウザ内蔵音声";
+  activeArticle = { item, requestId, sourceTitle: item.title, translatedTitle: "", sourceBlocks: [], translatedBlocks: [] };
+  renderArticleTitle(item.title);
+  articleMeta.textContent = "日本語原文＋タイトル・本文英訳 / ブラウザ内蔵音声";
   articleSourceLink.href = item.url;
   articleBody.replaceChildren();
   const loading = document.createElement("p");
@@ -1018,7 +1041,7 @@ drawScene();
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js?v=article-english-20261103e", { scope: "./" }).catch((error) => {
+    navigator.serviceWorker.register("./sw.js?v=article-english-20261103f", { scope: "./" }).catch((error) => {
       console.warn("Service Worker could not be registered.", error);
     });
   });
