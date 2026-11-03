@@ -589,6 +589,10 @@ function parseArticleReaderMarkdown(markdown, fallbackTitle) {
     }
     if (/^\d{1,2}[\/]\d{1,2}.*(?:配信|Published)/i.test(line)) return;
     if (/^(?:X|Facebook|LINE|共有|シェア)$/i.test(line)) return;
+    const plainLine = stripMarkdownFormatting(line).replace(/[*_~]/g, "");
+    if (/^(?:previous|prev|next|ページ(?:送り|移動)?|page\s+\d+(?:\s+of\s+\d+)?)$/i.test(plainLine)) return;
+    if (/^(?:previous|prev)(?:\s*\d+)+(?:\s*next)?$/i.test(plainLine)) return;
+    if (/^(?:\d+\s*\/\s*\d+\s*pages?|page\s*\d+\s*\/\s*\d+)$/i.test(plainLine)) return;
     if (/^\[!?\[/.test(line) || /^\[\s*\]\(.*\)$/.test(line) || /^\[[^\]]+\]\(.*\)$/.test(line)) return;
 
     const linkFreeLine = line.replace(/!?(?:\[[^\]]*\])\([^)]*\)/g, "").trim();
@@ -997,7 +1001,7 @@ drawScene();
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js?v=article-english-20261103c", { scope: "./" }).catch((error) => {
+    navigator.serviceWorker.register("./sw.js?v=article-english-20261103d", { scope: "./" }).catch((error) => {
       console.warn("Service Worker could not be registered.", error);
     });
   });
