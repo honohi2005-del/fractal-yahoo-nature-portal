@@ -113,6 +113,7 @@ const NEWS_FEEDS = Object.freeze({
   world: "https://news.yahoo.co.jp/rss/categories/world.xml",
   it: "https://news.yahoo.co.jp/rss/categories/it.xml",
   science: "https://news.yahoo.co.jp/rss/categories/science.xml",
+  local: "https://news.yahoo.co.jp/rss/categories/local.xml",
 });
 
 const NEWS_PROXY_BUILDERS = [
@@ -1117,7 +1118,7 @@ drawScene();
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js?v=major-direct-20261103j", { scope: "./" }).catch((error) => {
+    navigator.serviceWorker.register("./sw.js?v=local-news-20261104k", { scope: "./" }).catch((error) => {
       console.warn("Service Worker could not be registered.", error);
     });
   });

@@ -11,6 +11,7 @@ const FEEDS = Object.freeze({
   world: "https://news.yahoo.co.jp/rss/categories/world.xml",
   it: "https://news.yahoo.co.jp/rss/categories/it.xml",
   science: "https://news.yahoo.co.jp/rss/categories/science.xml",
+  local: "https://news.yahoo.co.jp/rss/categories/local.xml",
 });
 
 const outputPath = fileURLToPath(new URL("../dist/latest-news.json", import.meta.url));

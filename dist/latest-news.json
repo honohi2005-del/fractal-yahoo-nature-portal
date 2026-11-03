@@ -87,6 +87,11 @@
     ],
     "entertainment": [
       {
+        "title": "「まず脚！！」入浴シーン公開のかつみ♥さゆり・さゆりに「ぼよよん」「すごすぎませんか」(西スポWEB OTTO!)",
+        "url": "https://news.yahoo.co.jp/articles/33780994c928515e8446abfdcae17df153a464a3?source=rss",
+        "isNew": true
+      },
+      {
         "title": "「完璧な美貌！！」46歳タレント、ブレザー制服姿に反響「女子高生でもいけるね！」「よい。何しても」(中日スポーツ)",
         "url": "https://news.yahoo.co.jp/articles/d9b6766cbb8da59c61cbefcd31fecbbd7656af33?source=rss",
         "isNew": true
@@ -99,7 +104,7 @@
       {
         "title": "「気になって…」29歳・小芝風花〝ぴったりニット〟姿に騒然「少しふっくらしたかな」「素敵な女優さん」(西スポWEB OTTO!)",
         "url": "https://news.yahoo.co.jp/articles/b21123da0c371bfd2bcbfcd3bdd872a4c6a37ae7?source=rss",
-        "isNew": true
+        "isNew": false
       },
       {
         "title": "倉本聰さん お別れの会が富良野で 「北の国から」ファミリー最後の別れ 中嶋朋子、岩城滉一、竹下景子(スポニチアネックス)",
@@ -120,14 +125,14 @@
         "title": "倉本聰さん お別れの会 参列者が別れの最後の言葉(スポニチアネックス)",
         "url": "https://news.yahoo.co.jp/articles/d0c982f82422e769b267c3bf2b924cb88fd01733?source=rss",
         "isNew": false
-      },
-      {
-        "title": "倉本聰さん 生前から富良野市内に自身の墓所を建立 墓石には緒形拳さんの揮毫「創」(スポニチアネックス)",
-        "url": "https://news.yahoo.co.jp/articles/aa59f887962459b66c45c7ba0d7ac19b2be30b9a?source=rss",
-        "isNew": false
       }
     ],
     "sports": [
+      {
+        "title": "人気女子バドミントン選手、印象がらりの秋コーデ“オフショット”にファン注目「この衣装、とてもおしゃれです」(CoCoKARAnext)",
+        "url": "https://news.yahoo.co.jp/articles/fd5a0222d9a04ac5666a2e6de70bd0bcb7323413?source=rss",
+        "isNew": true
+      },
       {
         "title": "日韓OB戦の超豪華50人…驚きの人選「入っとる!?」 外野手の顔ぶれに「嫌な想い出が」(Full-Count)",
         "url": "https://news.yahoo.co.jp/articles/87c39a9e79576f5bad67aff7b5a1ce9fcc2ab10a?source=rss",
@@ -141,7 +146,7 @@
       {
         "title": "ダルビッシュが織田翔希の巨人“拒否”に「（直メジャーは）お勧めしない。絶対に日本の球団経由の方がメジャーでプレーできる確率は上がる」と「客観的事実」見解…理由はマイナーの過酷環境(RONSPO)",
         "url": "https://news.yahoo.co.jp/articles/83ebbbbd88436b5d7d8f3c637d96fab0ab2c8766?source=rss",
-        "isNew": true
+        "isNew": false
       },
       {
         "title": "「マジかぁ…寂しいねぇ…」楽天34歳、台湾右腕の退団にファン悲痛 「日本でプレー続けたいらしいから他球団でも頑張れ」11シーズンの貢献に感謝とエール(CoCoKARAnext)",
@@ -161,11 +166,6 @@
       {
         "title": "週間ベスト11選出「極めて大きな勝利に貢献」 英日本人が初得点…名手指摘「見過ごされがち」(FOOTBALL ZONE)",
         "url": "https://news.yahoo.co.jp/articles/09fd7b58e86054eb090544bcdf1a1b7f04606e92?source=rss",
-        "isNew": false
-      },
-      {
-        "title": "楽天3位指名の王子・樋口新 5―4の8回から6人完全で貢献「そういう場面をイメージしてやってきた」(スポニチアネックス)",
-        "url": "https://news.yahoo.co.jp/articles/0feb81003cf147c51d3712c0e69e5766126e9977?source=rss",
         "isNew": false
       }
     ],
@@ -213,6 +213,11 @@
     ],
     "world": [
       {
+        "title": "前警察長官が大統領盗聴か インドネシア、3人拘束(共同通信)",
+        "url": "https://news.yahoo.co.jp/articles/4c70a76a7d1874ce475fde3722ff2d01514a0770?source=rss",
+        "isNew": true
+      },
+      {
         "title": "エネルギー施設攻撃停止協議へ ウクライナ米ロ、10～11日(共同通信)",
         "url": "https://news.yahoo.co.jp/articles/fd1ead1d3ccd8b3ee2e1ac004d96a812d9d04faf?source=rss",
         "isNew": true
@@ -225,7 +230,7 @@
       {
         "title": "中国のVIVANT批判でサンリオがコラボ中止に…チャイナリスクの〝新形態〟どう備えられるのか(Wedge（ウェッジ）)",
         "url": "https://news.yahoo.co.jp/articles/e7c2f62b7a19c495ebe90b68720f1c876ab94ec3?source=rss",
-        "isNew": true
+        "isNew": false
       },
       {
         "title": "NATOの「我々は戦う」新戦略…侵攻部隊を撃退する「阻止、打撃、粉砕」、強化される欧州の防衛力(Wedge（ウェッジ）)",
@@ -245,11 +250,6 @@
       {
         "title": "トランプ氏、年間6000億円超のイスラエル支援を打ち切り表明 米紙「米外交の転換点」(産経新聞)",
         "url": "https://news.yahoo.co.jp/articles/39e2d7c0681e1c29d80c27289b57a941209c1c11?source=rss",
-        "isNew": false
-      },
-      {
-        "title": "今日の歴史（11月4日）(聯合ニュース)",
-        "url": "https://news.yahoo.co.jp/articles/be8bf288e803e29ea6167139a221911dd9fe93cc?source=rss",
         "isNew": false
       }
     ],
@@ -334,6 +334,48 @@
       {
         "title": "口や顎の治療から、ほかの診療科を支える役割まで――第71回日本口腔外科学会総会・学術大会が見据える未来(Medical Note)",
         "url": "https://news.yahoo.co.jp/articles/5b57ee2bed56659d35d934aef594d0766d8afc55?source=rss",
+        "isNew": false
+      }
+    ],
+    "local": [
+      {
+        "title": "【名古屋市中川区】11/4 最高19℃、ひんやりする場面も、夜は雨の予想【朝版】(Yahoo!ニュース オリジナル THE PAGE)",
+        "url": "https://news.yahoo.co.jp/articles/f357bac9fb4c7d602510d6b9bcebac7915e28a39?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "【名古屋市緑区】11/4 最高19℃、ひんやりする場面も、夜は雨の予想【朝版】(Yahoo!ニュース オリジナル THE PAGE)",
+        "url": "https://news.yahoo.co.jp/articles/1b682121bbdb5ab37fd8d1462592771cbefca2c6?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "【仙台市太白区】11/4 最低5℃、ひんやりする場面も、朝から夜にかけて晴れる見込みの予想【朝版】(Yahoo!ニュース オリジナル THE PAGE)",
+        "url": "https://news.yahoo.co.jp/articles/ba2840d6c2cc69ef14ca33046c12e8b842c4fe29?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "弟・袴田巌さんの無罪が確定しても93歳の姉・ひで子さんが表舞台に立ち続ける理由「法律が悪いから」再審法見直しの「5年後までは大丈夫でしょう」 袴田事件・狭山事件を追った映画が完成(関西テレビ)",
+        "url": "https://news.yahoo.co.jp/articles/59fe6b45e9fd70c80eb3e0927abafd279da9ef72?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "【仙台市青葉区】11/4 最低5℃、冷えるタイミングがありそう、昼間は晴れる予想【朝版】(Yahoo!ニュース オリジナル THE PAGE)",
+        "url": "https://news.yahoo.co.jp/articles/ea4a0350c83c2a8a33df28d1d91d5502a9c40612?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "【福岡市博多区】11/4 最高21℃、夕方から雲が広がりやすい予想【朝版】(Yahoo!ニュース オリジナル THE PAGE)",
+        "url": "https://news.yahoo.co.jp/articles/666bd7ae94badc127443bf8330b3fe78b6dbe4df?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "【福岡市東区】11/4 最高21℃、夜は雨の可能性、朝は晴れて昼間からくもりの予想【朝版】(Yahoo!ニュース オリジナル THE PAGE)",
+        "url": "https://news.yahoo.co.jp/articles/bb0313534c7ec5706f95f50fd5da84f25d573885?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "【京都市左京区】11/4 最低11℃、ひんやりするタイミングも、夜は雨の予想【朝版】(Yahoo!ニュース オリジナル THE PAGE)",
+        "url": "https://news.yahoo.co.jp/articles/e9d19df8cf876a3aaaedb9334881598603f2d6b7?source=rss",
         "isNew": false
       }
     ]
