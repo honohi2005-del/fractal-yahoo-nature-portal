@@ -760,11 +760,18 @@ async function translateTextToEnglish(text) {
   return translatedChunks.join("");
 }
 
+const maleEnglishVoicePattern = /(?:\bmale\b|\balex\b|\bandrew\b|\barthur\b|\bbrian\b|\bchristopher\b|\bdaniel\b|\bdavid\b|\beric\b|\bfred\b|\bgeorge\b|\bguy\b|\bjames\b|\bjason\b|\bjustin\b|\bmark\b|\bmatthew\b|\bmichael\b|\boliver\b|\bralph\b|\bryan\b|\bstephen\b|\bthomas\b|\btom\b|\bwilliam\b)/i;
+const naturalEnglishVoicePattern = /natural|neural|google|microsoft|enhanced|premium/i;
+
 function getEnglishVoice() {
   if (!("speechSynthesis" in window)) return null;
   const voices = window.speechSynthesis.getVoices();
-  return voices.find((voice) => /^en[-_]/i.test(voice.lang) && /natural|neural|google|microsoft|samantha|alex/i.test(voice.name))
-    || voices.find((voice) => /^en[-_]/i.test(voice.lang))
+  const englishVoices = voices.filter((voice) => /^en[-_]/i.test(voice.lang));
+  const maleVoices = englishVoices.filter((voice) => maleEnglishVoicePattern.test(voice.name));
+  return maleVoices.find((voice) => naturalEnglishVoicePattern.test(voice.name))
+    || maleVoices[0]
+    || englishVoices.find((voice) => naturalEnglishVoicePattern.test(voice.name))
+    || englishVoices[0]
     || null;
 }
 
@@ -1102,7 +1109,7 @@ drawScene();
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js?v=article-english-20261103h", { scope: "./" }).catch((error) => {
+    navigator.serviceWorker.register("./sw.js?v=article-male-voice-20261103i", { scope: "./" }).catch((error) => {
       console.warn("Service Worker could not be registered.", error);
     });
   });
