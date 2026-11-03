@@ -1118,7 +1118,7 @@ drawScene();
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js?v=local-news-20261104k", { scope: "./" }).catch((error) => {
+    navigator.serviceWorker.register("./sw.js?v=sticky-close-20261104l", { scope: "./" }).catch((error) => {
       console.warn("Service Worker could not be registered.", error);
     });
   });
