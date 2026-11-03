@@ -615,11 +615,28 @@ function parseArticleReaderMarkdown(markdown, fallbackTitle) {
   return { title, blocks };
 }
 
-function renderArticleBlocks(blocks) {
-  articleBody.replaceChildren(...blocks.map((block) => {
-    const element = document.createElement(block.kind === "heading" ? "h3" : "p");
-    element.textContent = block.text;
-    return element;
+function renderArticleBlocks(sourceBlocks, translatedBlocks = sourceBlocks) {
+  articleBody.replaceChildren(...sourceBlocks.map((sourceBlock, index) => {
+    const translatedBlock = translatedBlocks[index] || sourceBlock;
+    const group = document.createElement("section");
+    group.className = `article-bilingual-block is-${sourceBlock.kind}`;
+
+    const sourceLabel = document.createElement("p");
+    sourceLabel.className = "article-language-label";
+    sourceLabel.textContent = "日本語原文";
+    const sourceText = document.createElement(sourceBlock.kind === "heading" ? "h3" : "p");
+    sourceText.className = "article-text article-text-source";
+    sourceText.textContent = sourceBlock.text;
+
+    const translatedLabel = document.createElement("p");
+    translatedLabel.className = "article-language-label article-language-label-en";
+    translatedLabel.textContent = "English translation";
+    const translatedText = document.createElement(translatedBlock.kind === "heading" ? "h3" : "p");
+    translatedText.className = "article-text article-text-translation";
+    translatedText.textContent = translatedBlock.text;
+
+    group.append(sourceLabel, sourceText, translatedLabel, translatedText);
+    return group;
   }));
 }
 
@@ -795,7 +812,7 @@ async function translateArticle(article, requestId) {
   await Promise.all(Array.from({ length: Math.min(3, article.sourceBlocks.length) }, worker));
   if (!activeArticle || activeArticle.requestId !== requestId) return;
   article.translatedBlocks = translatedBlocks;
-  renderArticleBlocks(translatedBlocks);
+  renderArticleBlocks(article.sourceBlocks, translatedBlocks);
   speakButton.disabled = !("speechSynthesis" in window);
   setArticleStatus(
     failed ? `本文を英訳しました（一部は原文のままです）。${"speechSynthesis" in window ? "読み上げボタンを押せます。" : "音声読み上げは非対応です。"}` : `本文のみ英訳しました。${"speechSynthesis" in window ? "読み上げボタンを押せます。" : "音声読み上げは非対応です。"}`,
@@ -836,7 +853,7 @@ function openArticle(item) {
   articleRequestId = requestId;
   activeArticle = { item, requestId, sourceBlocks: [], translatedBlocks: [] };
   articleTitle.textContent = item.title;
-  articleMeta.textContent = "本文のみ英訳 / ブラウザ内蔵音声";
+  articleMeta.textContent = "日本語原文＋本文英訳 / ブラウザ内蔵音声";
   articleSourceLink.href = item.url;
   articleBody.replaceChildren();
   const loading = document.createElement("p");
@@ -1001,7 +1018,7 @@ drawScene();
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js?v=article-english-20261103d", { scope: "./" }).catch((error) => {
+    navigator.serviceWorker.register("./sw.js?v=article-english-20261103e", { scope: "./" }).catch((error) => {
       console.warn("Service Worker could not be registered.", error);
     });
   });
