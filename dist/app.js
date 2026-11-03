@@ -985,7 +985,7 @@ function renderNewsLinks(key) {
     link.target = "_blank";
     link.rel = "noreferrer";
     link.textContent = item.title;
-    if (isYahooArticleUrl(item.url)) {
+    if (key !== "major" && isYahooArticleUrl(item.url)) {
       link.addEventListener("click", (event) => {
         if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
         event.preventDefault();
@@ -1034,11 +1034,19 @@ function updateClock() {
 nodes.forEach((node) => {
   node.addEventListener("click", (event) => {
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (node.dataset.node === "major") return;
     event.preventDefault();
     openNode(node);
   });
   node.addEventListener("keydown", (event) => {
     if (event.key === "Enter" || event.key === " ") {
+      if (node.dataset.node === "major") {
+        if (event.key === " ") {
+          event.preventDefault();
+          node.click();
+        }
+        return;
+      }
       event.preventDefault();
       openNode(node);
     }
@@ -1109,7 +1117,7 @@ drawScene();
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js?v=article-male-voice-20261103i", { scope: "./" }).catch((error) => {
+    navigator.serviceWorker.register("./sw.js?v=major-direct-20261103j", { scope: "./" }).catch((error) => {
       console.warn("Service Worker could not be registered.", error);
     });
   });
