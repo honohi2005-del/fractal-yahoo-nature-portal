@@ -3,23 +3,23 @@
   "feeds": {
     "major": [
       {
+        "title": "愛知県で震度5強 津波の心配なし",
+        "url": "https://news.yahoo.co.jp/pickup/6601719?source=rss",
+        "isNew": true
+      },
+      {
         "title": "米中間選挙 共和党大敗の舞台裏",
         "url": "https://news.yahoo.co.jp/pickup/6601716?source=rss",
         "isNew": true
       },
       {
-        "title": "「継戦能力」強化を明記 政府検討",
-        "url": "https://news.yahoo.co.jp/pickup/6601705?source=rss",
+        "title": "大阪維新の会「吉村体制」3期目に",
+        "url": "https://news.yahoo.co.jp/pickup/6601718?source=rss",
         "isNew": true
       },
       {
         "title": "基地交付金 打ち切り恐れに町反発",
         "url": "https://news.yahoo.co.jp/pickup/6601709?source=rss",
-        "isNew": true
-      },
-      {
-        "title": "大阪維新の会「吉村体制」3期目に",
-        "url": "https://news.yahoo.co.jp/pickup/6601718?source=rss",
         "isNew": false
       },
       {
@@ -45,19 +45,34 @@
     ],
     "economy": [
       {
+        "title": "親の生命保険、受取人が「亡き祖母」のまま放置するとどうなる？家族が500万円をまるごと受け取れない意外な理由(LIMO)",
+        "url": "https://news.yahoo.co.jp/articles/3bd556e12be37fcd2d761f2627bc3b59bbadf2d8?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "鮮やかなポルシェ948、堂々登場!!!(GQ JAPAN)",
+        "url": "https://news.yahoo.co.jp/articles/5797786776c560e549b6ee6bc56eb4f597086b82?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "前代未聞の新型ゲームオーバー登場！ S-KLUB LAが手がけた、別名“CLK750S”に迫る！(GQ JAPAN)",
+        "url": "https://news.yahoo.co.jp/articles/17e53eb601ba8c79525a932de9d43d8ca1594c34?source=rss",
+        "isNew": true
+      },
+      {
         "title": "「月給30万円の手取り」はいくら？月給（額面）別の手取り額一覧表を年代別にみる(LIMO)",
         "url": "https://news.yahoo.co.jp/articles/ee06915526611781d92e7a270dce54b3b9e3465e?source=rss",
-        "isNew": true
+        "isNew": false
       },
       {
         "title": "レクサスのトラック、遂に登場か!? 新型TX1デビュー!!!(GQ JAPAN)",
         "url": "https://news.yahoo.co.jp/articles/b8d446b919866e4fc30a51e37b57c947f2c25e51?source=rss",
-        "isNew": true
+        "isNew": false
       },
       {
         "title": "えええ、BMWのZ3なの!? どう見てもフェラーリ250SWBじゃん!!(ベストカーWeb)",
         "url": "https://news.yahoo.co.jp/articles/fbce1cf93b06891fa35950b4c9610ce63228a337?source=rss",
-        "isNew": true
+        "isNew": false
       },
       {
         "title": "1980年の“12本ビス”が復活！ ウブロ「クラシック・フュージョン トリビュート」、原点のデザインを自動巻きで再構築(VAGUE)",
@@ -68,192 +83,182 @@
         "title": "ミラーやホイールまで再現!? 「カーケシGP」は金型から素材の硬さまでガチ開発！(ベストカーWeb)",
         "url": "https://news.yahoo.co.jp/articles/bcbf16ea8c9f12929afaa9d909b5ee0f0e4d04d0?source=rss",
         "isNew": false
-      },
-      {
-        "title": "夫が60歳で定年退職したら、妻は「年金の扶養」から外れる？月1.7万円、3年間で“約64万円”を自分で払うことになる試算を解説(LIMO)",
-        "url": "https://news.yahoo.co.jp/articles/3b2cdbc7b866f71fdf3695b033c006fea3aa83f7?source=rss",
-        "isNew": false
-      },
-      {
-        "title": "国家公務員の平均月給41万4480円の内訳→俸給33万2237円、手当8万2243円 行政職俸給表（一）の平均(LIMO)",
-        "url": "https://news.yahoo.co.jp/articles/42d72b81c98e6a954b8b7b03a5e276349df28f25?source=rss",
-        "isNew": false
-      },
-      {
-        "title": "無骨なデザインに思わずひと目惚れ!? 小さい姿で木造9畳・コンクリート12畳までしっかり暖める トヨトミ製“赤熱式石油ストーブ”の特徴とは(VAGUE)",
-        "url": "https://news.yahoo.co.jp/articles/436ebc93b8f8e8567affb2a65aa54bd4f6d6f653?source=rss",
-        "isNew": false
       }
     ],
     "entertainment": [
       {
-        "title": "「3人産んでこれは凄い」44歳、熊田曜子の〝肩出し〟ショットに反響「むしろ今のほうがいいわ」「細身の筋肉質だよな」(西スポWEB OTTO!)",
-        "url": "https://news.yahoo.co.jp/articles/9cbf3c501a63d074b61d34d597959e83b01a8b86?source=rss",
+        "title": "「なにわ男子」の長尾謙杜「すごくドキドキ、ワクワク。やっぱり舞台は生もの」 来年2月の開幕舞台「夜中に犬に起こった奇妙な事件」で単独初主演(中日スポーツ)",
+        "url": "https://news.yahoo.co.jp/articles/7ed13134e47d85a465574a9865ec97bf755e0b68?source=rss",
         "isNew": true
       },
       {
-        "title": "背中びっしりタトゥー再び公開…町田啓太「インパクト強すぎ」〝金髪半グレ〟映画ショットに反響続々「知性と狂気を感じる」(西スポWEB OTTO!)",
-        "url": "https://news.yahoo.co.jp/articles/10158b39201a707b0f7de60bc7521bcc87aa0064?source=rss",
+        "title": "長尾謙杜が15歳の少年に、「夜中に犬に起こった奇妙な事件」で舞台単独初主演(ステージナタリー)",
+        "url": "https://news.yahoo.co.jp/articles/b77a3827136b48acd02c325b9593b4d2420ccc05?source=rss",
         "isNew": true
       },
       {
-        "title": "桑田佳祐、中山律子さんを追悼 史上初３００点達成の瞬間は画面にくぎ付け「太陽のような美しいほほ笑み。歴史が変わった瞬間を見せてもらった」(スポーツ報知)",
-        "url": "https://news.yahoo.co.jp/articles/e59839c274eb0892ec6aa51dbaffbb65ca7bea16?source=rss",
+        "title": "なにわ男子・長尾謙杜、単独初主演舞台で15歳の少年役「夜中に犬に起こった奇妙な事件」上演決定【コメント】(モデルプレス)",
+        "url": "https://news.yahoo.co.jp/articles/3eb3563704b0e67d09929dbb5d4b3a038c1a8bd6?source=rss",
         "isNew": true
       },
       {
-        "title": "STARGLOW、1stアルバム『Aurora』ムードフィルム＆リリースカレンダーを公開(Billboard JAPAN)",
-        "url": "https://news.yahoo.co.jp/articles/b6bfbee8d655751d65a5cb4184c092b17c5d5752?source=rss",
+        "title": "なにわ男子・長尾謙杜、舞台単独初主演「胸が高鳴ります」 １５歳少年の大冒険に挑む 世界的名作「夜中に犬に起こった奇妙な事件」(スポーツ報知)",
+        "url": "https://news.yahoo.co.jp/articles/f40f1c8908fd97c2c9e1afdecd449bb12c497fdf?source=rss",
         "isNew": false
       },
       {
-        "title": "アニメ「ブラッククローバー」雪辱を果たそうとするノエルのビジュアル(コミックナタリー)",
-        "url": "https://news.yahoo.co.jp/articles/554a922c18686036a93375111e5e8e26a98090bf?source=rss",
+        "title": "「舞台は生もの」なにわ男子長尾謙杜が舞台初主演「その場だからこそ生まれるものも楽しんで」(日刊スポーツ)",
+        "url": "https://news.yahoo.co.jp/articles/493e7c2e031eeaa033cb61d06f1eb90350857a21?source=rss",
         "isNew": false
       },
       {
-        "title": "「よく見たら…杉田かおる」「思わず二度見!」実は朝ドラ初出演〝激変〟61歳に「ビックリ!?!?全然違う」「誰かと…良い歳を重ねてきたんだな」(西スポWEB OTTO!)",
-        "url": "https://news.yahoo.co.jp/articles/e06b498f4af454154d35fee8bf95a8705d0b9c75?source=rss",
+        "title": "なにわ男子・長尾謙杜、舞台単独初主演 来年2.21開幕「夜中に犬に起こった奇妙な事件」 15歳の少年役(サンケイスポーツ)",
+        "url": "https://news.yahoo.co.jp/articles/58fe0dae2c88f59f3379208db5bef9d7aedfe7b1?source=rss",
         "isNew": false
       },
       {
-        "title": "『ブラッククローバー』ノエル、聖域・海神戦乙女の羽衣鎧を発動 メギキュラ設定画も解禁(オリコン)",
-        "url": "https://news.yahoo.co.jp/articles/ca093f3d8c6f7e59c08659eae93bf25016027591?source=rss",
+        "title": "長尾謙杜、単独で舞台初主演！ 『夜中に犬に起こった奇妙な事件』来年2～3月上演決定(クランクイン！)",
+        "url": "https://news.yahoo.co.jp/articles/8027dabc640ac2fdf67b48db698559ab121b504a?source=rss",
         "isNew": false
       },
       {
-        "title": "「匂わせじゃないよな？」大谷映美里、名古屋飯ショット〝映り込み〟が話題「気になって仕方がない」(西スポWEB OTTO!)",
-        "url": "https://news.yahoo.co.jp/articles/5b0d5869089ee0324961fa272918743c84383d4c?source=rss",
+        "title": "なにわ男子・長尾謙杜、単独初主演舞台『夜中に犬に起こった奇妙な事件』上演決定(ENCOUNT)",
+        "url": "https://news.yahoo.co.jp/articles/8e2be63e456e76e3d7cb5a33aaec2010c66702b8?source=rss",
         "isNew": false
       }
     ],
     "sports": [
       {
-        "title": "【スーパーGT第3戦】5位に入ったクニミツ、逆転でランク首位に立つ、auトムスのチーム4連覇に黄信号(中日スポーツ)",
-        "url": "https://news.yahoo.co.jp/articles/8ff8030c86c34d5b091df7c9b740c52a82613889?source=rss",
+        "title": "【U-17女子W杯】U-17北朝鮮女子代表、ブラジルに6発圧勝！ 日本に敗れ3連覇逃すも…3位決定戦でゴールラッシュ(フットボールチャンネル)",
+        "url": "https://news.yahoo.co.jp/articles/c1364a0a5c13219a7566034d3a8a8119c814fab5?source=rss",
         "isNew": true
       },
       {
-        "title": "【順位結果】2026年WEC第8戦モンツァ 予選(オートスポーツweb)",
-        "url": "https://news.yahoo.co.jp/articles/e5ebcbfb7353d12ed1a5bb01e7ec4f71608d5901?source=rss",
+        "title": "元神職の30歳がコンテスト活躍 背面の筋トレで姿勢改善と引き締まりを実感(FITNESS LOVE)",
+        "url": "https://news.yahoo.co.jp/articles/b19a5e376237a05d3143a0abab8fd814d0d10a4b?source=rss",
         "isNew": true
       },
       {
-        "title": "バレンシアMF佐藤龍之介、Rマドリード戦で今季12試合目にして初招集外 直近６試合出番なし(日刊スポーツ)",
-        "url": "https://news.yahoo.co.jp/articles/daf9474033a1401e7ffbcb00ae410d67b8e62bb8?source=rss",
+        "title": "「号泣しちゃった」会心の演技後、21歳フィギュア女子の嗚咽に「感動した」 ネットもらい泣き(THE ANSWER)",
+        "url": "https://news.yahoo.co.jp/articles/ee4ec4bab68a5da0b33a6ad74daac39a0a212ec1?source=rss",
         "isNew": true
       },
       {
-        "title": "Moto3カタール予選｜マキシモ・キレス、2戦連続ポールポジション！ 日本勢はQ2進出も上位グリッドならず(motorsport.com 日本版)",
-        "url": "https://news.yahoo.co.jp/articles/04b4d9de8c91bb077a6878ee1876bb4b802a1dde?source=rss",
+        "title": "カズ 59歳8カ月12日でJ3最年長出場 今季リーグ戦初出場でJ1、ルヴァン杯、J2“完全制覇”(スポニチアネックス)",
+        "url": "https://news.yahoo.co.jp/articles/3cca0d7b20e94dbf75a09af7e1fc8386796a2dc5?source=rss",
         "isNew": false
       },
       {
-        "title": "【ボクシング】元世界王者尾川堅一が判定勝利「心に刻んで」400人応援団へ王座返り咲き誓う(日刊スポーツ)",
-        "url": "https://news.yahoo.co.jp/articles/22b9a31b108ca0a9c0ea6ab8e16a0abf4a94d531?source=rss",
+        "title": "新潟 今治撃破で首位堅守 決勝ゴールのFW桑山「焦らずにやるべきことをやった」(スポニチアネックス)",
+        "url": "https://news.yahoo.co.jp/articles/f45ff54e7a1b6eb8a815e71a186af5d7dcec99da?source=rss",
         "isNew": false
       },
       {
-        "title": "「そんなはずじゃなかったんだけど……」引退発表の新田守男、2連勝でなんとGT300チャンピオンも見える状況に！ 本人も戸惑い(motorsport.com 日本版)",
-        "url": "https://news.yahoo.co.jp/articles/3f0781082ca53e204fedf589fd70403abcf13b69?source=rss",
+        "title": "日本、ウェールズに敗れる ラグビー国際大会第4戦(共同通信)",
+        "url": "https://news.yahoo.co.jp/articles/d37d6651ba2f2049e13d6e0e16932865bb0ae045?source=rss",
         "isNew": false
       },
       {
-        "title": "堀越が東京朝鮮に6-1で勝ち、4年連続決勝進出 影のMVP・GK小島耀は3つのファインセーブ(高校サッカードットコム)",
-        "url": "https://news.yahoo.co.jp/articles/23a3c0da11e5970cf6b6c2556d6d5847c8177cfe?source=rss",
+        "title": "【ラグビー日本代表】ウェールズに21―28で敗戦 敵地で史上初のホームネーションズ撃破はまたもお預け(スポニチアネックス)",
+        "url": "https://news.yahoo.co.jp/articles/7e2f5fe272ebed532261eb942b1be8e785e91b76?source=rss",
         "isNew": false
       },
       {
-        "title": "早大が慶大に先勝！苦しんだルーキー阿部葉太がリーグ初本塁打「しっかり反応できてよかった」(日刊スポーツ)",
-        "url": "https://news.yahoo.co.jp/articles/ba41345615eaf1b35589de7a5f2ba418e9d85334?source=rss",
+        "title": "PSGがDFハキミと2031年夏まで契約延長へ！…右SBとして公式戦通算221試合で31G47A記録 ｜ リーグアン(DAZN News)",
+        "url": "https://news.yahoo.co.jp/articles/431ad2e332aebda1f39607c27fb0b8a66d078164?source=rss",
         "isNew": false
       }
     ],
     "domestic": [
       {
-        "title": "17歳少年運転のレンタカーが交通事故 1人けが 名古屋・栄でパトカーから逃走中(メ〜テレ（名古屋テレビ）)",
-        "url": "https://news.yahoo.co.jp/articles/2e8bfd88c0bdd297f39f20b5bf8c9aa5fc678d39?source=rss",
+        "title": "気象庁「1週間、震度5強程度に警戒を」(共同通信)",
+        "url": "https://news.yahoo.co.jp/articles/008241c2a2bae4faf4709598ed418b28db389d68?source=rss",
         "isNew": true
       },
       {
-        "title": "富士山の麓 山中湖畔の紅葉が見ごろ 11月15日までライトアップも 山梨県(テレビ朝日系（ANN）)",
-        "url": "https://news.yahoo.co.jp/articles/90fdbb841a8b1ade51ba9e118914df26bb134dc4?source=rss",
+        "title": "中部国際空港設備に不具合なし(共同通信)",
+        "url": "https://news.yahoo.co.jp/articles/1b1199280aa22175fde8b2452dece29dfa2d2762?source=rss",
         "isNew": true
       },
       {
-        "title": "【台風情報】台風32号（チャンパカ）の進路予想 小笠原近海を西北西へ 中心気圧1000hPa、最大瞬間風速30m/s 12日午後9時までの予報は (FNNプライムオンライン)",
-        "url": "https://news.yahoo.co.jp/articles/b48137411a89c79e2c337a1946c9c8e3c849f7f7?source=rss",
+        "title": "落下物が顔面に直撃した人も…愛知で最大震度5強を観測する強い地震 8日午前3時までに少なくとも5人がケガ(東海テレビ)",
+        "url": "https://news.yahoo.co.jp/articles/1c727c781c83ea3aca0d83a9904faf08b6326d0f?source=rss",
         "isNew": true
       },
       {
-        "title": "酒酔い運転で高齢男性をはねた疑い 32歳女を現行犯逮捕 男性は死亡 茨城・境町(テレビ朝日系（ANN）)",
-        "url": "https://news.yahoo.co.jp/articles/6bf376a7cbc7e9742531f54d280eed27351ac9ed?source=rss",
+        "title": "中部電浜岡原発に異常なし(共同通信)",
+        "url": "https://news.yahoo.co.jp/articles/4e691da860e614af9870918432bfa85c4ec2890c?source=rss",
         "isNew": false
       },
       {
-        "title": "大阪発高知行きのバスが出火 明石大橋付近、全員無事(共同通信)",
-        "url": "https://news.yahoo.co.jp/articles/7496fa014ee2133e174b9573a2fbe340444247d9?source=rss",
+        "title": "首相、愛知県西部の地震で被害の把握指示(共同通信)",
+        "url": "https://news.yahoo.co.jp/articles/76051c8ffd04b511ed94e928bba5d85082f4a9b4?source=rss",
         "isNew": false
       },
       {
-        "title": "石破氏らの採決退席、自民・野田聖子氏「しょうがない」立民・蓮舫氏「勇気ある行動」絶賛(産経新聞)",
-        "url": "https://news.yahoo.co.jp/articles/665ed590630c25dd44b58fb732d1672f4d3d5fe7?source=rss",
+        "title": "名古屋でも震度4…愛知県で最大震度5強を観測する強い地震 静岡県西部が震源でM5.7【8日午前3時時点】(東海テレビ)",
+        "url": "https://news.yahoo.co.jp/articles/afb47b619deb6c02f2188084263edff7c24c785f?source=rss",
         "isNew": false
       },
       {
-        "title": "大阪発高知行き高速バスから出火、全員無事(共同通信)",
-        "url": "https://news.yahoo.co.jp/articles/d173ea2c7e7b45b1398a7ed3f36840186f789f3f?source=rss",
+        "title": "【避難情報】東海地方で震度5強の地震発生受け 愛知県知多市・豊田市で避難場所を開設(メ〜テレ（名古屋テレビ）)",
+        "url": "https://news.yahoo.co.jp/articles/4560d11c325cd973d533571a1340bbd182bcdcd3?source=rss",
         "isNew": false
       },
       {
-        "title": "神戸淡路鳴門道で高知行きバス火災 兵庫・淡路 目撃者「煙が真っ赤」 乗客ら22人脱出(産経新聞)",
-        "url": "https://news.yahoo.co.jp/articles/12a3ca67450fef205ac7b7051074363129d21da2?source=rss",
+        "title": "【交通情報】愛知県知多市で震度5強の地震 この影響で知多半島道路などが通行止め(メ〜テレ（名古屋テレビ）)",
+        "url": "https://news.yahoo.co.jp/articles/031f844ee22578835e2d7b4416839170442068e8?source=rss",
         "isNew": false
       }
     ],
     "world": [
       {
+        "title": "「最側近」交代…後任は”移民強硬派” 民主党主導の議会と対決姿勢(テレビ朝日系（ANN）)",
+        "url": "https://news.yahoo.co.jp/articles/be35ca88ff47e70ed275d4c1d407189d836d064a?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "ポーランドで銃撃、5人死亡 南部クラクフ、容疑者拘束(共同通信)",
+        "url": "https://news.yahoo.co.jp/articles/f572c949ecee6ea2ef6f59805ac2e2d68fd15579?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "ポーランドで銃撃、5人死亡(共同通信)",
+        "url": "https://news.yahoo.co.jp/articles/e97ad73f0640aa3cfaca3d612655af78785230f7?source=rss",
+        "isNew": true
+      },
+      {
+        "title": "米軍、イラン陸路監視強化 兵器輸送の阻止狙う(共同通信)",
+        "url": "https://news.yahoo.co.jp/articles/742d402fb4e16df17bcc77503c5ef17532af50ef?source=rss",
+        "isNew": false
+      },
+      {
+        "title": "今日の歴史（11月8日）(聯合ニュース)",
+        "url": "https://news.yahoo.co.jp/articles/5aa3c42f3be3cab4b92a231bd2ecd0a544ce7bdd?source=rss",
+        "isNew": false
+      },
+      {
         "title": "北朝鮮製の弾道弾使用か ウクライナのエネ施設への攻撃(共同通信)",
         "url": "https://news.yahoo.co.jp/articles/8f5163245b80a8f43a8b2fb4a793d6bf9ee9a922?source=rss",
-        "isNew": true
+        "isNew": false
       },
       {
         "title": "マカオ司法警察局が東南アジア系海外労働者対象の防犯キャンペーン展開(マカオ新聞)",
         "url": "https://news.yahoo.co.jp/articles/1b74a02b2e7458248c32e29e8ff246a360b3054f?source=rss",
-        "isNew": true
+        "isNew": false
       },
       {
         "title": "ロ・ウ・米3者協議を前に 攻撃は続く キーウ市長「電力供給極めて厳しい」(テレビ朝日系（ANN）)",
         "url": "https://news.yahoo.co.jp/articles/5fbb05933c4765dfde1cf5574c8a076e63f6714e?source=rss",
-        "isNew": true
-      },
-      {
-        "title": "イタリア外相、ハッキング標的に ウクライナ支援が原因と指摘(共同通信)",
-        "url": "https://news.yahoo.co.jp/articles/21d9de438c7d203fd8c56c0bcc22cca984087420?source=rss",
-        "isNew": false
-      },
-      {
-        "title": "日本の芸術作品に“ご満悦”。米政治家ヒラリー・クリントン、来日写真を公開⇒ 10万いいね越えの反響(BuzzFeed Japan)",
-        "url": "https://news.yahoo.co.jp/articles/a0721dd8aa086bce1991388a748889aa0f03490a?source=rss",
-        "isNew": false
-      },
-      {
-        "title": "実は険悪!?アメリカ・カナダの関係を池上彰が現地取材！(テレビ朝日系（ANN）)",
-        "url": "https://news.yahoo.co.jp/articles/fc7cedd4a4d9b19f1b25fb577be30d81087df10b?source=rss",
-        "isNew": false
-      },
-      {
-        "title": "ロシアのJT事業に追加の大統領令 事業統括や販売の経営権も移管か(テレビ朝日系（ANN）)",
-        "url": "https://news.yahoo.co.jp/articles/30fb21b5e27e87dd61f2257e6c585872be66f7cb?source=rss",
-        "isNew": false
-      },
-      {
-        "title": "米民主党勝利は気候にとって「良いニュース」ではあるが… 意外な問題点も(クーリエ・ジャポン)",
-        "url": "https://news.yahoo.co.jp/articles/25020661587d700539815273495798624d36eff2?source=rss",
         "isNew": false
       }
     ],
     "it": [
+      {
+        "title": "Ocient、エージェント型AI基盤で1億ドル調達 今年の売上3倍超の見込み、累計411億円(ビジネス＋IT)",
+        "url": "https://news.yahoo.co.jp/articles/84de72385830ec6e6d0db0a96534a16724105839?source=rss",
+        "isNew": true
+      },
       {
         "title": "iPhone Duoは最初から完成度高くて驚いた！ 実際に使うとわかったアップル製品ならではの体験(アスキー)",
         "url": "https://news.yahoo.co.jp/articles/53b765f9de42d0eb86de377457f99494843b45c7?source=rss",
@@ -267,7 +272,7 @@
       {
         "title": "＜ヘッドフォン祭＞SOUNDPEATS「Aura Nebula」初展示／beyerdynamic、かわいいカラバリ「AVENTHO Y」(PHILE WEB)",
         "url": "https://news.yahoo.co.jp/articles/3169cab383aa4f2f33ed113d70a8738c4ffe25fc?source=rss",
-        "isNew": true
+        "isNew": false
       },
       {
         "title": "＜ヘッドフォン祭＞ゼンハイザー、新フラグシップ「MOMENTUM True Wireless 5」／水月雨、中身は“スゴい”コンパクトTWS「DOTS」初公開(PHILE WEB)",
@@ -287,11 +292,6 @@
       {
         "title": "＜ヘッドフォン祭＞Cayinの真空管CDプレーヤーに期待高まる／仏YBA、ヘッドホンリスニングのラインナップ拡充／ONKYOはコラボイヤモニを一斉展示(PHILE WEB)",
         "url": "https://news.yahoo.co.jp/articles/25a3657192d87ffdab6ed6b886f27187e45e92ec?source=rss",
-        "isNew": false
-      },
-      {
-        "title": "＜ヘッドフォン祭＞MADOO、IEM「Typ435」と初のヘッドホン「Typ5000」世界初展示／Brise Audioは400万円の「FUGAKU」10周年記念版(PHILE WEB)",
-        "url": "https://news.yahoo.co.jp/articles/4ab17c4ff179886d728dd43993dc66a13382b603?source=rss",
         "isNew": false
       }
     ],
@@ -339,43 +339,43 @@
     ],
     "local": [
       {
-        "title": "「女性を殺害し、遺棄した」49歳の男を監禁容疑で逮捕 福井県の山中で石川在住20代女性の遺体発見(石川テレビ)",
-        "url": "https://news.yahoo.co.jp/articles/86a4707272702136ca4b7dd36cf7616a8a57e395?source=rss",
+        "title": "【愛知県で震度5強】＜けが人＞ ※8日午前4時現在(中京テレビＮＥＷＳ)",
+        "url": "https://news.yahoo.co.jp/articles/674c584ece213d13a76a6d362419f97cf6c286b7?source=rss",
         "isNew": true
       },
       {
-        "title": "【台風情報】台風32号の進路予想 小笠原近海を西北西へ 中心気圧1000hPa、最大瞬間風速30m/s 8日午後9時には日本の南へ進む予想 12日午後9時までの予報は(NBS長野放送)",
-        "url": "https://news.yahoo.co.jp/articles/dced76d8d2e824305fb4d80fe5ef7602a1824d0f?source=rss",
+        "title": "【台風情報】台風32号（チャンパカ）中心気圧は996hPa 最大瞬間風速35m/s 小笠原近海を西北西に進む 9日には「強い」勢力で「日本の南」へ 13日には温帯低気圧になる見通し（8日午前3時50分・気象庁発表）※13日までの雨風シミュレーション(ＳＢＣ信越放送)",
+        "url": "https://news.yahoo.co.jp/articles/49e5ef852d956dcb980b22b0bfa6572729553162?source=rss",
         "isNew": true
       },
       {
-        "title": "【台風情報】32年ぶり発生の台風32号（チャンパカ）9日ごろには暴風域伴い小笠原諸島接近か(tbc東北放送)",
-        "url": "https://news.yahoo.co.jp/articles/7f786f97e5b55ab6394de7b72ab6d4ff476bcc2a?source=rss",
+        "title": "【地震情報】静岡県西部を震源とする地震 静岡県内は最大震度５弱 ３人けが 浜岡原発は異常なし（8日午前1時4分ごろ発生）(Daiichi-TV（静岡第一テレビ）)",
+        "url": "https://news.yahoo.co.jp/articles/58c3887fb21605d5a595fac80aa8dc91379e1e5f?source=rss",
         "isNew": true
       },
       {
-        "title": "眠る歴代藩主への参道、一夜限りの光で染め 鳥取市・池田家墓所「灯籠会」(日本海新聞)",
-        "url": "https://news.yahoo.co.jp/articles/be769a9af979868bb9349f5da924f9aa4508c3f3?source=rss",
+        "title": "【愛知県で震度5強】地震の影響＜インフラ＞ ※8日午前3時30分現在(中京テレビＮＥＷＳ)",
+        "url": "https://news.yahoo.co.jp/articles/9919a9742aa1620f4c177f78f20f94c4d275b468?source=rss",
         "isNew": false
       },
       {
-        "title": "立冬の大山で初冠雪 紅葉と雪化粧のコントラスト(日本海新聞)",
-        "url": "https://news.yahoo.co.jp/articles/2fdf9b9380d721502b0566d9e53213cb59be8852?source=rss",
+        "title": "【愛知県で震度5強】地震の影響＜交通＞ ※8日午前3時30分現在(中京テレビＮＥＷＳ)",
+        "url": "https://news.yahoo.co.jp/articles/9bd38a8a6f583accb5185304e0843ebec01c4273?source=rss",
         "isNew": false
       },
       {
-        "title": "神戸淡路鳴門自動車道で高速バス炎上 運転手と乗客計２２人はパトカーで避難しけがなし エンジンから出火か(ABCニュース)",
-        "url": "https://news.yahoo.co.jp/articles/eff07361be9e50e99158eb43fad17caf50ba0966?source=rss",
+        "title": "【地震】気象庁「固着状態に変化を及ぼすものではない」 (静岡朝日テレビ)",
+        "url": "https://news.yahoo.co.jp/articles/9e70b9325a7dbaff0bee2097544643391990f2d9?source=rss",
         "isNew": false
       },
       {
-        "title": "関東・東北・中部で地震 M5．6 東京、神奈川、埼玉、千葉などで揺れ 最大震度3 震源は茨城県沖(千葉日報オンライン)",
-        "url": "https://news.yahoo.co.jp/articles/3b7d7782ffbc69b9ca1775016fcd85a17e9d9713?source=rss",
+        "title": "東海地方で震度5強 愛知県内では避難途中に転倒するなどけが人も(メ〜テレ（名古屋テレビ）)",
+        "url": "https://news.yahoo.co.jp/articles/3aabd6c09ecefc2639c772bd27a6d2b63425162a?source=rss",
         "isNew": false
       },
       {
-        "title": "子どもも大人もオケ楽しむ・青森で音楽祭(Web東奥)",
-        "url": "https://news.yahoo.co.jp/articles/a97507f42fea92874dc586fd28adc9c9f3797bf1?source=rss",
+        "title": "浜松市浜名区で震度5弱 JR東海道新幹線・東海道線は設備点検中 遠州鉄道は安全確認できれば始発から運行予定(静岡放送（SBS）)",
+        "url": "https://news.yahoo.co.jp/articles/775b26e1fd78da811f78123bc832ee503179b580?source=rss",
         "isNew": false
       }
     ]
