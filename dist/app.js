@@ -761,6 +761,14 @@ async function translateTextToEnglish(text) {
   return translatedChunks.join("");
 }
 
+function normaliseTranslatedCitation(sourceText, translatedText) {
+  if (!/^\s*＜[^＞\n]+＞/.test(String(sourceText || ""))) return translatedText;
+  const translated = String(translatedText || "");
+  const match = translated.match(/^(\s*)[<＜]\s*([^>＞\n]+?)\s*[>＞]/);
+  if (!match) return translatedText;
+  return `${match[1]}＜${match[2].trim()}＞${translated.slice(match[0].length)}`;
+}
+
 const maleEnglishVoicePattern = /(?:\bmale\b|\balex\b|\bandrew\b|\barthur\b|\bbrian\b|\bchristopher\b|\bdaniel\b|\bdavid\b|\beric\b|\bfred\b|\bgeorge\b|\bguy\b|\bjames\b|\bjason\b|\bjustin\b|\bmark\b|\bmatthew\b|\bmichael\b|\boliver\b|\bralph\b|\bryan\b|\bstephen\b|\bthomas\b|\btom\b|\bwilliam\b)/i;
 const naturalEnglishVoicePattern = /natural|neural|google|microsoft|enhanced|premium/i;
 
@@ -854,9 +862,10 @@ async function translateArticle(article, requestId) {
   const titlePromise = translateTextToEnglish(article.sourceTitle)
     .then((translatedTitle) => {
       if (!activeArticle || activeArticle.requestId !== requestId) return;
-      article.translatedTitle = translatedTitle;
-      article.titleSpeechText = translatedTitle;
-      renderArticleTitle(article.sourceTitle, translatedTitle);
+      const normalisedTitle = normaliseTranslatedCitation(article.sourceTitle, translatedTitle);
+      article.translatedTitle = normalisedTitle;
+      article.titleSpeechText = normalisedTitle;
+      renderArticleTitle(article.sourceTitle, normalisedTitle);
     })
     .catch(() => {
       titleFailed = true;
@@ -872,9 +881,15 @@ async function translateArticle(article, requestId) {
       nextIndex += 1;
       const sourceBlock = article.sourceBlocks[index];
       try {
-        translatedBlocks[index] = sourceBlock.skipTranslation
-          ? { ...sourceBlock }
-          : { ...sourceBlock, text: await translateTextToEnglish(sourceBlock.text) };
+        if (sourceBlock.skipTranslation) {
+          translatedBlocks[index] = { ...sourceBlock };
+        } else {
+          const translatedText = await translateTextToEnglish(sourceBlock.text);
+          translatedBlocks[index] = {
+            ...sourceBlock,
+            text: normaliseTranslatedCitation(sourceBlock.text, translatedText),
+          };
+        }
       } catch {
         failed += 1;
         translatedBlocks[index] = { ...sourceBlock };
@@ -1118,7 +1133,7 @@ drawScene();
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js?v=sticky-close-20261104l", { scope: "./" }).catch((error) => {
+    navigator.serviceWorker.register("./sw.js?v=citation-brackets-20261109m", { scope: "./" }).catch((error) => {
       console.warn("Service Worker could not be registered.", error);
     });
   });
