@@ -1,4 +1,4 @@
-const CACHE_NAME = "information-forest-v23";
+const CACHE_NAME = "information-forest-v24";
 const APP_SHELL = [
   "./",
   "./index.html",

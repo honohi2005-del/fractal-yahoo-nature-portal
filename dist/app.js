@@ -1028,6 +1028,7 @@ function openNode(node) {
   selectedNode = node;
   selectedNode.classList.add("is-selected");
   renderNewsLinks(key);
+  panel.scrollTop = 0;
   panel.classList.add("is-open");
   panel.setAttribute("aria-hidden", "false");
 }
@@ -1133,7 +1134,7 @@ drawScene();
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js?v=citation-brackets-20261109m", { scope: "./" }).catch((error) => {
+    navigator.serviceWorker.register("./sw.js?v=topic-scroll-top-20261113n", { scope: "./" }).catch((error) => {
       console.warn("Service Worker could not be registered.", error);
     });
   });
