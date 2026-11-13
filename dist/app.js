@@ -987,6 +987,7 @@ function closeArticle() {
     renderNewsLinks(selectedNode.dataset.node);
     panel.classList.add("is-open");
     panel.setAttribute("aria-hidden", "false");
+    resetTopicPanelScroll();
   }
 }
 
@@ -1020,6 +1021,21 @@ function renderNewsLinks(key) {
   }));
 }
 
+function resetTopicPanelScroll() {
+  const reset = () => {
+    panel.scrollLeft = 0;
+    panel.scrollTop = 0;
+    newsLinks.scrollLeft = 0;
+    newsLinks.scrollTop = 0;
+  };
+
+  reset();
+  requestAnimationFrame(() => {
+    reset();
+    requestAnimationFrame(reset);
+  });
+}
+
 function openNode(node) {
   const key = node.dataset.node;
   const data = portalData[key];
@@ -1028,9 +1044,9 @@ function openNode(node) {
   selectedNode = node;
   selectedNode.classList.add("is-selected");
   renderNewsLinks(key);
-  panel.scrollTop = 0;
   panel.classList.add("is-open");
   panel.setAttribute("aria-hidden", "false");
+  resetTopicPanelScroll();
 }
 
 function closeNode() {
@@ -1134,7 +1150,7 @@ drawScene();
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js?v=topic-scroll-top-20261113n", { scope: "./" }).catch((error) => {
+    navigator.serviceWorker.register("./sw.js?v=topic-scroll-reset-20261114a", { scope: "./" }).catch((error) => {
       console.warn("Service Worker could not be registered.", error);
     });
   });
