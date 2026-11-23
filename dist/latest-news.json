@@ -3,299 +3,304 @@
   "feeds": {
     "major": [
       {
-        "title": "COP31合意採択断念 EUなど反対",
-        "url": "https://news.yahoo.co.jp/pickup/6603603?source=rss",
+        "title": "首相の国会出席削減 自民が議論",
+        "url": "https://news.yahoo.co.jp/pickup/6603632?source=rss",
         "isNew": true
       },
       {
-        "title": "文科相の「交代示唆」木原氏否定",
-        "url": "https://news.yahoo.co.jp/pickup/6603601?source=rss",
+        "title": "リビアで露軍艦爆発 無人機攻撃か",
+        "url": "https://news.yahoo.co.jp/pickup/6603637?source=rss",
         "isNew": true
       },
       {
-        "title": "参政党が首長選に積極擁立 狙い",
-        "url": "https://news.yahoo.co.jp/pickup/6603611?source=rss",
+        "title": "北極航路 温暖化で氷解け通航量増",
+        "url": "https://news.yahoo.co.jp/pickup/6603627?source=rss",
         "isNew": true
       },
       {
-        "title": "社員を監禁疑い 社長ら4人逮捕",
-        "url": "https://news.yahoo.co.jp/pickup/6603608?source=rss",
+        "title": "中央分離帯越え車と衝突 男を逮捕",
+        "url": "https://news.yahoo.co.jp/pickup/6603634?source=rss",
         "isNew": false
       },
       {
-        "title": "アンソロピックIPO巡り銀行に制約",
-        "url": "https://news.yahoo.co.jp/pickup/6603609?source=rss",
+        "title": "SOS見せず突然退職 企業どう防ぐ",
+        "url": "https://news.yahoo.co.jp/pickup/6603628?source=rss",
         "isNew": false
       },
       {
-        "title": "田中希実らの失格撤回 大会側説明",
-        "url": "https://news.yahoo.co.jp/pickup/6603607?source=rss",
+        "title": "スクバルが9年714億円で合意 報道",
+        "url": "https://news.yahoo.co.jp/pickup/6603633?source=rss",
         "isNew": false
       },
       {
-        "title": "ゴルフ佐久間朱莉がSNSに謝罪文",
-        "url": "https://news.yahoo.co.jp/pickup/6603613?source=rss",
+        "title": "中2でがん 20歳でプロゴルファー",
+        "url": "https://news.yahoo.co.jp/pickup/6603625?source=rss",
         "isNew": false
       },
       {
-        "title": "ジュノンボーイGPの高3 12kg減量",
-        "url": "https://news.yahoo.co.jp/pickup/6603605?source=rss",
+        "title": "SASUKE 富栄ドラムら100人参戦",
+        "url": "https://news.yahoo.co.jp/pickup/6603629?source=rss",
         "isNew": false
       }
     ],
     "economy": [
       {
-        "title": "M＆A仲介業界は「勝ち組」と「負け組」が鮮明に！日本M＆Aセンターら“四天王”は復調、新興勢力はまさかの“身売り”も(ダイヤモンド・オンライン)",
-        "url": "https://news.yahoo.co.jp/articles/f1fd890d81341b267d766313c41c8fa96b358086?source=rss",
+        "title": "国家公務員の宿日直手当、上限が1回5000円に。病院の医師は2万4000円へ、4月にさかのぼって適用(LIMO)",
+        "url": "https://news.yahoo.co.jp/articles/8cecccc564196107b12438b885eb5100212dd5cd?source=rss",
         "isNew": true
       },
       {
-        "title": "岡山駅前「路面電車乗り入れ」本当の狙いは何か 両備･小嶋CEOが「最終目的ではない」と言う真意(東洋経済オンライン)",
-        "url": "https://news.yahoo.co.jp/articles/330fda28647d6957c637d597a182ac3c2122cf64?source=rss",
+        "title": "「公衆電話、見かけなくなったよね？」2025年度末で6万5000台、計画の7万4000台より早く減る。意外とかかる維持費とあわせて2031年度末までの削減計画を見る(LIMO)",
+        "url": "https://news.yahoo.co.jp/articles/836a308d3791051f685df1b55872a048052c1361?source=rss",
         "isNew": true
       },
       {
-        "title": "【児童手当】1年分は12万円「公立の小学校～高校まで」学年別の学校外活動費はいくらか(LIMO)",
-        "url": "https://news.yahoo.co.jp/articles/e8a929cf1cea2479f182bb4274c3570d83446097?source=rss",
+        "title": "九州“値上げできないホテル”関東進出へ 朝食付きシングルは5800円 採算エリア厳選(テレビ朝日系（ANN）)",
+        "url": "https://news.yahoo.co.jp/articles/23aad46ee5c1778077a64ba706d2c4f357729887?source=rss",
         "isNew": true
       },
       {
-        "title": "夫の父を自宅で看て7年、相続人でない親族の介護に報いる「特別寄与料」の仕組み(LIMO)",
-        "url": "https://news.yahoo.co.jp/articles/26d3b23892d2c6121c2f2c4bd081e43e315f7dab?source=rss",
+        "title": "米国の個人消費支出に注目 FRB利上げは？ 先週は大幅に下落した日経平均株価(テレビ朝日系（ANN）)",
+        "url": "https://news.yahoo.co.jp/articles/4d726852371b3b6996b92ab87cefa5b2673c73d3?source=rss",
         "isNew": false
       },
       {
-        "title": "【日下部保雄の悠悠閑閑】ハイブリッドの走らせ方??(Car Watch)",
-        "url": "https://news.yahoo.co.jp/articles/3e75ab83f0e4f3eab7c7f573f640ec3c9847d310?source=rss",
+        "title": "「ウマすぎてもはや怖い」「100点満点」モスバーガーの“冬限定メニュー”お肉2倍の分厚さがエグい！「一口目から濃厚」「レギュラー化してほしい」《実食レビュー》(ダイヤモンド・オンライン)",
+        "url": "https://news.yahoo.co.jp/articles/3320a3449b9d81fea5dfb9648d0b044ca8f5aed4?source=rss",
         "isNew": false
       },
       {
-        "title": "フラット35で家を買うなら、購入資金は世帯年収の平均「6.6倍」。利用者の世帯年収は715万9000円に上がり、中古住宅の利用が初めて最多に(LIMO)",
-        "url": "https://news.yahoo.co.jp/articles/3e5e0a5f9fc6cddf85370e0a5a9a8583d6da9be1?source=rss",
+        "title": "定員の3倍となる1500台が応募！ 足まわり特化の祭典「FIXWELL 2026」(Auto Messe Web)",
+        "url": "https://news.yahoo.co.jp/articles/5de961ee86871d50f70e0bed57443a440bec5adf?source=rss",
         "isNew": false
       },
       {
-        "title": "自動車保険の参考純率が2026年6月の届出で平均14.4％引き上げ、年6万円なら年8640円増の試算(LIMO)",
-        "url": "https://news.yahoo.co.jp/articles/ae2100e898d4c06b2dbc7fd5d8730092e5d002e7?source=rss",
+        "title": "父が退職金を受け取り、私と弟に「毎年100万円ずつ渡す」と言い出しました。弟は「毎年少しずつなら税金はかからない」と言っているのですが、本当に課税されないのでしょうか？(ファイナンシャルフィールド)",
+        "url": "https://news.yahoo.co.jp/articles/accff82ce573b6b9f11be952fbf0345997a07967?source=rss",
         "isNew": false
       },
       {
-        "title": "「この瞬間が終わらなければいいのに」JALベルスター、11/27からクリスマス公演(Aviation Wire)",
-        "url": "https://news.yahoo.co.jp/articles/45537304d8f60ebafa9c3309e298a7152d6e3b60?source=rss",
+        "title": "フルオリジナルの“クロモリ”フレーム35万円から!! 肉厚コンマ1mmに宿る「HGSBT」レーサーとは(くるまのニュース)",
+        "url": "https://news.yahoo.co.jp/articles/1d8e65a158abd33cdfb8870d076aba4320d67a9e?source=rss",
         "isNew": false
       }
     ],
     "entertainment": [
       {
-        "title": "SixTONES、ド派手に締めた！56公演89万人動員ツアー ジェシー「来年含め、次の周年どうなっていくか、ご期待を！」(中日スポーツ)",
-        "url": "https://news.yahoo.co.jp/articles/b488b631f4a409f605e52b2207dbb47889d68672?source=rss",
+        "title": "朝ドラ『ブラッサム』第42話、珠（石橋静河）と一路（染谷将太）の親しい関係が記事に(リアルサウンド)",
+        "url": "https://news.yahoo.co.jp/articles/d3ac20987d685e58d7bc8ba602f1c4734d465da2?source=rss",
         "isNew": true
       },
       {
-        "title": "【ライブレポート】SixTONES、89万人動員のスタジアムツアー完走「6人でずっとバカやっていきます」(音楽ナタリー)",
-        "url": "https://news.yahoo.co.jp/articles/5c258d88dcf0ed315adbf98f80016f41f5742c09?source=rss",
+        "title": "『豊臣兄弟！』池松壮亮が明かす暴走する秀吉の裏側 「秀長が兄をまた引き戻してくれた」(リアルサウンド)",
+        "url": "https://news.yahoo.co.jp/articles/db26e5f744e6a6ef09bef7ddb6c2864407066831?source=rss",
         "isNew": true
       },
       {
-        "title": "SixTONESがスタジアムからの絶景に感動、リーダー京本がメンバー労う「非常にがんばってくれました」(音楽ナタリー)",
-        "url": "https://news.yahoo.co.jp/articles/f11390203ef9dd27d9e620c6ec83b0f13553ce47?source=rss",
+        "title": "中村江里子 パリ発祥の人気ブランド店で“試着ショー”「スタイルいいから何着ても似合って」「素敵～」(スポニチアネックス)",
+        "url": "https://news.yahoo.co.jp/articles/52fcc38ece597ed5137f00a2d93659d130ecf0aa?source=rss",
         "isNew": true
       },
       {
-        "title": "SixTONES初スタジアムツアー完走 巨大タワー＆750発の花火で魅了、感極まる瞬間も【ライブレポ・セットリスト／MILESixTONES】(モデルプレス)",
-        "url": "https://news.yahoo.co.jp/articles/412189936b3865ae1a09aef3faed58a89ecffae7?source=rss",
+        "title": "高橋一生、まさかの白目…小難しい「政治」をエンタメに昇華する脚本と演出の妙とは？ 『ポリティカルパン』第7話考察＆感想(映画チャンネル)",
+        "url": "https://news.yahoo.co.jp/articles/07797037b7cde474ab5437e1ce071688faae4ff5?source=rss",
         "isNew": false
       },
       {
-        "title": "SixTONES、黒スーツ衣装巡りスタッフと攻防戦「揉めました」6周年は“集大成”ではなく7周年への追い風に【囲み取材全文／MILESixTONES】(モデルプレス)",
-        "url": "https://news.yahoo.co.jp/articles/49515b565ceaa762ce2d6af1da4d1f9e51ab0537?source=rss",
+        "title": "福岡ソフトバンクホークスの映画、ナレーションは内田真礼 主題歌はSixTONES(映画ナタリー)",
+        "url": "https://news.yahoo.co.jp/articles/09bc2aed59900d1d8f198f659aa2598d282cd777?source=rss",
         "isNew": false
       },
       {
-        "title": "SixTONES初のスタジアムツアー終える「６周年を経て、７周年につなげたい」／一問一答(日刊スポーツ)",
-        "url": "https://news.yahoo.co.jp/articles/27b5f6a63707d7ab7665436cb98b8bae69287a83?source=rss",
+        "title": "嵐、26年前の〝5人の直筆サイン〟と集合写真に再注目！活動終了から半年「翔くんがまだ…」「大野くんやっぱ達筆」初々しい姿に反響(西スポWEB OTTO!)",
+        "url": "https://news.yahoo.co.jp/articles/d618436d89b34b9a8889ff4a515fb859921384da?source=rss",
         "isNew": false
       },
       {
-        "title": "SixTONES 巨大タワー、750発花火…ド派手演出スタジアムツアー完走 89万人動員(日刊スポーツ)",
-        "url": "https://news.yahoo.co.jp/articles/343fc39b094d712f08f9afb198b0c199785eb52a?source=rss",
+        "title": "「リラックマ」リラックマ＆コリラックマがお鍋の具材に!? 赤ちゃんのように愛らしいぬいぐるみポーチ登場(アニメ！アニメ！)",
+        "url": "https://news.yahoo.co.jp/articles/10969d7f73f8bc7434a40418e5f09acdfea3f4d3?source=rss",
         "isNew": false
       },
       {
-        "title": "ＳｉｘＴＯＮＥＳ、６人でデビュー６周年完走…初のスタジアムツアー８９万人動員「未来感じて」(スポーツ報知)",
-        "url": "https://news.yahoo.co.jp/articles/9aab22816bbc7ce1415f33331aa4f4fec80994bf?source=rss",
+        "title": "『ドラクエ』モンスターたちがカプセルトイになった！スライム、メタルブラザーズなど全7種類(インサイド)",
+        "url": "https://news.yahoo.co.jp/articles/24120a6cc4d228623d77c6af296ed573534177bf?source=rss",
         "isNew": false
       }
     ],
     "sports": [
       {
-        "title": "【日本ハム】OB中田翔氏「どうしてやろうかな」清宮幸太郎にチクリ 開幕４番万波中正にはエール(日刊スポーツ)",
-        "url": "https://news.yahoo.co.jp/articles/190e0785e1da82a7cb41fe217464efb0e97dce4a?source=rss",
+        "title": "スクバル獲得のメッツ、コーエン・オーナーの巨額投資続く ソトに続きチーム５人目の９桁契約(スポーツ報知)",
+        "url": "https://news.yahoo.co.jp/articles/10db806473222253ae1b3fde487d244319e2d5e3?source=rss",
         "isNew": true
       },
       {
-        "title": "“プチハプニング”に場内一時どよめく…２場所連続V大の里への内閣総理大臣杯授与時(日刊スポーツ)",
-        "url": "https://news.yahoo.co.jp/articles/1f3556e0c5d19a86d6cd25522adb94938f2b5cf7?source=rss",
+        "title": "来春ブレイクするのは？埼玉4地区選抜で花咲徳栄の本格派右腕、昌平のエース左腕ら好投手たちが躍動(高校野球ドットコム)",
+        "url": "https://news.yahoo.co.jp/articles/567340824e2016af4a6311e85a7ab6f228c00056?source=rss",
         "isNew": true
       },
       {
-        "title": "最下位楽天は内星龍、西垣雅矢がダウン そんななか昇給を勝ち取ったのは…／22日契約更改まとめ(日刊スポーツ)",
-        "url": "https://news.yahoo.co.jp/articles/06885149591283d7a98ed6fbd3a9d0bcd91a56e2?source=rss",
+        "title": "【2026ドラフト】日本ハムの空気を変える道産子ルーキーが「ロールモデル」として期待される理由(週刊ベースボールONLINE)",
+        "url": "https://news.yahoo.co.jp/articles/240aeb0f81a92c6858685d81392e36b9993fdff1?source=rss",
         "isNew": true
       },
       {
-        "title": "【週刊イーグルス】新入団選手発表会見に100人招待 お披露目を一緒に見届けましょう！(日刊スポーツ)",
-        "url": "https://news.yahoo.co.jp/articles/9508bd0c1ad7ffbdfefe317aeffe996b3377adf4?source=rss",
+        "title": "吉田優利「ザ・伸ばせない日」も7位で2192万円！ 終盤6連戦で初V＆5度トップ10で「すごく飛躍」(THE ANSWER)",
+        "url": "https://news.yahoo.co.jp/articles/11f9d6a8c34582c3c4a4201b25d986a5009efa0d?source=rss",
         "isNew": false
       },
       {
-        "title": "【日本ハム】ファンクラブ会員の今川優馬がレジェンズゲームに感動「僕も将来呼んでもらえるよう」(日刊スポーツ)",
-        "url": "https://news.yahoo.co.jp/articles/e8de5d7f27f283c59d751d2f2cea5bad5fed13bd?source=rss",
+        "title": "開始8分で10人になり大敗のマンU、新監督は判定が不公平だったと主張「ジャケがファウルした場面は？」(theWORLD（ザ・ワールドWeb）)",
+        "url": "https://news.yahoo.co.jp/articles/7ec9942e04b9f0aa16ac824c13e326bc68e19cd4?source=rss",
         "isNew": false
       },
       {
-        "title": "小林陵侑は13位 W杯ジャンプ男子第2戦(共同通信)",
-        "url": "https://news.yahoo.co.jp/articles/14b5d0358c31634474f5ad1ed899b4488a6c848b?source=rss",
+        "title": "マレーシア勢初の日本シニアVを遂げたD・チアはオリンピアン タイではマークセンに敗戦続き…「勝てたことが信じられない」(ゴルフ総合サイト ALBA Net)",
+        "url": "https://news.yahoo.co.jp/articles/20b485ed664db90c982959484f8008985cc89c3c?source=rss",
         "isNew": false
       },
       {
-        "title": "ＦＡ最大の注目選手スクバルの代理人、ロックアウト突入までの移籍先決断「極めて可能性が高い」(スポーツ報知)",
-        "url": "https://news.yahoo.co.jp/articles/ccf4b6c33adf6af6fabfc53178fff28ee33801ea?source=rss",
+        "title": "ジャイアンツは“選外”に…巨人が獲得できなかった大物選手（6）「FA積極参戦」もまさか(ベースボールチャンネル)",
+        "url": "https://news.yahoo.co.jp/articles/fe4a5609911c35e2f5b82e3e518da80e6986c00b?source=rss",
         "isNew": false
       },
       {
-        "title": "巡業先のホテルにまで大の里「専用」 復活の舞台裏「いろいろ考えた結果が９、１１月に出た」(スポーツ報知)",
-        "url": "https://news.yahoo.co.jp/articles/4b6d2c84027da2504762e353c7aa6a8b9a6e9623?source=rss",
+        "title": "ポスティングでMLB入りも…古巣以外で日本復帰した大物（3）驚愕だった電撃加入も…日本ハム復帰で”大不振”に(ベースボールチャンネル)",
+        "url": "https://news.yahoo.co.jp/articles/743607da00ec945c9ea64b15715510af3949841a?source=rss",
         "isNew": false
       }
     ],
     "domestic": [
       {
-        "title": "環境破壊訴えホルムズ海峡を遠泳 英国人男性、3日間かけ15キロ(共同通信)",
-        "url": "https://news.yahoo.co.jp/articles/0ce540d9fbcc4ab4eed0cce9f510216f65f4bfac?source=rss",
+        "title": "寒波の影響は観光業にも テーマパーク2日連続休園 “道路寸断”一時1500人孤立(テレビ朝日系（ANN）)",
+        "url": "https://news.yahoo.co.jp/articles/6264dc10aab7bbd794a3e55184c2bfd001f9de10?source=rss",
         "isNew": true
       },
       {
-        "title": "雪道で“3m転落”→太もも骨折…連休の高尾山「90分待ち」 神も人も集う出雲(テレビ朝日系（ANN）)",
-        "url": "https://news.yahoo.co.jp/articles/e8ec6922154c0af68bd1286ea787cfbe0e4cc8ba?source=rss",
+        "title": "関文科大臣パーティー問題 交代示唆発言を軌道修正 「法案審議への影響避けるべき」(テレビ朝日系（ANN）)",
+        "url": "https://news.yahoo.co.jp/articles/b55d2f49ab579ac6f16e7d0ceafb5c49782aab40?source=rss",
         "isNew": true
       },
       {
-        "title": "COP31が閉幕(共同通信)",
-        "url": "https://news.yahoo.co.jp/articles/736a30272d278ea986ea3b9f87c85f0b6bbdc1c1?source=rss",
+        "title": "関文部科学大臣に交代論 問責決議案提出の可能性も(テレビ朝日系（ANN）)",
+        "url": "https://news.yahoo.co.jp/articles/ba100297654feb28e1131fa454318780f006910f?source=rss",
         "isNew": true
       },
       {
-        "title": "「1階と2階の西側から黒煙が出ている」 3階建ての住宅兼建具の製作店で火事 2階にいた男性（68）が死亡 岐阜市(CBCテレビ)",
-        "url": "https://news.yahoo.co.jp/articles/0635875014f29f8a714cf2bb1f8205488f72ac7b?source=rss",
+        "title": "千葉・富津市の56m「東京湾観音」拝観終了へ 1961年建設 頭頂部上り絶景見渡す(テレビ朝日系（ANN）)",
+        "url": "https://news.yahoo.co.jp/articles/3608823264d0f5d93714f9b96fa280f37ccb5ce1?source=rss",
         "isNew": false
       },
       {
-        "title": "養鶏所から「死ぬニワトリが増加した」と通報 鳥インフルエンザの簡易検査で陽性 県が精密検査を実施中 感染なら全国で今シーズン3例目 愛知･豊橋市(CBCテレビ)",
-        "url": "https://news.yahoo.co.jp/articles/14af80bd0f7ffee62f2d15691678f1b448abf0a8?source=rss",
+        "title": "西武池袋線・秩父線で人身事故 運転再開(レスキューナウニュース)",
+        "url": "https://news.yahoo.co.jp/articles/ee110c3c78c78dc86694dbf4c989187c66edafa1?source=rss",
         "isNew": false
       },
       {
-        "title": "工具突き付け「刺すで」 男が女性のカバン奪う 大阪・東淀川(産経新聞)",
-        "url": "https://news.yahoo.co.jp/articles/2da691516de6ab1bd9a9dba0d486f752212ed77b?source=rss",
+        "title": "元ジャンポケ斉藤さんに実刑判決 不同意性交等罪、改正前の法制審で「処罰範囲が広がりすぎる」と懸念も(弁護士ドットコムニュース)",
+        "url": "https://news.yahoo.co.jp/articles/79d9303a91151fdc5a84b3ed6409a3d7dbe867d2?source=rss",
         "isNew": false
       },
       {
-        "title": "ブルーインパルス飛行影響、終電まで続く 近鉄 奈良線など運休計322本(産経新聞)",
-        "url": "https://news.yahoo.co.jp/articles/e0067483f4b658839892e9bd3207709e8d2ec387?source=rss",
+        "title": "大阪市「プレミアム付食事券」発行へ 5000円購入で6500円分 市内在住者のみ(テレビ朝日系（ANN）)",
+        "url": "https://news.yahoo.co.jp/articles/9dd9823f6b7f2b14465d651897d21887b7c3e239?source=rss",
         "isNew": false
       },
       {
-        "title": "関文科大臣の交代示唆 木原官房長官が否定(ABEMA TIMES)",
-        "url": "https://news.yahoo.co.jp/articles/b416f4093ee65258be184cc93dffec03f00046a8?source=rss",
+        "title": "公認会計士試験、最年少14歳合格 最高54歳 平均25.0歳 合格率7.4％(テレビ朝日系（ANN）)",
+        "url": "https://news.yahoo.co.jp/articles/c98f28a8f9f64a53ebe534f4124475542c37c18d?source=rss",
         "isNew": false
       }
     ],
     "world": [
       {
-        "title": "米民主、92年以来の大勝 下院で258議席獲得(共同通信)",
-        "url": "https://news.yahoo.co.jp/articles/922ae6358cf5ed50a6f505ae9ee773357b90d74a?source=rss",
+        "title": "ジェンスン・フアン氏の不倫相手は「看板役」…エヌビディア製チップ密輸の背後は別にいた(中央日報日本語版)",
+        "url": "https://news.yahoo.co.jp/articles/9424e2f4fe8ba55800fdad87c826f3ca87f71e44?source=rss",
         "isNew": true
       },
       {
-        "title": "米民主、下院で1992年以来の大勝(共同通信)",
-        "url": "https://news.yahoo.co.jp/articles/926ab367c4ab5b7fd0ad2d11feeb94bffda1aed8?source=rss",
+        "title": "シャンゼリゼ通りにクリスマス パリ、総延長52kmのLED(共同通信)",
+        "url": "https://news.yahoo.co.jp/articles/fb1bbd1d2edf0c1aa56d6229247aa94aa201e385?source=rss",
         "isNew": true
       },
       {
-        "title": "リビア停泊中のロシア軍艦に攻撃 ウクライナのドローンによる長距離攻撃の指摘も(テレビ朝日系（ANN）)",
-        "url": "https://news.yahoo.co.jp/articles/99c6767f4d4389beb9008ea735c1617c3c8e48df?source=rss",
+        "title": "フランスの街がクリスマスムードに シャンゼリゼ通りのイルミネーション始まる(テレビ朝日系（ANN）)",
+        "url": "https://news.yahoo.co.jp/articles/d01f5d5d3d4f1bfea98c2e04a731b0c50e1e80fa?source=rss",
         "isNew": true
       },
       {
-        "title": "プーチン氏「友人」トランプ氏の大量投稿が波紋 首脳会談で「ノーベル平和賞」話題に(テレビ朝日系（ANN）)",
-        "url": "https://news.yahoo.co.jp/articles/49b0377710980fb79803f55e096880773e7ff26f?source=rss",
+        "title": "外部接触避けるアマゾンの先住民と歴史的接触 食料を求め 違法採掘業者の侵入に脅威(テレビ朝日系（ANN）)",
+        "url": "https://news.yahoo.co.jp/articles/7993508b35fc5ea45704ca4015bb9b92eb807c2d?source=rss",
         "isNew": false
       },
       {
-        "title": "今日の歴史（11月23日）(聯合ニュース)",
-        "url": "https://news.yahoo.co.jp/articles/374cadd8c5e9dabb893894019f204f214e4a4ea4?source=rss",
+        "title": "11月22日の歴史 ケネディ大統領暗殺事件(AP通信)",
+        "url": "https://news.yahoo.co.jp/articles/cf7d901087464e81be1489f96d8df63aee2ef764?source=rss",
         "isNew": false
       },
       {
-        "title": "香港ピザハットが「ちいかわ」とコラボ 止まらない香港のちいかわ旋風(みんなの経済新聞ネットワーク)",
-        "url": "https://news.yahoo.co.jp/articles/57fbaadd679c12ff250200b81d6e06c93283afcc?source=rss",
+        "title": "コスダック指数 10.75ポイント▼ 634.93(寄り付き)(聯合ニュース)",
+        "url": "https://news.yahoo.co.jp/articles/dbee5c8da0d9324fd4e135537d96eea589c65325?source=rss",
         "isNew": false
       },
       {
-        "title": "COP31は17年ぶり決裂へ 議長国トルコ、途中退席「新たな文書は出さない」(産経新聞)",
-        "url": "https://news.yahoo.co.jp/articles/5c15598c2a90cfa29cb3435f83231ade9e5b5f85?source=rss",
+        "title": "総合株価指数 135.06ポイント▼ 4734.90(寄り付き)(聯合ニュース)",
+        "url": "https://news.yahoo.co.jp/articles/fcbe8a7ac461f3969d9ca4d85b9af1906b68e641?source=rss",
         "isNew": false
       },
       {
-        "title": "COP31 反対受け合意文書採択断念 「化石燃料に言及なし」会期延長もEUが草案拒否(テレビ朝日系（ANN）)",
-        "url": "https://news.yahoo.co.jp/articles/53ea8d2d03d1dc13fb1174ca08ecc0f120fae928?source=rss",
+        "title": "米国の生活費は2027年も上昇の恐れ、物価・金利・食費・公的支援縮小・家賃の5要因(Forbes JAPAN)",
+        "url": "https://news.yahoo.co.jp/articles/1a1cbc670f3a54fce9de8cbe0388c7619f3105ac?source=rss",
         "isNew": false
       }
     ],
     "it": [
       {
-        "title": "トランプ大統領のミームコイン、関連ウォレットから約318億円相当が移動＝報道(NADA NEWS)",
-        "url": "https://news.yahoo.co.jp/articles/9d096fc64b72b5fc8c272acd8d2988ad5264e48b?source=rss",
+        "title": "AIの危険性を訴える投資家、アンソロピック上場で資産約2.9兆円に増加(Forbes JAPAN)",
+        "url": "https://news.yahoo.co.jp/articles/9301e7b7eb596650bcb7ae304e9ac583bd727765?source=rss",
         "isNew": true
       },
       {
-        "title": "予測市場の不正、匿名通報で摘発なら報奨金最大30%──米議会に法案(NADA NEWS)",
-        "url": "https://news.yahoo.co.jp/articles/75835ccedd3505f9f4999ac3b833d770a6178dfe?source=rss",
+        "title": "国内自動車メーカー、部品・素材の規格を共通化へ まず鉄・樹脂・車の配線(CNET Japan)",
+        "url": "https://news.yahoo.co.jp/articles/808cdb80499ea525565f0e62502b9a6621cd9f28?source=rss",
         "isNew": true
       },
       {
-        "title": "もう心配しなくていい？ 話題になった『PHP』の正体と今後の危険性について。一般利用者ができる対策も(All About)",
-        "url": "https://news.yahoo.co.jp/articles/c9d5be190e64fee141f2d30ad6d40295c610c4be?source=rss",
+        "title": "「音楽を聴くだけの枠を超えるイヤホン」 Ankerが新製品に込めた「オーディオ市場のネクストトレンド」への挑戦(リアルサウンド)",
+        "url": "https://news.yahoo.co.jp/articles/f6dfde892b24a9a8faeff587fb47e125f4e61f11?source=rss",
         "isNew": true
       },
       {
-        "title": "日本のiPhoneも標的、悪質広告から暗号資産ウォレット情報流出の恐れ＝調査(NADA NEWS)",
-        "url": "https://news.yahoo.co.jp/articles/2ecabdba9cbe01fecadd0127deaf27f0712ae62e?source=rss",
+        "title": "エアコンをつけても足元が寒い！ 「北国のこたつ」の5面式パネルヒーターを使ったら、デスクワークが快適になった(Fav-Log by ITmedia)",
+        "url": "https://news.yahoo.co.jp/articles/b86e209e6421673d01f38b5f4c0a97bc1329ff65?source=rss",
         "isNew": false
       },
       {
-        "title": "AIがAIを作る時代が近い？ Anthropicですら“開発の加速”についていけなくなりつつある(ギズモード・ジャパン)",
-        "url": "https://news.yahoo.co.jp/articles/9075804618fcf7ad1b6eee847f3bb21ab4918cf6?source=rss",
+        "title": "スマホを手放せない筆者が『INFOBAR ZERO』に惹かれた理由 あえて機能を引き算した端末がくれる「画面から離れる時間」(リアルサウンド)",
+        "url": "https://news.yahoo.co.jp/articles/049bac3ae0978268902af2128dc2ba15e95d3e8c?source=rss",
         "isNew": false
       },
       {
-        "title": "国税局、暗号資産の税務調査を強化へ──申告漏れ39億円超＝報道(NADA NEWS)",
-        "url": "https://news.yahoo.co.jp/articles/b62db5f5fafb1c112954ab089f9025933c05fe72?source=rss",
+        "title": "Rokid、75gのARグラス「Rokid Max 2」を本格展開 69800円(Impress Watch)",
+        "url": "https://news.yahoo.co.jp/articles/ad95ab28fd545c085e0f9672778dfff679b2df80?source=rss",
         "isNew": false
       },
       {
-        "title": "「圏外が当たり前」の尾瀬国立公園に“つながる安心”を KDDI×Starlinkでどう変わったのか(ITmedia Mobile)",
-        "url": "https://news.yahoo.co.jp/articles/017e478f5a6eb55870018c2edcd2074bf631e56b?source=rss",
+        "title": "シスコ「Expressway」のCVSS 9.8欠陥、悪用確認で米CISAがKEV入り 期限は11月23日(ビジネス＋IT)",
+        "url": "https://news.yahoo.co.jp/articles/a4c9d36fc2f1d63a955c3c64962e29ad0cd127b1?source=rss",
         "isNew": false
       },
       {
-        "title": "韓国、上場企業など約3500社の暗号資産購入を認める方針＝報道(NADA NEWS)",
-        "url": "https://news.yahoo.co.jp/articles/bbd3f1169d142470a2be2a5d99bcc11a51da49f6?source=rss",
+        "title": "安眠もイヤホンがもたらす時代。Ankerが睡眠デバイスに力を入れる理由(ギズモード・ジャパン)",
+        "url": "https://news.yahoo.co.jp/articles/9b4c069478d040e89798af7703c6d8de8ecf4ce9?source=rss",
         "isNew": false
       }
     ],
     "science": [
+      {
+        "title": "ピークはまだ先。史上最強エルニーニョで、CO2の観測値がエグいことになりそう(ギズモード・ジャパン)",
+        "url": "https://news.yahoo.co.jp/articles/bbaff283232200f93b57f9bcfe095324f0ff35b8?source=rss",
+        "isNew": true
+      },
       {
         "title": "日焼けは「DNAの損傷」、人類の肌の色が決まる進化の謎(Forbes JAPAN)",
         "url": "https://news.yahoo.co.jp/articles/c02a610a6995a28988424cf3e0fd0cbbb163cf93?source=rss",
@@ -309,7 +314,7 @@
       {
         "title": "深刻な先天性遺伝性疾患の治療に光、遺伝子治療実験で有望な成果(Forbes JAPAN)",
         "url": "https://news.yahoo.co.jp/articles/8dac7d8212cce448da9c352577057bfe9a75c731?source=rss",
-        "isNew": true
+        "isNew": false
       },
       {
         "title": "日欧の水星探査計画「ベピコロンボ」 旅路8年、ついに探査機「みお」「MPO」を軌道投入(Forbes JAPAN)",
@@ -317,7 +322,7 @@
         "isNew": false
       },
       {
-        "title": "地球に新たな「ミニ・ムーン」、極小天体が一時的に重力圏入り(CNN.co.jp)",
+        "title": "地球に新たな「ミニムーン」、極小天体が一時的に重力圏入り(CNN.co.jp)",
         "url": "https://news.yahoo.co.jp/articles/84485c2dab0f7a866e66487527c54d1f81079da2?source=rss",
         "isNew": false
       },
@@ -330,52 +335,47 @@
         "title": "宇宙ゴミ除去ミッション「ClearSpace-1」製造段階へ ESAとOHBが契約、打ち上げは2030年予定(sorae 宇宙へのポータルサイト)",
         "url": "https://news.yahoo.co.jp/articles/761344c859412159193d28d552b1a7f0337ffd22?source=rss",
         "isNew": false
-      },
-      {
-        "title": "大津波が\"湾“に入ると、反射で湾内は揺らした洗面器の中のように波が乱れる【暮らしの防災】(メ〜テレ（名古屋テレビ）)",
-        "url": "https://news.yahoo.co.jp/articles/3a8ff3e54848a57287a334d0efe13823f4ab073b?source=rss",
-        "isNew": false
       }
     ],
     "local": [
       {
-        "title": "約5万円の不正利用を確認 クレジットカード情報流出か 流出が確認された客には見舞金を用意 六花亭(STVニュース北海道)",
-        "url": "https://news.yahoo.co.jp/articles/dcc38e251145e491db3f1c90c7938a6da7c9e550?source=rss",
+        "title": "横浜・金沢区の２階建て住宅で火事 焼け跡から１人の遺体(カナロコ by 神奈川新聞)",
+        "url": "https://news.yahoo.co.jp/articles/942ea3abb9a5cd91ce3cc57f46ca6f23bf38fc9d?source=rss",
         "isNew": true
       },
       {
-        "title": "【速報】熊本市南区など震度1(熊本日日新聞)",
-        "url": "https://news.yahoo.co.jp/articles/04c2ed24a0a984cf983042beb8d08ba77b7dee24?source=rss",
+        "title": "最年少19歳で選管委員に 熊本・大津町の大学生山下さん 「政治と若者の距離縮めたい」 (熊本日日新聞)",
+        "url": "https://news.yahoo.co.jp/articles/d958c4be2a229feb4deb352650331c67e950807e?source=rss",
         "isNew": true
       },
       {
-        "title": "【地震】熊本県内で震度1 熊本県熊本地方を震源とする最大震度1の地震が発生 津波の心配なし(熊本ニュース KAB ONLINE)",
-        "url": "https://news.yahoo.co.jp/articles/0e99608a9005e7b3554e9ac6345e388646d40864?source=rss",
+        "title": "2025年スタートの「育児119」って？ 熊本でも準備中 支援スタッフの確保に奔走する元保育士らの思いとは…(熊本日日新聞)",
+        "url": "https://news.yahoo.co.jp/articles/81f8fe5c47c63541fd9d1dc998edba248355872b?source=rss",
         "isNew": true
       },
       {
-        "title": "岐阜県飛騨地方を震源 王滝村で震度1（23日午前3時19分ごろ）(ＳＢＣ信越放送)",
-        "url": "https://news.yahoo.co.jp/articles/169abddb1efcf0dba298a826a9e5de9f9c8231f8?source=rss",
+        "title": "【続報】中央分離帯を越えてきた車と正面衝突 0歳児の母親が死亡 ぶつかった車の男を現行犯逮捕(KSB瀬戸内海放送)",
+        "url": "https://news.yahoo.co.jp/articles/b4dfcf5868fd7147aeef00d95dae1e09ff7a6c17?source=rss",
         "isNew": false
       },
       {
-        "title": "【地震】岐阜県内で震度1 岐阜県飛騨地方を震源とする最大震度1の地震が発生 津波の心配なし(メ〜テレ（名古屋テレビ）)",
-        "url": "https://news.yahoo.co.jp/articles/83ca571d545b54f17c18c916c663de3d8ecaf782?source=rss",
+        "title": "就寝中、洗濯物の乾燥、たまったホコリ…寒い時期「ストーブ火災」にご注意を(TUFテレビユー福島)",
+        "url": "https://news.yahoo.co.jp/articles/e69abfb3962eed18530a0bb6f2fa25f5f993e007?source=rss",
         "isNew": false
       },
       {
-        "title": "【速報】八代市で震度1(熊本日日新聞)",
-        "url": "https://news.yahoo.co.jp/articles/cfb0e826780b56bdc073a601c008a7c4c586d14c?source=rss",
+        "title": "口論きっかけに意識不明”暴行”で夫を逮捕(KBC九州朝日放送)",
+        "url": "https://news.yahoo.co.jp/articles/7632a1d6219450073353d03ce8afceba275c7d5b?source=rss",
         "isNew": false
       },
       {
-        "title": "【地震】熊本県内で震度1 熊本県天草・芦北地方を震源とする最大震度1の地震が発生 津波の心配なし(熊本ニュース KAB ONLINE)",
-        "url": "https://news.yahoo.co.jp/articles/082f81399b07040fc2f21eb9001f6470a9b5cf79?source=rss",
+        "title": "焼酎「麦汁」が仏コンクールで最高賞 豊永酒造（湯前町）、熊本の蔵元で初の快挙 「カクテルにも使ってみたくなる酒」(熊本日日新聞)",
+        "url": "https://news.yahoo.co.jp/articles/09c5c540b1ce2616b3ef96fdc8101706672f9b5c?source=rss",
         "isNew": false
       },
       {
-        "title": "【速報】八代市など震度2(熊本日日新聞)",
-        "url": "https://news.yahoo.co.jp/articles/65e0a1d22abfd3eee79e232185a6bd6aa40d6f65?source=rss",
+        "title": "事故当時は会話も、生還信じていた…救助に3カ月以上「不安と心配を抱え過ごした」 埼玉・八潮の道路陥没で死亡、トラック運転手男性の遺族が賠償訴訟 地裁で初弁論 県、事故責任認める 損害額は争う姿勢示す(埼玉新聞)",
+        "url": "https://news.yahoo.co.jp/articles/78c929262bf18ef1fbfe0c6e8db8667fb57fba22?source=rss",
         "isNew": false
       }
     ]
